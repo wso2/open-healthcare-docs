@@ -27,7 +27,7 @@ steps:
     rm -r ./*
     cp -r $(Build.ArtifactStagingDirectory)/dist/* . 
 
-    git config --global user.email "openhealthcare-azure-bot"
+    git config --global user.email "openhealthcare-azure-bot@wso2.com"
     git config --global user.name "openhealthcare-azure-bot"
 
     git add .
