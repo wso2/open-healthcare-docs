@@ -7,7 +7,7 @@ module.exports = config({
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Learning Portal',
+  title: 'WSO2 OH Docs',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -30,6 +30,7 @@ module.exports = config({
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    hostname : 'https://wso2.com',
     repo: '',
     editLinks: false,
     docsDir: '',
@@ -37,23 +38,87 @@ module.exports = config({
     lastUpdated: false,
     Navbar: true,
     logo: '/assets/img/wso2-open-healthcare-logo.png',
-    sidebar: [
-       ['/','Home'],
-       {
+    sidebar : [
+      ['/', "Home"],
+      {
         title: 'Getting Started',
-       path: '/getting-started/overview',
-       collapsable: true, // optional, defaults to true
-       children: [
-         ['/getting-started/overview','Overview'],
-         ['/getting-started/quick-start-guide', 'Quick Start Guide']
+        path: '/getting-started/open-healthcare',
+        children: [
+         ['/getting-started/open-healthcare','What is Open Healthcare'],
+         ['/getting-started/accelerators','Accelerators'],
+         ['/getting-started/architecture', 'Architecture']
        ]
       },
-      ['/concepts/concepts','Concepts'],    
-      ['/tutorials/', 'Tutorials'],   // required
-      ['/videos/videos','Videos'],
-      ['/references/references','References'],
-      ['/community/community','Community'],
-      ['/faq/','FAQ']
+      {
+        title: 'Install and Setup',
+        path: '/install-and-setup/manual',
+        children: [
+         ['/install-and-setup/manual','Manual Installation'],
+         ['/install-and-setup/container','Containerization Support'],
+         ['/install-and-setup/deployment', 'Deployment Methods'],
+         ['/install-and-setup/updates', 'Updating the Accelerator']
+       ]
+      },
+      {
+        title: 'Learn',
+        path: '/learn/apidefs',
+        sidebarDepth: 2,
+        children: [
+         ['/learn/apidefs', 'FHIR API Definitions'],
+         ['/learn/capstmt', 'FHIR Capability Statement'],
+         {
+            title: 'Consent Management',
+            path: '/learn/consent-mgt/intro',
+            children: [
+              ['/learn/consent-mgt/intro', 'Introduction'],
+              ['/learn/consent-mgt/admin', 'Consent Administration'],
+              ['/learn/consent-mgt/req', 'Consent Requisition'],
+              ['/learn/consent-mgt/collection', 'Consent Collection'],
+              ['/learn/consent-mgt/enforcement', 'Consent Enforcement']
+          ]
+        },
+        {
+          title: 'FHIR Mappers',
+          path: '/learn/fhir-mappers/xml-json-to-fhir',
+          children: [
+            ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
+            ['/learn/fhir-mappers/hl7-to-fhir', 'HL7 To FHIR'],
+            ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
+          ]
+        },
+        ['/learn/templates', 'Mapping Templates'],
+        ['/learn/fhir-connectors', 'FHIR Connectors'],
+        {
+          title: 'SMART On FHIR',
+          path: '/learn/smart-on-fhir/wkc',
+          children: [
+            ['/learn/smart-on-fhir/wkc', 'Well-Known Configuration'],
+            ['/learn/smart-on-fhir/jwt', 'JWT Claims Handling'],
+            ['/learn/smart-on-fhir/get-patient-id', 'How to Get Patient/Member ID'],
+            ['/learn/smart-on-fhir/tips', 'Tips on Building a SMART Application']
+          ]
+        },
+        ['/learn/connector', 'EHR/EMR Connector Support'],
+       ]
+      },
+      {
+        title: 'Sample Usecases',
+        path: '/use-cases/patient-access',
+        children: [
+          ['/use-cases/patient-access', 'Patient Access API'],
+          ['/use-cases/provider-dir', 'Provider Directory API'],
+          ['/use-cases/db-to-fhir', 'Database to FHIR'],
+          ['/use-cases/smart-on-fhir', 'SMART on FHIR'],
+          ['/use-cases/ehr-int', 'EHR Integration']
+        ]
+      },
+      {
+        title: 'Configurations',
+        path: '/configs/email-notifications',
+        children: [
+          ['/configs/email-notifications', 'Email Notifications']
+        ]
+      }
     ]
   },
 
