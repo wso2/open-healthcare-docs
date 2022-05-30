@@ -1,0 +1,1 @@
+Tips on building a SMART app.

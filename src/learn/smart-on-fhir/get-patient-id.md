@@ -1,0 +1,1 @@
+How to get patient/member id.
