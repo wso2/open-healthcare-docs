@@ -86,7 +86,15 @@ module.exports = config({
             ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
           ]
         },
-        ['/learn/templates', 'Mapping Templates'],
+        {
+          title: 'FHIR Mapping Templates',
+          path: '/learn/fhir-mapping-templates/fhir-mapping-templates-overview',
+          children: [
+            ['/learn/fhir-mapping-templates/fhir-mapping-templates-overview', 'FHIR Mapping Templates Overview'],
+            ['/learn/fhir-mapping-templates/fhir-mapping-templates-example', 'FHIR Mapping Templates: Example'],
+            ['/learn/fhir-mapping-templates/fhir-mapping-templates-reference', 'FHIR Mapping Templates References'],
+          ]
+        },
         ['/learn/fhir-connectors', 'FHIR Connectors'],
         {
           title: 'SMART On FHIR',
