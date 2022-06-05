@@ -1,4 +1,4 @@
-# Updating the Accelerator
+# Updating wso2 products
 ## What are WSO2 Updates?
 WSO2 Updates include improvements that are released by WSO2, on top of a released WSO2 product version. 
 With updates, you do not have to wait until the next product version release to get the product enhancements and security fixes.
