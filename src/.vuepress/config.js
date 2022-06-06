@@ -65,7 +65,7 @@ module.exports = config({
         sidebarDepth: 2,
         children: [
          ['/learn/apidefs', 'FHIR API Definitions'],
-         ['/learn/capstmt', 'FHIR Capability Statement'],
+        //  ['/learn/capstmt', 'FHIR Capability Statement'],
          {
             title: 'Consent Management',
             path: '/learn/consent-mgt/intro',
@@ -75,6 +75,14 @@ module.exports = config({
               ['/learn/consent-mgt/req', 'Consent Requisition'],
               ['/learn/consent-mgt/collection', 'Consent Collection'],
               ['/learn/consent-mgt/enforcement', 'Consent Enforcement']
+          ]
+        },
+        {
+          title: 'FHIR Capability Statement',
+          path: '/learn/fhir-capability-statement/overview',
+          children: [
+            ['/learn/fhir-capability-statement/overview', 'Overview'],
+            ['/learn/fhir-capability-statement/required-features', 'Required Features']
           ]
         },
         {
