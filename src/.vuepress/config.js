@@ -75,19 +75,27 @@ module.exports = config({
               ['/learn/consent-mgt/req', 'Consent Requisition'],
               ['/learn/consent-mgt/collection', 'Consent Collection'],
               ['/learn/consent-mgt/enforcement', 'Consent Enforcement']
-          ]
-        },
-        {
-          title: 'FHIR Mappers',
-          path: '/learn/fhir-mappers/xml-json-to-fhir',
-          children: [
-            ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
-            ['/learn/fhir-mappers/hl7-to-fhir', 'HL7 To FHIR'],
-            ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
-          ]
-        },
-        {
-          title: 'FHIR Mapping Templates',
+            ]
+          },
+          {
+            title: 'FHIR Mappers',
+            path: '/learn/fhir-mappers/xml-json-to-fhir',
+            children: [
+              ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
+              {
+                title: 'HL7 To FHIR',
+                path: '/learn/fhir-mappers/hl7-to-fhir-overview',
+                children: [
+                  ['/learn/fhir-mappers/hl7-to-fhir-overview', 'HL7 To FHIR Overview'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-example', 'HL7 To FHIR: Example'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-reference', 'HL7 To FHIR References'],
+                ]
+              },
+              ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
+            ]
+          },
+          {
+            title: 'FHIR Mapping Templates',
           path: '/learn/fhir-mapping-templates/fhir-mapping-templates-overview',
           children: [
             ['/learn/fhir-mapping-templates/fhir-mapping-templates-overview', 'FHIR Mapping Templates Overview'],
