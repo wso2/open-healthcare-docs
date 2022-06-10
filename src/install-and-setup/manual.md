@@ -9,29 +9,8 @@
 
 ### Installation Steps
 1. Extract WSO2 APIM product. Let's call it `<WSO2_APIM_HOME>`.
-2. Navigate to `<WSO2_APIM_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 API Manager up to date by running the Update Tool. 
+2. Navigate to `<WSO2_APIM_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 API Manager up to date by running the [Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/). 
 
-    - On Linux
-        ```sh
-        ./wso2update_linux
-        ```
-        
-    - On Mac
-        ```sh
-        ./wso2update_darwin
-        ```
-
-    ### Optional: To Update to an exact version
-
-    - On Linux
-        ```sh
-        ./wso2update_linux --level x.y.z
-        ```
-            
-    - On Mac
-        ```sh
-        ./wso2update_darwin –level x.y.z
-        ```
 At first, you may need to run the relevant update command twice. First time you execute `./wso2update_<os>` updates the Update Client Tool. The subsequent `./wso2update_<os>` updates the product pack.
 
 3. Extract WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
@@ -82,29 +61,8 @@ Mon May 31 22:01:55 +0530 2021 - john - WSO2 Open Healthcare API Manager 4.0.0 A
 
 ### Installation Steps
 1. Extract WSO2 MI product. Let's call it `<WSO2_MI_HOME>`.
-2. Navigate to `<WSO2_MI_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 Micro Integrator up to date by running the Update Tool. 
+2. Navigate to `<WSO2_MI_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 Micro Integrator up to date by running the [Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/). 
 
-    - On Linux
-        ```sh
-        ./wso2update_linux
-        ```
-        
-    - On Mac
-        ```sh
-        ./wso2update_darwin
-        ```
-
-    ### Optional: To Update to an exact version
-
-    - On Linux
-        ```sh
-        ./wso2update_linux --level x.y.z
-        ```
-            
-    - On Mac
-        ```sh
-        ./wso2update_darwin –level x.y.z
-        ```
 At first, you may need to run the relevant update command twice. First time you execute `./wso2update_<os>` updates the Update Client Tool. The subsequent `./wso2update_<os>` updates the product pack.
 
 3. Extract WSO2 OH MI Accelerator to `<WSO2_MI_HOME>`. Let's call it `<WSO2_OH_MI_ACC_HOME>`.
