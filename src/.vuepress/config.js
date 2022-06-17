@@ -53,9 +53,10 @@ module.exports = config({
         title: 'Install and Setup',
         path: '/install-and-setup/manual',
         children: [
+          ['/install-and-setup/deployment', 'Deployment Methods'],
          ['/install-and-setup/manual','Manual Installation'],
-         ['/install-and-setup/container','Containerization Support'],
-         ['/install-and-setup/deployment', 'Deployment Methods'],
+         ['/install-and-setup/deploy-docker','Deploy on Docker'],
+         ['/install-and-setup/deploy-kubernetes','Deploy on Kubernetes'],
          ['/install-and-setup/updates', 'Updating the Accelerator']
        ]
       },
