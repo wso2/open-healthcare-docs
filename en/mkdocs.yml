@@ -1,0 +1,147 @@
+# Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Project information
+site_name: WSO2 Open Healthcare Documentation
+site_description: Documentation for WSO2 Open Healthcare Accelerator
+site_author: WSO2
+site_url: https://oh.docs.wso2.com/en/latest/
+
+# Repository
+repo_name: wso2/open-healthcare-docs
+repo_url: https://github.com/wso2/open-healthcare-docs
+edit_uri: https://github.com/wso2/open-healthcare-docs/edit/main-new/en/docs/
+
+# Copyright
+copyright: WSO2 Open Healthcare - Documentation
+
+# Configuration
+theme: material
+theme:
+  name: material
+  palette:
+    primary: deep-orange
+    accent: deep-orange
+  custom_dir: theme/material
+  logo: images/logo.svg
+  favicon: images/favicon.png
+  highlightjs: true
+  feature:
+    tabs: true
+  language: 'en'
+
+# Navigation
+nav:
+  - 'Home': index.md
+  - 'Get Started':
+    - 'What is Open Healthcare': get-started/open-healthcare.md
+    - 'WSO2 Open Healthcare Accelerators': get-started/accelerators.md
+    - 'Architecturee': get-started/architecture.md
+  - 'Install and Setup':
+    - 'Manual Installation': install-and-setup/manual.md
+    - 'Containerization Support': install-and-setup/container.md
+    - 'Deployment Methods': install-and-setup/deployment.md
+    - 'Updating the Accelerator': install-and-setup/updates.md
+  - 'Learn':
+    - 'FHIR API Definitions': learn/apidefs.md
+    - 'FHIR Capability Statement': learn/capstmt.md
+    - 'Consent Management':
+      - 'Introduction': learn/consent-mgt/intro.md
+      - 'Consent Administration': learn/consent-mgt/admin.md
+      - 'Consent Requisition': learn/consent-mgt/req.md
+      - 'Consent Collection': learn/consent-mgt/collection.md
+      - 'Consent Enforcement': learn/consent-mgt/enforcement.md
+    - 'FHIR Mappers':
+      - 'XML/JSON To FHIR': learn/fhir-mappers/xml-json-to-fhir.md
+      - 'HL7 To FHIR': learn/fhir-mappers/hl7-to-fhir.md
+      - 'X12 To FHIR': learn/fhir-mappers/x12-to-fhir.md
+    - 'FHIR Mapping Templates':
+      - 'HIR Mapping Templates Overview': learn/fhir-mapping-templates/fhir-mapping-templates-overview.md
+      - 'FHIR Mapping Templates Example': learn/fhir-mapping-templates/fhir-mapping-templates-example.md
+      - 'FHIR Mapping Templates References': learn/fhir-mapping-templates/fhir-mapping-templates-reference.md
+    - 'FHIR Connectors': learn/fhir-connectors.md
+    - 'SMART On FHIR':
+      - 'Well-Known Configuration': learn/smart-on-fhir/wkc.md
+      - 'JWT Claims Handling': learn/smart-on-fhir/jwt.md
+      - 'How to Get Patient/Member ID': learn/smart-on-fhir/get-patient-id.md
+      - 'Tips on Building a SMART Application': learn/smart-on-fhir/tips.md
+    - 'EHR/EMR Connector Support': learn/connector.md
+  - 'Base Scenarios':
+      -  'Scenarios': base-scenarios/README.md
+  - 'Sample Usecases':
+    - 'Patient Access API': use-cases/patient-access.md
+    - 'Provider Directory API': use-cases/provider-dir.md
+    - 'Database to FHIR': use-cases/db-to-fhir.md
+    - 'SMART on FHIR': use-cases/smart-on-fhir.md
+    - 'EHR Integration': use-cases/ehr-int.md
+  - 'Configurations':
+    - 'Email Notifications': configs/email-notifications.md
+  - '': page-not-found.md
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      linenums: true
+      use_pygments: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Extra
+extra_css:
+  - assets/lib/highlightjs/default.min.css
+  - assets/css/theme.css
+extra_javascript:
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
+  - assets/lib/backtotop/js/util.js
+  - assets/lib/backtotop/js/main.js
+extra:
+  social:
+    - type: github
+      link: https://github.com/wso2
+    - type: twitter
+      link: https://twitter.com/wso2
+    - type: linkedin
+      link: https://www.linkedin.com/company/wso2
+  site_version: 1.0.0
+  nav_list:
+    - Home
+    - Get Started
+    - Install and Setup
+    - Learn
+    - Base Scenarios
+    - Sample Usecases
+    - Configurations
