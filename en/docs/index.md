@@ -22,7 +22,7 @@ template: templates/single-column.html
     <div>
     	<div class="content">
     		<!-- card -->
-    		<div class="card" onclick="location.href='get-started/quick-start-guide';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
     				<i class="material-icons md-36">timer</i>
@@ -34,76 +34,76 @@ template: templates/single-column.html
     		</div>
     		<!-- end card -->
     		<!-- card -->
-    		<div class="card" onclick="location.href='learn/consent-management/';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">manage_accounts</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Consent Management</p>
-    				<p class="hint">Create, view, revoke, and manage consents</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
     		<!-- card -->
-    		<div class="card" onclick="location.href='learn/dynamic-client-registration';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">app_registration</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Dynamic Client Registration</p>
-    				<p class="hint">A thorough verification before onboarding</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
     		<!-- card -->
-    		<div class="card" onclick="location.href='learn/api-security';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">verified_user</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Secured API Invocation</p>
-    				<p class="hint">Comprehensive support of FAPI and eIDAS certificate validation</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
     	</div>
     	<div class="content">
     		<!-- card -->
-    		<div class="card" onclick="location.href='learn/data-publishing/';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">analytics</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Analytics and Data Publishing</p>
-    				<p class="hint">Publish and summarize data for reporting</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
     		<!-- card -->
-    		<div class="card" onclick="location.href='learn/integration/';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">settings_input_component</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Easily Pluggable</p>
-    				<p class="hint">Easy integration with core banking systems</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
     		<!-- card -->
-    		<div class="card" onclick="location.href='develop/develop-toolkit/';">
+    		<div class="card" onclick="location.href='get-started/open-healthcare';">
     			<div class="line"></div>
     			<div class="card-icon">
-    				<i class="material-icons md-36">code</i>
+    				<i class="material-icons md-36">timer</i>
     			</div>
-    			<div class="card-content">
-    				<p class="title">Develop toolkit</p>
-    				<p class="hint">Customize features according to your open banking requirements</p>
+    			<div class="card-content" >
+    				<p class="title">Quick Start Guide</p>
+    				<p class="hint">Set up and try out in your local environment</p>
     			</div>
     		</div>
     		<!-- end card -->
