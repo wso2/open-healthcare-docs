@@ -56,7 +56,15 @@ module.exports = config({
          ['/install-and-setup/manual','Manual Installation'],
          ['/install-and-setup/container','Containerization Support'],
          ['/install-and-setup/deployment', 'Deployment Methods'],
-         ['/install-and-setup/updates', 'Updating the Accelerator']
+         {
+           title: 'Updating the Accelerator',
+           path: '/install-and-setup/updates/overview',
+           children: [
+               ['/install-and-setup/updates/overview','WSO2 Update tool overview'],
+               ['/install-and-setup/updates/update-tool','How to use WSO2 Update tool'],
+               ['/install-and-setup/updates/update-accelerators','How to update OH accelerator'],
+           ]
+         }
        ]
       },
       {
@@ -86,13 +94,21 @@ module.exports = config({
           ]
         },
         {
-          title: 'FHIR Mappers',
-          path: '/learn/fhir-mappers/xml-json-to-fhir',
-          children: [
-            ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
-            ['/learn/fhir-mappers/hl7-to-fhir', 'HL7 To FHIR'],
-            ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
-          ]
+            title: 'FHIR Mappers',
+            path: '/learn/fhir-mappers/xml-json-to-fhir',
+            children: [
+              ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
+              {
+                title: 'HL7 To FHIR',
+                path: '/learn/fhir-mappers/hl7-to-fhir-overview',
+                children: [
+                  ['/learn/fhir-mappers/hl7-to-fhir-overview', 'HL7 To FHIR Overview'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-example', 'HL7 To FHIR: Example'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-reference', 'HL7 To FHIR References'],
+                ]
+              },
+              ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
+            ]
         },
         {
           title: 'FHIR Mapping Templates',
