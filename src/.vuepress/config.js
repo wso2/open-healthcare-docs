@@ -57,7 +57,15 @@ module.exports = config({
          ['/install-and-setup/manual','Manual Installation'],
          ['/install-and-setup/deploy-docker','Deploy on Docker'],
          ['/install-and-setup/deploy-kubernetes','Deploy on Kubernetes'],
-         ['/install-and-setup/updates', 'Updating the Accelerator']
+         {
+           title: 'Updating the Accelerator',
+           path: '/install-and-setup/updates/overview',
+           children: [
+               ['/install-and-setup/updates/overview','WSO2 Update tool overview'],
+               ['/install-and-setup/updates/update-tool','How to use WSO2 Update tool'],
+               ['/install-and-setup/updates/update-accelerators','How to update OH accelerator'],
+           ]
+         }
        ]
       },
       {
@@ -66,7 +74,7 @@ module.exports = config({
         sidebarDepth: 2,
         children: [
          ['/learn/apidefs', 'FHIR API Definitions'],
-         ['/learn/capstmt', 'FHIR Capability Statement'],
+        //  ['/learn/capstmt', 'FHIR Capability Statement'],
          {
             title: 'Consent Management',
             path: '/learn/consent-mgt/intro',
@@ -79,13 +87,29 @@ module.exports = config({
           ]
         },
         {
-          title: 'FHIR Mappers',
-          path: '/learn/fhir-mappers/xml-json-to-fhir',
+          title: 'FHIR Capability Statement',
+          path: '/learn/fhir-capability-statement/overview',
           children: [
-            ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
-            ['/learn/fhir-mappers/hl7-to-fhir', 'HL7 To FHIR'],
-            ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
+            ['/learn/fhir-capability-statement/overview', 'Overview'],
+            ['/learn/fhir-capability-statement/required-features', 'Required Features']
           ]
+        },
+        {
+            title: 'FHIR Mappers',
+            path: '/learn/fhir-mappers/xml-json-to-fhir',
+            children: [
+              ['/learn/fhir-mappers/xml-json-to-fhir', 'XML/JSON To FHIR'],
+              {
+                title: 'HL7 To FHIR',
+                path: '/learn/fhir-mappers/hl7-to-fhir-overview',
+                children: [
+                  ['/learn/fhir-mappers/hl7-to-fhir-overview', 'HL7 To FHIR Overview'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-example', 'HL7 To FHIR: Example'],
+                  ['/learn/fhir-mappers/hl7-to-fhir-reference', 'HL7 To FHIR References'],
+                ]
+              },
+              ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
+            ]
         },
         {
           title: 'FHIR Mapping Templates',
