@@ -73,7 +73,7 @@ module.exports = config({
         sidebarDepth: 2,
         children: [
          ['/learn/apidefs', 'FHIR API Definitions'],
-         ['/learn/capstmt', 'FHIR Capability Statement'],
+        //  ['/learn/capstmt', 'FHIR Capability Statement'],
          {
             title: 'Consent Management',
             path: '/learn/consent-mgt/intro',
@@ -83,9 +83,17 @@ module.exports = config({
               ['/learn/consent-mgt/req', 'Consent Requisition'],
               ['/learn/consent-mgt/collection', 'Consent Collection'],
               ['/learn/consent-mgt/enforcement', 'Consent Enforcement']
-            ]
-          },
-          {
+          ]
+        },
+        {
+          title: 'FHIR Capability Statement',
+          path: '/learn/fhir-capability-statement/overview',
+          children: [
+            ['/learn/fhir-capability-statement/overview', 'Overview'],
+            ['/learn/fhir-capability-statement/required-features', 'Required Features']
+          ]
+        },
+        {
             title: 'FHIR Mappers',
             path: '/learn/fhir-mappers/xml-json-to-fhir',
             children: [
@@ -101,9 +109,9 @@ module.exports = config({
               },
               ['/learn/fhir-mappers/x12-to-fhir', 'X12 To FHIR']
             ]
-          },
-          {
-            title: 'FHIR Mapping Templates',
+        },
+        {
+          title: 'FHIR Mapping Templates',
           path: '/learn/fhir-mapping-templates/fhir-mapping-templates-overview',
           children: [
             ['/learn/fhir-mapping-templates/fhir-mapping-templates-overview', 'FHIR Mapping Templates Overview'],
