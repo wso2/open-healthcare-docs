@@ -56,7 +56,15 @@ module.exports = config({
          ['/install-and-setup/manual','Manual Installation'],
          ['/install-and-setup/container','Containerization Support'],
          ['/install-and-setup/deployment', 'Deployment Methods'],
-         ['/install-and-setup/updates', 'Updating the Accelerator']
+         {
+           title: 'Updating the Accelerator',
+           path: '/install-and-setup/updates/overview',
+           children: [
+               ['/install-and-setup/updates/overview','WSO2 Update tool overview'],
+               ['/install-and-setup/updates/update-tool','How to use WSO2 Update tool'],
+               ['/install-and-setup/updates/update-accelerators','How to update OH accelerator'],
+           ]
+         }
        ]
       },
       {
