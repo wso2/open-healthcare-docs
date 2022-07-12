@@ -1,1 +1,0 @@
-Capability Statement

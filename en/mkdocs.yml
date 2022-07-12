@@ -51,13 +51,19 @@ nav:
     - 'WSO2 Open Healthcare Accelerators': get-started/accelerators.md
     - 'Architecturee': get-started/architecture.md
   - 'Install and Setup':
-    - 'Manual Installation': install-and-setup/manual.md
-    - 'Containerization Support': install-and-setup/container.md
     - 'Deployment Methods': install-and-setup/deployment.md
-    - 'Updating the Accelerator': install-and-setup/updates.md
+    - 'Manual Installation': install-and-setup/manual.md
+    - 'Deploy on Docker': install-and-setup/deploy-docker.md
+    - 'Deploy on Kubernetes': install-and-setup/deploy-kubernetes.md
+    - 'Updating the Accelerator': 
+      - 'WSO2 Update tool overview': install-and-setup/updates/overview.md
+      - 'How to use WSO2 Update tool': install-and-setup/updates/update-tool.md
+      - 'How to update OH accelerator': install-and-setup/updates/update-accelerators.md
   - 'Learn':
     - 'FHIR API Definitions': learn/apidefs.md
-    - 'FHIR Capability Statement': learn/capstmt.md
+    - 'FHIR Capability Statement':
+      - 'Overview': learn/fhir-capability-statement/overview.md
+      - 'Required Features': learn/fhir-capability-statement/required-features.md
     - 'Consent Management':
       - 'Introduction': learn/consent-mgt/intro.md
       - 'Consent Administration': learn/consent-mgt/admin.md
@@ -65,9 +71,9 @@ nav:
       - 'Consent Collection': learn/consent-mgt/collection.md
       - 'Consent Enforcement': learn/consent-mgt/enforcement.md
     - 'FHIR Mappers':
-      - 'XML/JSON To FHIR': learn/fhir-mappers/xml-json-to-fhir.md
-      - 'HL7 To FHIR': learn/fhir-mappers/hl7-to-fhir.md
-      - 'X12 To FHIR': learn/fhir-mappers/x12-to-fhir.md
+      - 'HL7 To FHIR Overview': learn/fhir-mappers/hl7-to-fhir-overview.md
+      - 'HL7 To FHIR: Example': learn/fhir-mappers/hl7-to-fhir-example.md
+      - 'HL7 To FHIR References': learn/fhir-mappers/hl7-to-fhir-reference.md
     - 'FHIR Mapping Templates':
       - 'HIR Mapping Templates Overview': learn/fhir-mapping-templates/fhir-mapping-templates-overview.md
       - 'FHIR Mapping Templates Example': learn/fhir-mapping-templates/fhir-mapping-templates-example.md
@@ -102,6 +108,8 @@ markdown_extensions:
   - markdown.extensions.meta
   - markdown.extensions.toc:
       permalink: true
+  - markdown_include.include:
+          base_path: docs
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -117,7 +125,13 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.snippets:
+          base_path: docs
   - pymdownx.tilde
+
+plugins:
+    - search
+    - markdownextradata: {}
 
 # Extra
 extra_css:
@@ -137,6 +151,7 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 1.0.0
+  base_path: http://localhost:8000
   nav_list:
     - Home
     - Get Started

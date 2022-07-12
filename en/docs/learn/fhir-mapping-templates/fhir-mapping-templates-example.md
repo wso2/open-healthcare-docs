@@ -177,7 +177,7 @@ The Data Service is created to use as the backend source. You can use any backen
 [Generating a Data Service](https://docs.wso2.com/display/EI660/Generating+a+Data+Service)
 
 2. You can use the following DataService xml file for the reference when creating the queries. 
-[DataService.xml](../../assets/attachments/learn/fhir-mapping-templates/dataservice.xml)
+[DataService.xml](../../resources/learn/fhir-mapping-templates/dataservice.xml)
 
 3. Invoke the Dataservice with the following URL, and you should be able to see a response in the step 1. Now the backend
 source is ready to be used. 
@@ -202,7 +202,7 @@ In this example, it is **sampleclient_C4BB_C4BBPatient_search_seq.xml**
 
 Developers can implement any business logic using the standard WSO2 integration components(mediators, connectors etc.) by dragging and dropping to the canvas from the integration studio tool palette just before the source connect logic is triggered from the call template mediator. 
 
-![implementing-business-logic](../../assets/img/learn/fhir-mapping-templates/business-logic.png)
+![implementing-business-logic]({{base_path}}/assets/img/learn/fhir-mapping-templates/business-logic.png)
 
 ### Step 2:Implement source system connection logic for the relevant FHIR API
 
@@ -212,7 +212,7 @@ sourceConnect_template suffix.
 In this example, it is **sampleclient_C4BB_C4BBPatient_search_sourceConnect_template.xml**
 
 In this step we can provide the Data Service endpoint using a call mediator. 
-![implementing source system connection logic](../../assets/img/learn/fhir-mapping-templates/source-system-connection.png)
+![implementing source system connection logic]({{base_path}}/assets/img/learn/fhir-mapping-templates/source-system-connection.png)
 
 The source will be as below. 
 ```
@@ -256,7 +256,7 @@ We need to provide the following Xpaths according to the example.
 2. Relative path to source payload child data elements
     - **source -> read: -> //id**
 
-![crbb-patient.yaml file](../../assets/img/learn/fhir-mapping-templates/crbb-patient-yaml-file.png)
+![crbb-patient.yaml file]({{base_path}}/assets/img/learn/fhir-mapping-templates/crbb-patient-yaml-file.png)
 
 **Key Value template**
 The Key Value Mapping template file is used to resolve the source system values with the FHIR specific values for 
