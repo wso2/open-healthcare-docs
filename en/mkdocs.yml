@@ -152,6 +152,7 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 1.0.0
   base_path: http://localhost:8000
+  
   nav_list:
     - Home
     - Get Started
