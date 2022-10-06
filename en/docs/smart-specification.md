@@ -1,0 +1,1 @@
+# SMART app specification
