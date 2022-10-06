@@ -46,56 +46,56 @@ theme:
 # Navigation
 nav:
   - Home: index.md
-    - Get started:
-      - What is Open Healthcare: get-started/open-healthcare.md
-      - Quickstart: get-started/open-healthcare-quickstart.md
-      - Architecturee: get-started/architecture.md
-      - Concepts:
-        - Accelerators: concepts/accelerators.md 
-        - Mappers: concepts/data-mappers.md
-    - Install and setup:
-      - Deployment methods: install-and-setup/deployment.md
-      - Manual installation: install-and-setup/manual.md
-      - Deploy on Docker: install-and-setup/deploy-docker.md
-      - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
-      - Update the Accelerator: 
-        - WSO2 Update tool overview: install-and-setup/updates/overview.md
-        - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
-        - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
-    - Guides:
-      - Overview: guides-overview.md
-      - Set up WSO2 Integration Studio: set-up-wso2-integration-studio.md
-      - Working with FHIR:
-        - Overview: fhir/guides/fhir-guides-overview.md
-        - Build the integration logic: fhir/guides/build-the-integration-logic.md
-        - Expose FHIR APIs: fhir/guides/expose-fhir-apis.md
-        - Secure FHIR APIs: fhir/guides/secure-fhir-apis.md
-        - Manage FHIR API access: fhir/guides/manage-fhir-api-access.md
-        - Use FHIR APIs: fhir/guides/use-fhir-apis.md
-      - Working with HL7:
-        - Overview: hl7/guides/hl7-guides-overview.md
-    - Use cases:
-      - Overview: use-cases/use-cases-overview.md
-    - References:
-      - Overview: references-overview.md
-      - Healthcare protocols:
-        - FHIR:
-          - Overview: fhir/references/fhir-overview.md
-          - Resources: fhir/references/fhir-resources.md
-          - Patient access API: fhir/references/patient-access-api.md
-          - Provider directory API: fhir/references/provider-directory-api.md
-          - WSO2 FHIR project:
-            - Overview: fhir/references/wso2-fhir-project.md
-            - Mapping templates: fhir/references/wso2-fhir-mapping-templates.md
-          - FHIR Mappers:
-            - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
-        - HL7:
-          - Overview: hl7/references/hl7-overview.md
-      - Connectors:
-        - Overview: connectors/open-healthcare-connectors.md
-        - HC Systems: connectors/hc-systems.md
-      - SMART specification: smart-specification.md
-    - '': page-not-found.md
+  - Get started:
+    - What is Open Healthcare: get-started/open-healthcare.md
+    - Quickstart: get-started/open-healthcare-quickstart.md
+    - Architecturee: get-started/architecture.md
+    - Concepts:
+      - Accelerators: concepts/accelerators.md 
+      - Mappers: concepts/data-mappers.md
+  - Install and setup:
+    - Deployment methods: install-and-setup/deployment.md
+    - Manual installation: install-and-setup/manual.md
+    - Deploy on Docker: install-and-setup/deploy-docker.md
+    - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
+    - Update the Accelerator: 
+      - WSO2 Update tool overview: install-and-setup/updates/overview.md
+      - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
+      - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
+  - Guides:
+    - Overview: guides-overview.md
+    - Set up WSO2 Integration Studio: set-up-wso2-integration-studio.md
+    - Working with FHIR:
+      - Overview: fhir/guides/fhir-guides-overview.md
+      - Build the integration logic: fhir/guides/build-the-integration-logic.md
+      - Expose FHIR APIs: fhir/guides/expose-fhir-apis.md
+      - Secure FHIR APIs: fhir/guides/secure-fhir-apis.md
+      - Manage FHIR API access: fhir/guides/manage-fhir-api-access.md
+      - Use FHIR APIs: fhir/guides/use-fhir-apis.md
+    - Working with HL7:
+      - Overview: hl7/guides/hl7-guides-overview.md
+  - Use cases:
+    - Overview: use-cases/use-cases-overview.md
+  - References:
+    - Overview: references-overview.md
+    - Healthcare protocols:
+      - FHIR:
+        - Overview: fhir/references/fhir-overview.md
+        - Resources: fhir/references/fhir-resources.md
+        - Patient access API: fhir/references/patient-access-api.md
+        - Provider directory API: fhir/references/provider-directory-api.md
+        - WSO2 FHIR project:
+          - Overview: fhir/references/wso2-fhir-project.md
+          - Mapping templates: fhir/references/wso2-fhir-mapping-templates.md
+        - FHIR Mappers:
+          - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
+      - HL7:
+        - Overview: hl7/references/hl7-overview.md
+    - Connectors:
+      - Overview: connectors/open-healthcare-connectors.md
+      - HC Systems: connectors/hc-systems.md
+    - SMART specification: smart-specification.md
+  - '': page-not-found.md
 
 # Extensions
 markdown_extensions:
