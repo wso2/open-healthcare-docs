@@ -76,7 +76,8 @@ nav:
       - 'HL7 To FHIR References': learn/fhir-mappers/hl7-to-fhir-reference.md
     - 'FHIR Mapping Templates':
       - 'HIR Mapping Templates Overview': learn/fhir-mapping-templates/fhir-mapping-templates-overview.md
-      - 'FHIR Mapping Templates Example': learn/fhir-mapping-templates/fhir-mapping-templates-example.md
+      - 'FHIR Mapping Templates Read Example': learn/fhir-mapping-templates/fhir-mapping-templates-example.md
+      - 'HIR Mapping Templates Write Example': learn/fhir-mapping-templates/fhir-write-templates-examples
       - 'FHIR Mapping Templates References': learn/fhir-mapping-templates/fhir-mapping-templates-reference.md
     - 'FHIR Connectors': learn/fhir-connectors.md
     - 'SMART On FHIR':
