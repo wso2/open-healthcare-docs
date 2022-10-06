@@ -85,6 +85,10 @@ nav:
       - 'How to Get Patient/Member ID': learn/smart-on-fhir/get-patient-id.md
       - 'Tips on Building a SMART Application': learn/smart-on-fhir/tips.md
     - 'EHR/EMR Connector Support': learn/connector.md
+    - 'Working with FHIR':
+      - 'Overview': learn/smart-on-fhir/wkc.md
+      - '1. Building the integration logic': learn/smart-on-fhir/jwt.md
+      - '2. Exposing the API': learn/working-with-fhir/exposing-api.md
   - 'Base Scenarios':
       -  'Scenarios': base-scenarios/README.md
   - 'Sample Usecases':
