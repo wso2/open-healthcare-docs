@@ -1,1 +1,0 @@
-Smart on FHIR sample.

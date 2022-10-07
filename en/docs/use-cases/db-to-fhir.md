@@ -1,1 +1,0 @@
-DB to FHIR Sample!

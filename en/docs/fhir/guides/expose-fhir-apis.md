@@ -1,4 +1,4 @@
-# Exposing a FHIR API
+# Expose FHIR APIs
 
 ## Overview
 

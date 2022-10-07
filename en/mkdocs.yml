@@ -41,65 +41,60 @@ theme:
   highlightjs: true
   feature:
     tabs: true
-  language: 'en'
+  language: en
 
 # Navigation
 nav:
-  - 'Home': index.md
-  - 'Get Started':
-    - 'What is Open Healthcare': get-started/open-healthcare.md
-    - 'WSO2 Open Healthcare Accelerators': get-started/accelerators.md
-    - 'Architecturee': get-started/architecture.md
-  - 'Install and Setup':
-    - 'Deployment Methods': install-and-setup/deployment.md
-    - 'Manual Installation': install-and-setup/manual.md
-    - 'Deploy on Docker': install-and-setup/deploy-docker.md
-    - 'Deploy on Kubernetes': install-and-setup/deploy-kubernetes.md
-    - 'Updating the Accelerator': 
-      - 'WSO2 Update tool overview': install-and-setup/updates/overview.md
-      - 'How to use WSO2 Update tool': install-and-setup/updates/update-tool.md
-      - 'How to update OH accelerator': install-and-setup/updates/update-accelerators.md
-  - 'Learn':
-    - 'FHIR API Definitions': learn/apidefs.md
-    - 'FHIR Capability Statement':
-      - 'Overview': learn/fhir-capability-statement/overview.md
-      - 'Required Features': learn/fhir-capability-statement/required-features.md
-    - 'Consent Management':
-      - 'Introduction': learn/consent-mgt/intro.md
-      - 'Consent Administration': learn/consent-mgt/admin.md
-      - 'Consent Requisition': learn/consent-mgt/req.md
-      - 'Consent Collection': learn/consent-mgt/collection.md
-      - 'Consent Enforcement': learn/consent-mgt/enforcement.md
-    - 'FHIR Mappers':
-      - 'HL7 To FHIR Overview': learn/fhir-mappers/hl7-to-fhir-overview.md
-      - 'HL7 To FHIR: Example': learn/fhir-mappers/hl7-to-fhir-example.md
-      - 'HL7 To FHIR References': learn/fhir-mappers/hl7-to-fhir-reference.md
-    - 'FHIR Mapping Templates':
-      - 'HIR Mapping Templates Overview': learn/fhir-mapping-templates/fhir-mapping-templates-overview.md
-      - 'FHIR Mapping Templates Read Example': learn/fhir-mapping-templates/fhir-mapping-templates-example.md
-      - 'HIR Mapping Templates Write Example': learn/fhir-mapping-templates/fhir-write-templates-examples
-      - 'FHIR Mapping Templates References': learn/fhir-mapping-templates/fhir-mapping-templates-reference.md
-    - 'FHIR Connectors': learn/fhir-connectors.md
-    - 'SMART On FHIR':
-      - 'Well-Known Configuration': learn/smart-on-fhir/wkc.md
-      - 'JWT Claims Handling': learn/smart-on-fhir/jwt.md
-      - 'How to Get Patient/Member ID': learn/smart-on-fhir/get-patient-id.md
-      - 'Tips on Building a SMART Application': learn/smart-on-fhir/tips.md
-    - 'EHR/EMR Connector Support': learn/connector.md
-    - 'Working with FHIR':
-      - 'Overview': learn/smart-on-fhir/wkc.md
-      - '1. Building the integration logic': learn/smart-on-fhir/jwt.md
-      - '2. Exposing the API': learn/working-with-fhir/exposing-api.md
-  - 'Base Scenarios':
-      -  'Scenarios': base-scenarios/README.md
-  - 'Sample Usecases':
-    - 'Patient Access API': use-cases/patient-access.md
-    - 'Provider Directory API': use-cases/provider-dir.md
-    - 'Database to FHIR': use-cases/db-to-fhir.md
-    - 'SMART on FHIR': use-cases/smart-on-fhir.md
-    - 'EHR Integration': use-cases/ehr-int.md
-  - 'Configurations':
-    - 'Email Notifications': configs/email-notifications.md
+  - Home: index.md
+  - Get started:
+    - What is Open Healthcare: get-started/open-healthcare.md
+    - Quickstart: get-started/open-healthcare-quickstart.md
+    - Architecturee: get-started/architecture.md
+    - Concepts:
+      - Accelerators: concepts/accelerators.md 
+      - Mappers: concepts/data-mappers.md
+  - Install and setup:
+    - Deployment methods: install-and-setup/deployment.md
+    - Manual installation: install-and-setup/manual.md
+    - Deploy on Docker: install-and-setup/deploy-docker.md
+    - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
+    - Update the Accelerator: 
+      - WSO2 Update tool overview: install-and-setup/updates/overview.md
+      - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
+      - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
+  - Guides:
+    - Overview: guides-overview.md
+    - Set up WSO2 Integration Studio: set-up-wso2-integration-studio.md
+    - Working with FHIR:
+      - Overview: fhir/guides/fhir-guides-overview.md
+      - Build the integration logic: fhir/guides/build-the-integration-logic.md
+      - Expose FHIR APIs: fhir/guides/expose-fhir-apis.md
+      - Secure FHIR APIs: fhir/guides/secure-fhir-apis.md
+      - Manage FHIR API access: fhir/guides/manage-fhir-api-access.md
+      - Use FHIR APIs: fhir/guides/use-fhir-apis.md
+    - Working with HL7:
+      - Overview: hl7/guides/hl7-guides-overview.md
+  - Use cases:
+    - Overview: use-cases/use-cases-overview.md
+  - References:
+    - Overview: references-overview.md
+    - Healthcare protocols:
+      - FHIR:
+        - Overview: fhir/references/fhir-overview.md
+        - Resources: fhir/references/fhir-resources.md
+        - Patient access API: fhir/references/patient-access-api.md
+        - Provider directory API: fhir/references/provider-directory-api.md
+        - WSO2 FHIR project:
+          - Overview: fhir/references/wso2-fhir-project.md
+          - Mapping templates: fhir/references/wso2-fhir-mapping-templates.md
+        - FHIR Mappers:
+          - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
+      - HL7:
+        - Overview: hl7/references/hl7-overview.md
+    - Connectors:
+      - Overview: connectors/open-healthcare-connectors.md
+      - HC Systems: connectors/hc-systems.md
+    - SMART specification: smart-specification.md
   - '': page-not-found.md
 
 # Extensions
@@ -162,7 +157,6 @@ extra:
     - Home
     - Get Started
     - Install and Setup
-    - Learn
-    - Base Scenarios
-    - Sample Usecases
-    - Configurations
+    - Guides
+    - Use cases
+    - References

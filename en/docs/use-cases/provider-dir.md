@@ -1,1 +1,0 @@
-Provider directory API.
