@@ -91,6 +91,8 @@ nav:
           - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
       - HL7:
         - Overview: hl7/references/hl7-overview.md
+    - Configurations:
+      - Email notification: configurations/email-notification.md
     - Connectors:
       - Overview: connectors/open-healthcare-connectors.md
       - HC Systems: connectors/hc-systems.md
