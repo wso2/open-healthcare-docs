@@ -1,6 +1,6 @@
 # Configurations for Enabling Email Notifications
 
-This page documents the configurations that should be added in order to enable email notifications to the file deployment.toml under <code>&lt;OH_APIM_HOME&gt;/repository/conf</code>.
+This page documents the configurations that should be added in order to enable email notifications to the 'deployment.toml' file under <code>&lt;OH_APIM_HOME&gt;/repository/conf</code>.
 
 Email notifications can be enabled for the following events:<br>
 <ul>
