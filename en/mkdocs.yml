@@ -68,7 +68,9 @@ nav:
     - Working with FHIR:
       - Overview: fhir/guides/fhir-guides-overview.md
       - Build the integration logic: fhir/guides/build-the-integration-logic.md
+      - Connecting OH Systems: fhir/guides/connecting-ehr-emr-systems.md
       - Expose FHIR APIs: fhir/guides/expose-fhir-apis.md
+      - Expose FHIR APIs -one: fhir/guides/exposing-an-api.md
       - Secure FHIR APIs: fhir/guides/secure-fhir-apis.md
       - Manage FHIR API access: fhir/guides/manage-fhir-api-access.md
       - Use FHIR APIs: fhir/guides/use-fhir-apis.md
