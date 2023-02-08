@@ -49,7 +49,7 @@ nav:
   - Get started:
     - What is Open Healthcare: get-started/open-healthcare.md
     - Quickstart: get-started/open-healthcare-quickstart.md
-    - Architecturee: get-started/architecture.md
+    - Architecture: get-started/architecture.md
     - Concepts:
       - Accelerators: concepts/accelerators.md 
       - Mappers: concepts/data-mappers.md
