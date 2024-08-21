@@ -63,19 +63,47 @@ nav:
       - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
       - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
   - Guides:
-    - Overview: guides-overview.md
-    - Set up WSO2 Integration Studio: set-up-wso2-integration-studio.md
     - Working with FHIR:
-      - Overview: fhir/guides/fhir-guides-overview.md
-      - Build the integration logic: fhir/guides/build-the-integration-logic.md
-      - Connecting OH Systems: fhir/guides/connecting-ehr-emr-systems.md
-      - Expose FHIR APIs: fhir/guides/expose-fhir-apis.md
-      - Expose FHIR APIs -one: fhir/guides/exposing-an-api.md
-      - Secure FHIR APIs: fhir/guides/secure-fhir-apis.md
-      - Manage FHIR API access: fhir/guides/manage-fhir-api-access.md
-      - Use FHIR APIs: fhir/guides/use-fhir-apis.md
+      - Overview of FHIR: fhir/guides/fhir-guides-overview.md
+      - Handling FHIR Resources:
+        - Populating FHIR resources: fhir/guides/populating-fhir-resources.md
+        - Parsing and Serializing: fhir/guides/parsing-and-serializing.md
+        - Profiles and Extensions: fhir/guides/profiles-and-extensions.md
+        - Validation: fhir/guides/validation.md
+        - Building FHIR Bundles: fhir/guides/building-fhir-bundles.md
+        - FHIR path evaluation: fhir/guides/fhir-path-evaluation.md
+        - Error Handling: fhir/guides/error-handling.md
+        - Regional IGs and custom Profiles: fhir/guides/regional-igs.md
+      - Connecting to FHIR Repositories: 
+        - Using FHIR Repository connector: fhir/guides/fhir-repository-connector.md
+        - FHIR Bulk data export: fhir/guides/bulk-data-export.md
+      - Build your own Facade: 
+        - FHIR Resource API templates: fhir/guides/fhir-resource-api-template.md
+        - Custom search parameters: fhir/guides/custom-search-parameter.md
+        - Custom operations support: fhir/guides/custom-operations-support.md
+        - System APIs: fhir/guides/system-apis.md
+        - Exposing APIs: fhir/guides/exposing-apis.md
+        - Securing APIs with SMART on FHIR: fhir/guides/securing-apis-with-smart-on-fhir.md
     - Working with HL7:
-      - Overview: hl7/guides/hl7-guides-overview.md
+      - Overview of HL7v2: hl7/guides/overview.md
+      - Handling HL7 Messages: 
+        - Populating HL7 messages: hl7/guides/populating-hl7-message.md
+        - Parsing and Serializing: hl7/guides/parsing-and-serializing.md
+        - Validation: hl7/guides/validation.md
+        - Custom HL7 messages: hl7/guides/custom-hl7-message.md
+      - Connecting to HL7 Servers: 
+        - Connect to HL7 TCP servers: hl7/guides/connect-to-hl7-tcp-servers.md
+        - Connect to HL7 File servers: hl7/guides/connect-to-hl7-file-servers.md
+      - Build your own HL7 server: 
+        - HL7 server listener: hl7/guides/hl7-server-listener.md
+    - Data Transformation:
+      - HL7V2 to FHIR: hl7/guides/hl7v2-fhir.md
+      - CCDA to FHIR: hl7/guides/ccda-to-fhir.md
+      - X12 to FHIR: hl7/guides/x12-to-fhir.md
+      - Custom data transformations: hl7/guides/custom-data-transformation.md
+    - EHR Connectivity:
+      - EHR Systems overview: ehr/guides/ehr-systems-overview.md
+      - Connecting with EHR/EMR systems with the EHR conneector: ehr/ehr-connector.md
   - Use cases:
     - Overview: use-cases/use-cases-overview.md
   - References:
