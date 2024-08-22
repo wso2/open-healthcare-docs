@@ -42,7 +42,6 @@ theme:
   feature:
     tabs: true
   language: en
-
 # Navigation
 nav:
   - Home: index.md
@@ -64,7 +63,7 @@ nav:
       - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
   - Guides:
     - Working with FHIR:
-      - Overview of FHIR: fhir/guides/fhir-guides-overview.md
+      - Overview of FHIR: fhir/guides/overview-of-fhir.md
       - Handling FHIR Resources:
         - Populating FHIR resources: fhir/guides/populating-fhir-resources.md
         - Parsing and Serializing: fhir/guides/parsing-and-serializing.md
