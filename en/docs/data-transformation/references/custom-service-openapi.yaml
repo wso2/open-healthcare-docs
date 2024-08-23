@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: HL7v2 to FHIR Custom Transformation Service
+  description: >
+    This service provides a custom transformation of HL7v2 messages to FHIR resources.
+    The specific transformation covered in this document maps the custom HL7v2 segment `ZXY` to a FHIR `Observation` resource.
+servers:
+  - url: http://localhost:8080
+    description: Local server
+
+paths:
+  /transform:
+    post:
+      summary: Transform custom HL7v2 segment to FHIR Observation
+      operationId: customTransform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hl7v2Message:
+                  type: string
+                  example: "MSH|^~\\&|...ZXY|8480-6|120|final"
+      responses:
+        '200':
+          description: FHIR Observation Resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FHIRObservation'
+
+components:
+  schemas:
+    FHIRObservation:
+      type: object
+      properties:
+        resourceType:
+          type: string
+          example: "Observation"
+        id:
+          type: string
+        status:
+          type: string
+        code:
+          type: object
+          properties:
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                    example: "http://loinc.org"
+                  code:
+                    type: string
+                    example: "8480-6"
+                  display:
+                    type: string
+                    example: "Custom Observation Code"
+        valueString:
+          type: string
+
