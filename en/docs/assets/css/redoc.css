@@ -1,0 +1,14 @@
+.md-main__inner_redoc {
+    margin: 0;
+    max-width: 100%;
+  }
+.md-main__inner_redoc h1, .md-main__inner_redoc h2 {
+  padding-top: 80px;
+}
+.md-main__inner_redoc div.sc-jSFjdj {
+  padding-top: 100px;
+}
+.redoc-wrap .menu-content {
+  top:125px !important;
+  padding-bottom: 20px;
+}
