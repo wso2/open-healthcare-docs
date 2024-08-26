@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 Fast Healthcare Interoperability Resources (FHIR) is an interoperability standard for electronic exchange of healthcare information. The WSO2 FHIR Repository connector can be used to seamlessly integrate with a FHIR repository of your choice.
 
@@ -873,4 +873,210 @@ The following error properties will be populated according to the error that occ
 
 === "Ballerina"
 
+# Overview 
 
+This document describes the design of the Ballerina connector which will allow the users to interact with a FHIR server. This will be deployed on Choroe.
+
+# Operations
+
+## Instance Level Interactions
+
+### Get FHIR resource by ID
+
+This method will allow the user to retrieve fhir resources by specifying the resource ID and type
+
+| Method name     | getById                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")                                                                                            |
+|                 | *Id* -The [logical Id](https://www.hl7.org/fhir/resource.html#id) of a resource                                                                  |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | *summary* - to specify the subset of the resource content to be [returned](https://www.hl7.org/fhir/search.html#summary:~:text=3.1.1.5.8-,Summary,-The%20client%20can).                                                                  |
+| Returns         | Requested FHIR resource in specified format \| operationOutcome                                                                                  |
+| Server endpoint | [Read](https://www.hl7.org/fhir/http.html#read) operation                                                                                                                                   |
+
+### Get version specific FHIR resource by ID
+
+This method will allow the user to retrieve version specific fhir resources by specifying the resource ID and type.
+
+| Method name     | getByVersion                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")                                                                                            |
+|                 | *Id* -The [logical Id](https://www.hl7.org/fhir/resource.html#id) of a resource    
+|                 | *version* - FHIR version specific identifier                                                              |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | *summary* - to specify the subset of the resource content to be [returned](https://www.hl7.org/fhir/search.html#summary:~:text=3.1.1.5.8-,Summary,-The%20client%20can).                                                                  |
+| Returns         | Requested version specific FHIR resource in specified format \| operationOutcome                                                                                  |
+| Server endpoint | [vread](https://www.hl7.org/fhir/http.html#vread) operation                                                                                                                                   |
+
+### Update FHIR resource
+
+This method will allow the user to create a new current version for an existing resource, and if the resource doesn’t exist an initial version of the resource will be created. This method can be used when the  user wants to specify their own id instead of the server assigning the resource Id.
+
+| Method name     | update                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *data* - resource data                                                            |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | returnPreference - specifies what the return response should [contain](https://www.hl7.org/fhir/http.html#return:~:text=3.1.0.1.8%20create/update/patch/transaction) default - return full resource?                                                                  |
+| Returns         | Returns the updated resource \| operationOutcome                                                                                  |
+| Server endpoint | [Update](https://www.hl7.org/fhir/http.html#update) operation                                                                                                                                   |
+
+### Patch FHIR resource
+
+This method will allow the user to create a new current version for an existing resource by updating part of the resource.For we only support [FHIRPath Patch](https://hl7.org/FHIR/fhirpatch.html), the remaining content types will be supported in the future releases.
+
+| Method name     | getByVersion                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")                                                                                            |
+|                 | *Id* -The [logical Id](https://www.hl7.org/fhir/resource.html#id) of a resource    
+|                 | *data* - resource data                                                             |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | returnPreference - specifies what the return response should [contain](https://www.hl7.org/fhir/http.html#return:~:text=3.1.0.1.8%20create/update/patch/transaction) default - return full resource?                                                                  |
+| Returns         | Returns the patched resource \| operationOutcome                                                                                  |
+| Server endpoint | [Patch](https://www.hl7.org/fhir/http.html#patch) operation                                                                                                                                   |   
+
+
+### Delete FHIR resource by ID                 
+
+This method will allow the user to delete an existing resource.
+
+| Method name     | delete                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")                                                                                            |
+|                 | *Id* -The [logical Id](https://www.hl7.org/fhir/resource.html#id) of a resource    
+| Returns         | nothing \| operationOutcome                                                                                  |
+| Server endpoint | [Delete](https://www.hl7.org/fhir/http.html#delete) operation                                                                                                                                   | 
+
+### Retrieve history of a particular resource 
+
+This method will allow the user to retrieve the change history for a particular resource.
+
+| Method name     | getByVersion                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")                                                                                            |
+|                 | *Id* -The [logical Id](https://www.hl7.org/fhir/resource.html#id) of a resource    
+|                 | *Parameters* - history search parameters (i.e count, since, at)                                                            |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | uriParameters - additional [params](https://www.hl7.org/fhir/http.html#history:~:text=_format%20parameter%2C%20the-,parameters,-to%20this%20interaction) as a name value map |
+| Returns         | Requesed histories \| operationOutcomee                                                                                  |
+| Server endpoint | [History](https://www.hl7.org/fhir/http.html#history) operation                                                                                                                                   |   
+
+
+## Type Level Interactions
+
+### Create FHIR resource
+
+This method will allow the user to create a  new for a specified type. Here the user doesn't have control over the resource ID, it will be assigned by the server.
+
+| Method name     | create                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *data* - resource data                                                                                             |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | *returnPreference* - specifies what the return response should [contain](https://www.hl7.org/fhir/http.html#return:~:text=3.1.0.1.8%20create/update/patch/transaction) default = minimal |
+| Returns         | Returns the created resource \| operationOutcome                                                                                  |
+| Server endpoint | [Create](https://www.hl7.org/fhir/http.html#create) operation                                                                                                                                   | 
+
+### Search resources on a given type
+
+This method will allow the user to search all resources of a particular type by defining search parameters.
+
+| Method name     | search                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")
+|                 | *searchParams* - this will be a map of user defined name value pairs (once search parameter records are implemented the map will be replaced.) |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+| Returns         | Search response \| operationOutcome                                                                                  |
+| Server endpoint | [Search](https://www.hl7.org/fhir/http.html#search) operation   |
+
+### Retrieve history of a resource type
+
+This method will allow the user to retrieve the change history for a particular resource type.
+
+| Method name     | getHistory                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *type* - The name of a resource type (e.g. "Patient")
+|                 | *Parameters* - history search parameters (i.e count, since, at) |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+| Returns         | Requesed histories \| operationOutcome                                                                                  |
+| Server endpoint | [History](https://www.hl7.org/fhir/http.html#history) operation   |
+
+
+## Whole System Interactions
+
+### Get server capabilities
+
+This method will allow the user to retrieve information about a server's capabilities.
+
+| Method name     | getConformance                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *mode* - what type of information needs to be [returned](https://www.hl7.org/fhir/http.html#capabilities:~:text=value%20of%20the-,mode,-parameter%3A) default -full |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+|                 | *uriParameters* - additional params as a name value map |
+| Returns         | capability  statement \| operationOutcome                                                                                  |
+| Server endpoint | [capabilities](https://www.hl7.org/fhir/http.html#capabilities) operation   |
+
+
+### Retrieve history  for all the resources
+
+This method will allow the user to retrieve the change history for all resources supported by the system.
+
+| Method name     | getAllHistory                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *Parameters* - history search parameters (i.e count, since, at) |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+| Returns         | Requesed histories \| operationOutcome                                                                                  |
+| Server endpoint | [History](https://www.hl7.org/fhir/http.html#history) operation   |
+
+
+### Search resources across all resource types
+
+This method will allow the user to search across all resource types by defining search parameters.
+
+| Method name     | searchAll                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | searchParams - this will be a map of user defined key value pairs (once search parameter records are implemented the map will be replaced. Here we can only use base [search params](https://www.hl7.org/fhir/resource.html#search)) |
+| Returns         | Search results \| operationOutcome                                                                                  |
+| Server endpoint | [Search](https://www.hl7.org/fhir/http.html#search) operation   |
+
+
+### Execute batch operations
+
+This operation will allow the user to submit a set of actions to perform on a server in a single request. Single request can consist of all the request [types](https://www.hl7.org/fhir/http.html#transaction:~:text=Multiple%20actions%20on%20multiple%20resources%20of%20the%20same%20or%20different%20types%20may%20be%20submitted%2C%20and%20they%20may%20be%20a%20mix%20of%20other%20interactions%20defined%20on%20this%20page%20(e.g.%20read%2C%20search%2C%20create%2C%20update%2C%20delete%2C%20etc.)%2C%20or%20using%20the%20operations%20framework.).
+
+| Method name     | batchRequest                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *data* -  request data (bundle with type batch) |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+| Returns         | Batch request results \| operationOutcome                                                                                  |
+| Server endpoint | [Batch](https://www.hl7.org/fhir/http.html#transaction) operation   |
+
+
+### Execute transaction operation
+
+This operation will allow the user to submit a set of actions to perform on a server in a single request in a transactional manner. Single request can consist of all the request [types](https://www.hl7.org/fhir/http.html#transaction:~:text=Multiple%20actions%20on%20multiple%20resources%20of%20the%20same%20or%20different%20types%20may%20be%20submitted%2C%20and%20they%20may%20be%20a%20mix%20of%20other%20interactions%20defined%20on%20this%20page%20(e.g.%20read%2C%20search%2C%20create%2C%20update%2C%20delete%2C%20etc.)%2C%20or%20using%20the%20operations%20framework.).
+
+| Method name     | batchRequest                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameters      | *data* -  request data (bundle with type batch) |
+|                 | *returnMimeType* - The [Mime Type](https://www.hl7.org/fhir/http.html#mime-type:~:text=Content%20Types%20and%20encodings) of the return response |
+| Returns         | Batch request results \| operationOutcome                                                                                  |
+| Server endpoint | [Transaction](https://www.hl7.org/fhir/http.html#transaction) operation   |
+
+Both batch and transaction will be using the FHIR [bundle](https://www.hl7.org/fhir/bundle.html) resource with the types batch and transaction respectively.
+For delete,  get methods: the request will have the [format](https://www.hl7.org/fhir/bundle-transaction.json.html#:~:text=%7B%0A%20%20%20%20%20%20%22request%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22method%22%3A%20%22DELETE%22%2C%0A%20%20%20%20%20%20%20%20%22url%22%3A%20%22Patient/234%22%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D), for post,patch, update the request will have the [format](https://www.hl7.org/fhir/bundle-transaction.json.html#:~:text=%7B%0A%20%20%20%20%20%20%22fullUrl%22%3A%20%22urn%3Auuid%3A88f151c0,fhir/ids%7C234234%22%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C).
+
+
+# Conditional operations
+
+The conditional **create**, **update**, **patch** and **delete** are in trial use until further experience is gained with their use. Their status will be reviewed in a future version of FHIR.  this will basically allow the user to do above mentioned operations using search parameters rather than using logical id to identify the [resource](https://www.hl7.org/fhir/http.html#update:~:text=3.1.0.4.3%20Conditional-,update,-Unlike%20this%20rest).
+
+
+!!! note
+        * Mime type of server response can be set at configuration level, and can be changed  at method level, default value will be application/fhir+json.
+
+        * Function parameter summary will be an Enum consisting of a set of types specified in the FHIR specification.
+
+        * Required fields are marked with an asterisk(*).
+
+        * In the initial implementation JSON or XML will be used instead of record representation of the resource types since FHIR model implementation is yet to be completed.
+
+        * In search related operations, in the initial implementation the function parameter will be a map of name value pairs (ex:{“name” : value}), once the FHIR model is completed, these will be replaced with Records. 
