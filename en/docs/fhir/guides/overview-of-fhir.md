@@ -14,7 +14,7 @@ The key features of the FHIR specification are:
 
 WSO2 Healthcare provides a comprehensive set of products/tools to support the FHIR-based digital transformation and compliance needs of any payer, provider, or related business.
 
-{!includes/note.md!}
+{!includes/bal-mi-note.md!}
 
 
 === "Ballerina"
