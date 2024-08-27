@@ -19,6 +19,23 @@
 /*
 * Handle opening external links in a new tab
 */
+/* 
+ * Initialize highlightjs 
+ */
+hljs.initHighlightingOnLoad();
+(function() {
+    if(document.querySelector('.tab-selector')){
+        document.querySelector('.tab-selector').addEventListener('click', function(e) {
+            // Show hide tab content next to the clicked tab
+            var tabContentToShow = e.target.nextElementSibling;
+            if(tabContentToShow.style.display === 'none') {
+                tabContentToShow.style.display = 'block';
+            } else {
+                tabContentToShow.style.display = 'none';
+            }
+        });
+    }
+})();
 
 (function() {
     var links = document.links;
@@ -31,6 +48,25 @@
             links[i].className += " localLink";
         }
     }
+    var jsonTreeInputs = document.getElementsByClassName('jsonTreeInput');
+    if(jsonTreeInputs && jsonTreeInputs.length > 0){
+        for( var i=0; i < jsonTreeInputs.length; i++){
+            try {
+                var jsonTreeInput = jsonTreeInputs[i];
+                var jsonTreeOutput = jsonTreeInput.previousElementSibling;
+                var level = jsonTreeInput.getAttribute('data-level');
+                var levelInteger = level ? parseInt(level) : 1;
+                var formatter = new JSONFormatter(JSON.parse(jsonTreeInput.innerHTML), levelInteger, { hoverPreviewEnabled: false });
+                jsonTreeOutput.innerHTML = '';
+                jsonTreeOutput.appendChild(formatter.render());
+                jsonTreeInput.style.display = 'none';
+            } catch (e) {
+                console.error(e);
+            } 
+        }
+        
+    }
+    
 })();
 
 /*
@@ -74,7 +110,7 @@ for (var i = 0; i < dropdowns.length; i++) {
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
-var docSetLang = pageHeader.getAttribute('data-lang');
+var docSetLang = (pageHeader && pageHeader.getAttribute('data-lang')) || 'en';
 
 (window.location.pathname.split('/')[1] !== docSetLang) ? 
     docSetLang = '' :
@@ -97,7 +133,7 @@ request.onload = function() {
        * Appending versions to the version selector dropdown 
        */
       if (dropdown){
-          data.list.forEach(function(key, index){
+          data.list.sort().forEach(function(key, index){
               var versionData = data.all[key];
               
               if(versionData) {
@@ -181,11 +217,6 @@ request.onerror = function() {
 };
 
 request.send();
-
-/* 
- * Initialize highlightjs 
- */
-hljs.initHighlightingOnLoad();
 
 /*
  * Handle TOC toggle
@@ -298,8 +329,29 @@ window.addEventListener('scroll', function() {
 });
 
 /*
-* For clicks to land on the titles
-*/
+ * Fixes the issue related to clicking on anchors and landing somewhere below it
+ */
+
 window.addEventListener("hashchange", function () {
-    window.scrollTo(window.scrollX, window.scrollY - 40, 'smooth');
+
+    window.scrollTo(window.scrollX, window.scrollY - 90, 'smooth');
+
 });
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    hljs.initHighlightingOnLoad();
+});
+(function() {
+    if(document.querySelector('.tab-selector')){
+        document.querySelector('.tab-selector').addEventListener('click', function(e) {
+            // Show hide tab content next to the clicked tab
+            var tabContentToShow = e.target.nextElementSibling;
+            if(tabContentToShow.style.display === 'none') {
+                tabContentToShow.style.display = 'block';
+            } else {
+                tabContentToShow.style.display = 'none';
+            }
+        });
+    }
+})();
