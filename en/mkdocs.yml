@@ -163,6 +163,7 @@ markdown_extensions:
 plugins:
     - search
     - markdownextradata: {}
+    - include-markdown
 
 # Extra
 extra_css:

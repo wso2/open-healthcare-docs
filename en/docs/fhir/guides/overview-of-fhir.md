@@ -12,19 +12,16 @@ The key features of the FHIR specification are:
 5. **Support for Multiple Formats**: FHIR supports data representation in JSON, XML, and RDF formats, making it compatible with various systems and easier to work with in different programming environments.
 6. **Security**: FHIR incorporates standard security protocols, including OAuth2 and SMART on FHIR, to ensure that patient data is securely accessed and shared.
 
-WSO2 Healthcare provides a comprehensive set of products/tools to support the FHIR-based digital transformation and compliance needs of any payer, provider, or related business.
+WSO2 Healthcare provides a comprehensive set of features/tools to support the FHIR-based digital transformation and compliance needs of any payer, provider, or related business.
 
 {!includes/bal-mi-note.md!}
 
 
-=== "Ballerina"
-<Ballering doc content>
+## FHIR with Ballerina
 
 With Ballerina's native support for healthcare standards, it enables rapid health tech application development. We offer a comprehensive set of **pre-built services**, **project templates**, and **resource and utility packages**, all of which are *100% open source*. FHIR developers can easily download and utilize these packages to streamline the development of FHIR integrations in Ballerina, ensuring efficient and effective implementation.
 
 
-
-=== "MI"
-<MI doc content>
+## FHIR with Micro Integrator
 
 For FHIR integrations following the ESB pattern, WSO2 Micro Integrator (MI) provides optimal FHIR integration capabilities through its available connectors and data mapping templates. Developers can enhance their integration projects by leveraging WSO2 MI’s extensive capabilities, including **EHR/EMR connectors**, the **FHIR repository connector**, and the **V2toFHIR connector**. These tools enable seamless data exchange and transformation, ensuring robust and efficient FHIR integrations.
