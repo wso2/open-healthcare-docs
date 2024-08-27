@@ -107,9 +107,9 @@ nav:
       - CCDA to FHIR: hl7/guides/ccda-to-fhir.md
       - X12 to FHIR: hl7/guides/x12-to-fhir.md
       - Custom data transformations: hl7/guides/custom-data-transformation.md
-    - EHR Connectivity:
-      - EHR Systems overview: ehr/guides/ehr-systems-overview.md
-      - Connecting with EHR/EMR systems with the EHR conneector: ehr/ehr-connector.md
+    - EMR Connectivity:
+      - EMR Systems overview: emr-connectivity/guides/emr-systems-overview.md
+      - Connecting with EMR systems with the EMR conneector: emr-connectivity/guides/emr-connector.md
   - Use cases:
     - Overview: use-cases/use-cases-overview.md
   - References:
@@ -183,7 +183,7 @@ extra_css:
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
   - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
-  - assets/css/redoc.css  
+  - assets/css/redoc.css
 extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/lib/json-formatter/json-formatter.umd.js
