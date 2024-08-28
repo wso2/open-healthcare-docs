@@ -85,7 +85,9 @@ nav:
         - FHIR Resource API templates: fhir/guides/fhir-resource-api-template.md
         - Custom search parameters: fhir/guides/custom-search-parameter.md
         - Custom operations support: fhir/guides/custom-operations-support.md
-        - System APIs: fhir/guides/system-apis.md
+        - System APIs: 
+          - Metadata Service: fhir/guides/metadata-api.md
+          - SMART Configuration Service: fhir/guides/smart-api.md
         - Exposing APIs: fhir/guides/exposing-apis.md
         - Securing APIs with SMART on FHIR: fhir/guides/securing-apis-with-smart-on-fhir.md
     - Working with HL7:
