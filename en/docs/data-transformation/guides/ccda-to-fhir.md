@@ -6,6 +6,8 @@ This library provides a streamlined and efficient way for developers to convert 
 ## Mapping C-CDA Patient to FHIR r4
 The body of a C-CDA document contains the clinical content, which is organized into structured sections. Each section corresponds to different types of clinical information, such as Patient information, Immunizations, Medications, Allergies, Problems, Procedures. Each section in the body is represented as an XML element with a specific structure, typically including a title, code (for standardized representation), and entries. Entries are sub-elements that provide detailed information, such as specific medications or results.
 
+{!includes/bal-mi-note.md!}
+
 === "Ballerina"
 
   1. To create a new ballerina project, execute the following command.
