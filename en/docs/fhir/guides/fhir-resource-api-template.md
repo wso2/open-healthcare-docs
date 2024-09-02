@@ -26,10 +26,7 @@ Here's an example of how to utilize the Health Tool to generate USCore API templ
             * -m [mode] - For this instance mode should be ***template***
             * -o [output directory] - Location of the generated Ballerina artifacts. If this path is not specified, the output will be written to the same directory from which the command is run.
             * --org-name - [Organization](https://ballerina.io/learn/package-references/#the-org-field) name of the Ballerina package/template to be generated.
-            * --dependent-package - Fully qualified name of the published Ballerina package containing IG resources (eg: <org\>/<package\>). This option can be used to generate templates specifically for the resources in the given IG. The package name part of this value will be added as a prefix to the template name.
-
-    !!! notes
-            * While genertaing the templates, you can use  ***--included-profile*** or ***--excluded-profile*** to include and exclude whaterver profiles you want. 
+            * --dependent-package - Fully qualified name of the published Ballerina package containing IG resources (eg: <org\>/<package\>). This option can be used to generate templates specifically for the resources in the given IG. The package name part of this value will be added as a prefix to the template name. The dependent package should be prior generated and pushed to the ballerina central.
 
     !!! notes
             You can find all the core packages of different fhir profiles in the [Ballerina central](https://central.ballerina.io/search?q=health.fhir.r4&sort=relevance%2CDESC&page=1&m=packages).
@@ -43,7 +40,13 @@ Here's an example of how to utilize the Health Tool to generate USCore API templ
             If you want to generate packages for any custom profiles you can use [Ballerina health package generation tool](https://ballerina.io/learn/health-tool/#package-generation). 
 
 
-3. After you've generated the USCore templates, to run the service as a standalone server, execute the below command.
+    !!! notes
+            * While genertaing the templates, you can use  ***--included-profile*** or ***--excluded-profile*** to include and exclude whaterver profiles you want. 
+
+
+3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any auto-generated business logics.
+
+4. To run the service as a standalone server, execute the below command.
 
     ``` 
     bal run 
