@@ -1,0 +1,88 @@
+{
+    "patient_id": "12345",
+    "name":[
+      {
+        "first_name": "John",
+        "last_name": "Doe"
+      }
+    ],
+    "date_of_birth": "1980-01-01",
+    "gender": "male",
+    "contact_information": {
+      "phone": "555-1234",
+      "email": "john.doe@example.com",
+      "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "NY",
+        "zip": "12345"
+      }
+    },
+    "emergency_contact": {
+      "name": "Jane Doe",
+      "relationship": "spouse",
+      "phone": "555-5678"
+    },
+    "insurance_information": {
+      "provider": "Health Insurance Co.",
+      "policy_number": "XYZ123456",
+      "group_number": "98765"
+    },
+    "medical_history": [
+      {
+        "condition": "hypertension",
+        "diagnosis_date": "2010-05-15",
+        "notes": "Managed with medication"
+      },
+      {
+        "condition": "diabetes",
+        "diagnosis_date": "2015-09-23",
+        "notes": "Type 2 diabetes, diet-controlled"
+      }
+    ],
+    "current_medications": [
+      {
+        "name": "Lisinopril",
+        "dosage": "10mg",
+        "frequency": "once daily"
+      },
+      {
+        "name": "Metformin",
+        "dosage": "500mg",
+        "frequency": "twice daily"
+      }
+    ],
+    "allergies": [
+      {
+        "substance": "Penicillin",
+        "reaction": "rash"
+      }
+    ],
+    "lab_results": [
+      {
+        "test": "HbA1c",
+        "result": "6.5%",
+        "date": "2023-06-15"
+      },
+      {
+        "test": "Lipid Panel",
+        "result": {
+          "total_cholesterol": "190 mg/dL",
+          "hdl": "50 mg/dL",
+          "ldl": "110 mg/dL",
+          "triglycerides": "150 mg/dL"
+        },
+        "date": "2023-06-15"
+      }
+    ],
+    "appointments": [
+      {
+        "date": "2024-01-20",
+        "time": "10:00 AM",
+        "provider": "Dr. Smith",
+        "reason": "Routine check-up"
+      }
+    ]
+  }
+  
+  
