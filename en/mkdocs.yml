@@ -95,8 +95,8 @@ nav:
       - Handling HL7 Messages: 
         - Populating HL7 messages: hl7/guides/populating-hl7-message.md
         - Parsing and Serializing: hl7/guides/parsing-and-serializing.md
-        - Validation: hl7/guides/validation.md
-        - Custom HL7 messages: hl7/guides/custom-hl7-message.md
+        # - Validation: hl7/guides/validation.md
+        # - Custom HL7 messages: hl7/guides/custom-hl7-message.md
       - Connecting to HL7 Servers: 
         - Connect to HL7 TCP servers: hl7/guides/connect-to-hl7-tcp-servers.md
         - Connect to HL7 File servers: hl7/guides/connect-to-hl7-file-servers.md
@@ -164,7 +164,7 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: docs
   - pymdownx.tabbed:
-        alternate_style: true          
+      alternate_style: true          
   - pymdownx.tilde
   - attr_list  
 
