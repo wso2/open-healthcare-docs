@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: HL7v2 to FHIR Custom Mapping Service
+  version: 1.0.0
+  description: API for customizing HL7v2 PID segment to FHIR Patient mapping.
+servers:
+  - url: http://localhost:9091/v2tofhir
+paths:
+  /segment/pid:
+    post:
+      summary: Handle PID segment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hl7v2Message:
+                  type: string
+                  example: "PID|1|123456|7891011||Doe^John^A||19800101|M|||123 Main St^^Anytown^CA^12345||555-1234|555-5678|||S|MR|123456789"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FHIRPatient'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+components:
+  schemas:
+    FHIRPatient:
+      type: object
+      properties:
+        resourceType:
+          type: string
+          example: "Patient"
+        identifier:
+          type: array
+          items:
+            type: object
+            properties:
+              system:
+                type: string
+              value:
+                type: string
+        name:
+          type: array
+          items:
+            type: object
+            properties:
+              family:
+                type: string
+              given:
+                type: array
+                items:
+                  type: string
+        gender:
+          type: string
+          example: "male"
+        birthDate:
+          type: string
+          example: "1980-01-01"
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              line:
+                type: array
+                items:
+                  type: string
+              city:
+                type: string
+              state:
+                type: string
+              postalCode:
+                type: string
+        telecom:
+          type: array
+          items:
+            type: object
+            properties:
+              system:
+                type: string
+              value:
+                type: string
+              use:
+                type: string
