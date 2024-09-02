@@ -160,52 +160,53 @@ The body of a C-CDA document contains the clinical content, which is organized i
   }
   ```
 
-  ## Using Pre-built Services
-  This service can be used to transform C-CDA messages into FHIR resources.
+## Using Pre-built Services
 
-  1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/ccda-to-fhirr4-service) repository and start the ccda-to-fhirr4-service. 
-  ```
-  bal run
-  ```
+This service can be used to transform C-CDA messages into FHIR resources.
 
-  2. Invoke the API as below. 
-  ```
-  curl --location 'http://localhost:9090/transform' \
-  --header 'Content-Type: application/xml' \
-  --data '<?xml version="1.0" encoding="UTF-8"?>
-  <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc">
-    <realmCode code="US"/>
-    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
-    <templateId root="2.16.840.1.113883.10.20.22.1.1"/>
-    <id root="2.16.840.1.113883.19.5.99999.1" extension="123456789"/>
-    <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Discharge summary"/>
-    <title>Continuity of Care Document</title>
-    <effectiveTime value="2023-05-21T08:00:00"/>
-    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
-    <languageCode code="en-US"/>
-    <recordTarget>
-      <patientRole>
-        <id extension="123-45-6789" root="2.16.840.1.113883.4.1"/>
-        <addr use="HP">
-          <streetAddressLine>123 Main Street</streetAddressLine>
-          <city>Anytown</city>
-          <state>NY</state>
-          <postalCode>12345</postalCode>
-        </addr>
-        <patient>
-          <name use="L">
-            <given>John</given>
-            <family>Doe</family>
-            <prefix>Mr</prefix>
-            <suffix>PhD</suffix>
-          </name>
-          <administrativeGenderCode code="UN" displayName="Other"/>
-          <birthTime>20230531</birthTime>
-        </patient>
-      </patientRole>
-    </recordTarget>
-    <!-- Additional sections with clinical information would follow here -->
-  </ClinicalDocument>'
-  ```
+1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/ccda-to-fhirr4-service) repository and start the ccda-to-fhirr4-service. 
+```
+bal run
+```
 
-  3. You should be able to get the same above response. 
+2. Invoke the API as below. 
+```
+curl --location 'http://localhost:9090/transform' \
+--header 'Content-Type: application/xml' \
+--data '<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc">
+  <realmCode code="US"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1"/>
+  <id root="2.16.840.1.113883.19.5.99999.1" extension="123456789"/>
+  <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Discharge summary"/>
+  <title>Continuity of Care Document</title>
+  <effectiveTime value="2023-05-21T08:00:00"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+  <languageCode code="en-US"/>
+  <recordTarget>
+    <patientRole>
+      <id extension="123-45-6789" root="2.16.840.1.113883.4.1"/>
+      <addr use="HP">
+        <streetAddressLine>123 Main Street</streetAddressLine>
+        <city>Anytown</city>
+        <state>NY</state>
+        <postalCode>12345</postalCode>
+      </addr>
+      <patient>
+        <name use="L">
+          <given>John</given>
+          <family>Doe</family>
+          <prefix>Mr</prefix>
+          <suffix>PhD</suffix>
+        </name>
+        <administrativeGenderCode code="UN" displayName="Other"/>
+        <birthTime>20230531</birthTime>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!-- Additional sections with clinical information would follow here -->
+</ClinicalDocument>'
+```
+
+3. You should be able to get the same above response. 
