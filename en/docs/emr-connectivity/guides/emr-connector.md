@@ -1,13 +1,11 @@
 ## Overview
-The FHIR Client Connector is a versatile tool designed to streamline integration with healthcare systems that adhere to the FHIR standard. Whether you're using Ballerina or a Micro Integrator, this connector provides a unified interface to interact with FHIR-compliant APIs, making it easier to build and manage healthcare applications.
+The FHIR Client Connector is designed to connect with  FHIR servers and repositories. 
 
 ## Connecting with Epic EMR 
 In this example we will look into the steps how can we use the Client Connector to connect with the Epic EMR system. 
 
 ### Prerequisites
-1. First we need to create Backend OAuth 2.0 App. To use the client_credentials OAuth 2.0 grant type to authorize the backend application's access to patient information we need 'Client ID' and the 'Public key'. 
-
-    Let's create a Public Private Key Pair using OpenSSL. 
+1. First we need to create Backend OAuth 2.0 App. To use the client_credentials OAuth 2.0 grant type to authorize the backend application's access to patient information we need 'Client ID' and the 'Public key'. Let's create a Public Private Key Pair using OpenSSL. 
 
     Creating the private key
     ```
@@ -27,6 +25,10 @@ In this example we will look into the steps how can we use the Client Connector 
     - Incoming APIs: Patient.Read(R4)
     - Production JWK Set URL: fhir.epic.com
     - Upload your created public key in step 1. 
+
+You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](https://fhir.epic.com/Documentation?docId=epiconfhirrequestprocess). 
+
+{!includes/bal-mi-note.md!}
 
 === "Ballerina"
     1. Create a new ballerina project. 

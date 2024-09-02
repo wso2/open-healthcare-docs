@@ -28,7 +28,7 @@ Cerner Corporation is another leading provider of EHR/EMR solutions, offering a 
 AthenaHealth is a cloud-based EHR/EMR vendor known for its focus on ease of use and interoperability. AthenaHealth’s platform is designed to streamline clinical and administrative workflows, making it a popular choice for small to mid-sized practices. It also offers robust features for patient engagement, billing, and practice management.
 
 ## Benefits of EMR Systems
-1. Improved Patient Care:
+1. Improved Patient Care
 
     EMRs provide healthcare providers with quick access to patient data, leading to better diagnosis and treatment decisions. They also help reduce the chances of medical errors, such as prescribing the wrong medication.
 
@@ -40,6 +40,6 @@ AthenaHealth is a cloud-based EHR/EMR vendor known for its focus on ease of use 
 
     EMRs ensure that patient information is accurately documented and easily retrievable. This comprehensive documentation can improve communication among providers within the same practice.
 
-4. Streamlined Billing and Coding:
+4. Streamlined Billing and Coding
 
     EMRs often include tools for coding and billing, which help ensure that healthcare providers accurately bill for services and comply with insurance requirements.
