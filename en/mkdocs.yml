@@ -105,8 +105,6 @@ nav:
     - Data Transformation:
       - HL7V2 to FHIR: data-transformation/guides/hl7v2-fhir.md
       - CCDA to FHIR: data-transformation/guides/ccda-to-fhir.md
-      - X12 to FHIR: data-transformation/guides/x12-to-fhir.md
-      - Custom data transformations: data-transformation/guides/custom-data-transformation.md
     - EHR Connectivity:
       - EHR Systems overview: ehr/guides/ehr-systems-overview.md
       - Connecting with EHR/EMR systems with the EHR conneector: ehr/ehr-connector.md
