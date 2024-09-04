@@ -62,6 +62,7 @@ nav:
     - Manual installation: install-and-setup/manual.md
     - Deploy on Docker: install-and-setup/deploy-docker.md
     - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
+    - Setup Micro Integrator: install-and-setup/setup-mi-server.md
     - Update the Accelerator: 
       - WSO2 Update tool overview: install-and-setup/updates/overview.md
       - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
@@ -105,9 +106,9 @@ nav:
     - Data Transformation:
       - HL7V2 to FHIR: data-transformation/guides/hl7v2-fhir.md
       - CCDA to FHIR: data-transformation/guides/ccda-to-fhir.md
-    - EHR Connectivity:
-      - EHR Systems overview: ehr/guides/ehr-systems-overview.md
-      - Connecting with EHR/EMR systems with the EHR conneector: ehr/ehr-connector.md
+    - EMR Connectivity:
+      - EMR Systems Overview: emr-connectivity/guides/emr-systems-overview.md
+      - Connecting with EMR systems with the Epic Connector: emr-connectivity/guides/emr-connector.md
   # - Use cases:
   #   - Overview: use-cases/use-cases-overview.md
   # - References:
