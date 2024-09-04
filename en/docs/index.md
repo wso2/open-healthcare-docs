@@ -45,15 +45,15 @@
                 </p>
             </div>
             <div class="linkSet3" onclick="location.href='{{base_path}}/get-started/open-healthcare';">
-                <a href="get-started/open-healthcare"><h3>Quick Start Guide</h3></a>
+                <a href="fhir/guides/overview-of-fhir"><h3>Working with FHIR</h3></a>
                 <p>
-                    Set up and try out in your local environment
+                    Working with FHIR resources and operations
                 </p>
             </div>
             <div class="linkSet3" onclick="location.href='{{base_path}}/get-started/open-healthcare';">
-                <a href="get-started/open-healthcare"><h3>Quick Start Guide</h3></a>
+                <a href="hl7/guides/overview/"><h3>Working with HL7</h3></a>
                 <p>
-                    Set up and try out in your local environment
+                    Working with HL7 messages and operations
                 </p>
             </div>
         </div>

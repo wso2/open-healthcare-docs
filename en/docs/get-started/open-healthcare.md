@@ -2,7 +2,8 @@
 
 The WSO2 Open Healthcare platform is a solution built on top of the best in its industry, that been an open-source integration platform. The platform allows you to connect to disparate source systems (e.g., EHRs/EMRs, Claim Management Systems, Databases etc.), quickly transforming your data to/from healthcare message formats (e.g., FHIR, HL7, X12, CCDA etc.) and expose them through secure APIs.<br> Our main intent is to accelerate the development process of healthcare IT through auto generative, easily extensible and well supported set of healthcare accelerators.
 
-<img src="../../../assets/img/get-started/healthcare-architecture.png" width="700">
+ ![Open Healthcare Architecture](../../assets/img/get-started/healthcare-architecture.png) 
+
 
 Key offerings provided through the WSO2 Open Healthcare Platform are:
 
