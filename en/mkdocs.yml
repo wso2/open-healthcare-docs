@@ -66,7 +66,7 @@ nav:
       - WSO2 Update tool overview: install-and-setup/updates/overview.md
       - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
       - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
-  - Guides:
+  - Learn:
     - Working with FHIR:
       - Overview of FHIR: fhir/guides/overview-of-fhir.md
       - Handling FHIR Resources:
@@ -108,29 +108,29 @@ nav:
     - EHR Connectivity:
       - EHR Systems overview: ehr/guides/ehr-systems-overview.md
       - Connecting with EHR/EMR systems with the EHR conneector: ehr/ehr-connector.md
-  - Use cases:
-    - Overview: use-cases/use-cases-overview.md
-  - References:
-    - Overview: references-overview.md
-    - Healthcare protocols:
-      - FHIR:
-        - Overview: fhir/references/fhir-overview.md
-        - Resources: fhir/references/fhir-resources.md
-        - Patient access API: fhir/references/patient-access-api.md
-        - Provider directory API: fhir/references/provider-directory-api.md
-        - WSO2 FHIR project:
-          - Overview: fhir/references/wso2-fhir-project.md
-          - Mapping templates: fhir/references/wso2-fhir-mapping-templates.md
-        - FHIR Mappers:
-          - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
-      - HL7:
-        - Overview: hl7/references/hl7-overview.md
-    - Configurations:
-      - Email notification: configurations/email-notification.md
-    - Connectors:
-      - Overview: connectors/open-healthcare-connectors.md
-      - HC Systems: connectors/hc-systems.md
-    - SMART specification: smart-specification.md
+  # - Use cases:
+  #   - Overview: use-cases/use-cases-overview.md
+  # - References:
+  #   - Overview: references-overview.md
+  #   - Healthcare protocols:
+  #     - FHIR:
+  #       - Overview: fhir/references/fhir-overview.md
+  #       - Resources: fhir/references/fhir-resources.md
+  #       - Patient access API: fhir/references/patient-access-api.md
+  #       - Provider directory API: fhir/references/provider-directory-api.md
+  #       - WSO2 FHIR project:
+  #         - Overview: fhir/references/wso2-fhir-project.md
+  #         - Mapping templates: fhir/references/wso2-fhir-mapping-templates.md
+  #       - FHIR Mappers:
+  #         - HL7 to FHIR: fhir/references/hl7-to-fhir-mapper.md
+  #     - HL7:
+  #       - Overview: hl7/references/hl7-overview.md
+  #   - Configurations:
+  #     - Email notification: configurations/email-notification.md
+  #   - Connectors:
+  #     - Overview: connectors/open-healthcare-connectors.md
+  #     - HC Systems: connectors/hc-systems.md
+  #   - SMART specification: smart-specification.md
   - '': page-not-found.md
 
 # Extensions
