@@ -30,7 +30,7 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
 
 {!includes/bal-mi-note.md!}
 
-=== "Ballerina"
+=== "Ballerina" 
     1. Create a new ballerina project. 
     ```
     bal new epicapp
@@ -83,4 +83,51 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
     ```
 
 === "Micro Integrator"
+    The following sample demonstrates how we can use the Epic Connector to connect with Epic Server and retrive specific patient's information. 
+    As a Prerequsite [Setup Micro Integrator](../../install-and-setup/setup-mi-server.md)
 
+    1. Open VSCode, type CMD+Shift+P and type MI:Create New Project. 
+    2. To create an API, click on the API button, for URI Template provide '/getPatient/{patientId}' and select 'GET' as the resource. 
+    3. Download epic-connector zip from [WSO2 Connector Store](https://store.wso2.com/connector/esb-connector-epic)
+    4. Go to Project Explorer and navigate to src->main-> wso2mi-> resources-> connectors. Add the downloaded connector zip file here. 
+    5. Go to Micro Integrator view and click on 'Add API'. For 'context' provide '/epic'
+    6. Then you will be navigated to the Resource view. Click on the + button to add a connector operation. 
+    7. Select 'Connector' and search for 'Epic', and select the 'Epic Connector'. 
+    8. Click on the 'init' operation. Provide values for 'Base URL', 'Client ID', 'Token URL' and 'Private Key' feilds and click on the Submit button. 
+    9. Then click on 'ReadbyId' operation. Provide values for 'Type' and 'ID'. We are going to get the PatientId as a path parameter. 
+        ```
+        Type: Patient
+        ID: {$ctx:uri.var.patientId}
+        ```
+    10. Next add a Respond mediator. 
+    11. The complete source looks as below. 
+        ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/epic" name="epic" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="GET" uri-template="/getPatient/{patientId}">
+                <inSequence>
+                    <epicFhirR4.init>
+                        <base>https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4</base>
+                        <clientId>[CLIENT-ID]</clientId>
+                        <tokenEndpoint>https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token</tokenEndpoint>
+                        <privateKey>[PRIVATE-KEY-VALUE]</privateKey>
+                        <enableUrlRewrite>False</enableUrlRewrite>
+                    </epicFhirR4.init>
+                    <epicFhirR4.readById>
+                        <type>Patient</type>
+                        <id>{$ctx:uri.var.patientId}</id>
+                    </epicFhirR4.readById>
+                    <respond/>
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
+        </api>
+        ```
+    12. Click on 'Build and Run' button in the top left corner. The Micro Integrator server should start running. 
+    13. Clik on 'Try it' and provide the value for the Patient ID. A sample curl can be found below. 
+    ```
+    curl --location 'http://localhost:8290/epic/getPatient/e63wRTbPfr1p8UW81d8Seiw3' 
+    ```
+
+    14. You should be able to get a successful FHIR Patient payload. 
