@@ -83,6 +83,7 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
     ```
 
 === "Micro Integrator"
+    The following sample demonstrates how we can use the Epic Connector to connect with Epic Server and retrive specific patient's information. 
     As a Prerequsite [Setup Micro Integrator](../../install-and-setup/setup-mi-server.md)
 
     1. Open VSCode, type CMD+Shift+P and type MI:Create New Project. 
@@ -124,8 +125,9 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
         </api>
         ```
     12. Click on 'Build and Run' button in the top left corner. The Micro Integrator server should start running. 
-    13. Clik on 'Try it' and provide the value for the Patient ID. 
-    
-        eg: Patient ID: e63wRTbPfr1p8UW81d8Seiw3
+    13. Clik on 'Try it' and provide the value for the Patient ID. A sample curl can be found below. 
+    ```
+    curl --location 'http://localhost:8290/epic/getPatient/e63wRTbPfr1p8UW81d8Seiw3' 
+    ```
 
     14. You should be able to get a successful FHIR Patient payload. 
