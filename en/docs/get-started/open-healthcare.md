@@ -1,11 +1,11 @@
 
 
-The WSO2 Open Healthcare platform is a solution built on top of the best in its industry, that been an open-source integration platform. The platform allows you to connect to disparate source systems (e.g., EHRs/EMRs, Claim Management Systems, Databases etc.), quickly transforming your data to/from healthcare message formats (e.g., FHIR, HL7, X12, CCDA etc.) and expose them through secure APIs.<br> Our main intent is to accelerate the development process of healthcare IT through auto generative, easily extensible and well supported set of healthcare accelerators.
+The WSO2 Healthcare Solution is a solution built on top of the best in its industry, that been an open-source integration platform. The platform allows you to connect to disparate source systems (e.g., EHRs/EMRs, Claim Management Systems, Databases etc.), quickly transforming your data to/from healthcare message formats (e.g., FHIR, HL7, X12, CCDA etc.) and expose them through secure APIs.<br> Our main intent is to accelerate the development process of healthcare IT through auto generative, easily extensible and well supported set of healthcare accelerators.
 
  ![Open Healthcare Architecture](../../assets/img/get-started/healthcare-architecture.png) 
 
 
-Key offerings provided through the WSO2 Open Healthcare Platform are:
+Key offerings provided through the WSO2 Healthcare Solution are:
 
 - **Structures and Standardizes Data for Better Interoperability** - Expose healthcare records over FHIR® APIs and build a FHIR® R4 server on top of the #1 open source hybrid API management platform. Supports future FHIR versions easily through a well-designed architecture of the solution.
 - **Privacy and Security** - OpenID connect and end user claim based privacy controls are utilized on health data. SMART-on-FHIR specification is supported and enriched with latest advancements in the security domain such as multifactor authentication, adaptive authentication (i.e. authentication flows can be changed based on the attributes of the users).

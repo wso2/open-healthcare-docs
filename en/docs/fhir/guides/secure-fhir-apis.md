@@ -2,12 +2,12 @@
 
 ## Overview
 
-It is important to secure the FHIR APIs deployed on the WSO2 Open Healthcare solution to prevent unauthorized access. In this document you will see how the WSO2 Open Healthcare solution is capable of providing secure access to APIs. The generic authentication mechanisms discussed [here]([https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/api-authentication-overview/#](https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/api-authentication-overview/#)!) can be used to secure the APIs. <br>In addition to these, we have provided support for SMART backend services authorization as well which will be discussed in the following section.
+It is important to secure the FHIR APIs deployed on the WSO2 Healthcare Solution to prevent unauthorized access. In this document you will see how the WSO2 Healthcare Solution is capable of providing secure access to APIs. The generic authentication mechanisms discussed [here]([https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/api-authentication-overview/#](https://apim.docs.wso2.com/en/4.0.0/design/api-security/api-authentication/api-authentication-overview/#)!) can be used to secure the APIs. <br>In addition to these, we have provided support for SMART backend services authorization as well which will be discussed in the following section.
 
 ## Prerequisites
 
 - The developer needs permission to publish API using the publisher portal.
-- FHIR API needs to be deployed in the APIM component of the WSO2 Open Healthcare solution.
+- FHIR API needs to be deployed in the APIM component of the WSO2 Healthcare Solution.
 
 ## SMART backend services authorization
 

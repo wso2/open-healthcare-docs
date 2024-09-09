@@ -7,8 +7,8 @@ Inorder to get updates for Open Healthcare solution we need to get the update fo
 
 * Download the GA/ Vanilla pack of the wso2 base products like APIM or MI.
 * Update the base products to the latest/ desire update level.
-* Download the GA/ Vanilla pack of the wso2 Open Healthcare accelerators.
-* Update the wso2 Open Healthcare accelerators to the latest/ desire update level.
+* Download the GA/ Vanilla pack of the WSO2 Healthcare Solution accelerators.
+* Update the WSO2 Healthcare Solution accelerators to the latest/ desire update level.
 * Then apply the accelerators on top of the base products. Please read more about [installation of accelerator](/install-and-setup/manual).
 
 ![Update process]({{base_path}}/assets/img/install-and-setup/updates/update-oh-accelerator.png)

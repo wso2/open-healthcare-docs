@@ -1,6 +1,6 @@
 # Overview
 
-WSO2 Open Healthcare facilitates to pre generate the integration projects based on the [FHIR Implementation Guides](https://wiki.hl7.org/FHIR_Implementation_Guides). 
+WSO2 Healthcare Solution facilitates to pre generate the integration projects based on the [FHIR Implementation Guides](https://wiki.hl7.org/FHIR_Implementation_Guides). 
 Each implementation guide provides a set of profiles that are extended from FHIR resources and cover a certain use case. 
 
 ![overview]({{base_path}}/assets/img/learn/fhir-mapping-templates/intro.png)

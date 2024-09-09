@@ -2,7 +2,7 @@
 
 WSO2’s solution offers out of the box connectors for EPIC, Cerner, Athena Health EMRs and is capable of generating connectors automatically to any FHIR based or Open API specification based EHR/EMR system. These connectors will increase the developer productivity but are not a must for WSO2 to integrate with an EHR/EMR. 
 
-Any EHR/EMR system that’s compliant with the FHIR specifications will expose a FHIR Capability Statement which provides information like the supported FHIR resources and operations of the EMR, FHIR version, authorization endpoints, etc.. The WSO2 Open Healthcare’s connector generator tool accepts this capability statement and generates the connector for the corresponding EMR.
+Any EHR/EMR system that’s compliant with the FHIR specifications will expose a FHIR Capability Statement which provides information like the supported FHIR resources and operations of the EMR, FHIR version, authorization endpoints, etc.. The WSO2 Healthcare Solution’s connector generator tool accepts this capability statement and generates the connector for the corresponding EMR.
 
 ![connector_generation]({{base_path}}/assets/img/learn/connector/connector.png)
 

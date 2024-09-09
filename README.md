@@ -1,6 +1,6 @@
-# WSO2 Open Healthcare Documentation
+# WSO2 Healthcare Solution Documentation
 
-This is the source documentation of WSO2 Open Healthcare.
+This is the source documentation of WSO2 Healthcare Solution.
 
 ## Prerequisites
 

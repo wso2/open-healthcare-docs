@@ -25,3 +25,16 @@ With Ballerina's native support for healthcare standards, it enables rapid healt
 ## FHIR with Micro Integrator
 
 For FHIR integrations following the ESB pattern, WSO2 Micro Integrator (MI) provides optimal FHIR integration capabilities through its available connectors and data mapping templates. Developers can enhance their integration projects by leveraging WSO2 MI’s extensive capabilities, including **EHR/EMR connectors**, the **FHIR repository connector**, and the **V2toFHIR connector**. These tools enable seamless data exchange and transformation, ensuring robust and efficient FHIR integrations.
+
+
+
+Follow the guides below to learn how to work with FHIR in WSO2 Healthcare solution:
+
+- [Populating FHIR resources](../../fhir/guides/populating-fhir-resources.md)
+- [Parsing and Serializing](../../fhir/guides/parsing-and-serializing.md)
+- [Profiling and Extending FHIR](../../fhir/guides/profiles-and-extensions.md)
+- [Validating FHIR resources](../../fhir/guides/validation.md)
+- [Building FHIR Bundles](../../fhir/guides/building-fhir-bundles.md)
+- [Connecting to FHIR servers](../../fhir/guides/fhir-repository-connector.md)
+- [Bulk Data Export](../../fhir/guides/bulk-data-export.md)
+- [Building your own FHIR Facade](../../fhir/guides/fhir-resource-api-template.md)
