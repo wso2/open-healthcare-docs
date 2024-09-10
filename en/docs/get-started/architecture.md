@@ -16,9 +16,7 @@ WSO2 Healthcare Solution comes up with several accelerators to speed up the heal
 
 #### Source System Connectors
 
-WSO2 Healthcare Solution can connect to any source system which follows a standard protocol. Additionally, we provide low code developer accelerators called `Connectors` to any health system based on an Open API specification or based on FHIR standard. The image below shows how we provide you with Connectors to allow you to make connections with the health systems.
-
-![](RackMultipart20230104-1-szav62_html_79587d4f2bb064f6.png)
+WSO2 Healthcare Solution can connect to any source system which follows a standard protocol. Additionally, we provide low code developer accelerators called `Connectors` to any health system based on an Open API specification or based on FHIR standard. 
 
 WSO2 Healthcare Solution has an in-built HL7 transport which allows you to communicate with HL7 servers in both receiving and sending modes.
 
