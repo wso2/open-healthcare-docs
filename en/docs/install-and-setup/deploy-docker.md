@@ -5,10 +5,10 @@
 * [Docker](https://www.docker.com/get-docker) v17.09.0 or above
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) client
 
-## WSO2 Open Healthcare API Manager
+## WSO2 Healthcare Solution API Manager
 
 This section defines the step-by-step instructions to build an [Alpine](https://hub.docker.com/_/alpine)
-Linux based Docker image for WSO2 Open Healthcare API Manager version `4.0.0`.
+Linux based Docker image for WSO2 Healthcare Solution API Manager version `4.0.0`.
 
 ### How to build an image and run
 
@@ -78,10 +78,10 @@ You may map other container service ports, which have been exposed to Docker hos
 
 > In here, <DOCKER_HOST> refers to hostname or IP of the host machine on top of which containers are spawned.
 
-## WSO2 Open Healthcare Micro Integrator
+## WSO2 Healthcare Solution Micro Integrator
 
 This section defines the step-by-step instructions to build an [Alpine](https://hub.docker.com/_/alpine)
-Linux based Docker image for WSO2 Open Healthcare Micro Integrator version `4.0.0`.
+Linux based Docker image for WSO2 Healthcare Solution Micro Integrator version `4.0.0`.
 
 ### How to build an image and run
 

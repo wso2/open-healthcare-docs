@@ -89,7 +89,7 @@ FHIR resource) that specifies which resource types and interactions are supporte
     | `format`                     | formats supported (`json`) <br/><br/> eg: `[json]`                                                 | 
     | `patchFormat`                | Patch formats supported <br/><br/> eg: `[application/json-patch+json]`                             | 
     | `implementationUrl`          | Base URL for the installation <br/><br/> eg: `https://choreoapis/dev/fhir_server/0.1.5`            |
-    | `implementationDescription`  | Describes this specific instance <br/><br/> eg: `WSO2 Open Healthcare FHIR`                        |  
+    | `implementationDescription`  | Describes this specific instance <br/><br/> eg: `WSO2 Healthcare Solution FHIR`                        |  
     | `interaction`                | The that operations are supported <br/><br/> eg: `[search-system, history-system]`                 | 
     | `cors`                       | CORS Headers availability <br/><br/> eg: `true`                                                    |
     | `discoveryEndpoint`          | The discovery endpoint for the server <br/><br/> eg: `https://api.asgardeo.io/t/<organization_name>/oauth2/token/.well-known/openid-configuration` |
@@ -113,7 +113,7 @@ FHIR resource) that specifies which resource types and interactions are supporte
         format = ["json"]
         patchFormat = ["application/json-patch+json"]
         implementationUrl = "<FHIR_BASE_URL>"
-        implementationDescription = "WSO2 Open Healthcare FHIR"
+        implementationDescription = "WSO2 Healthcare Solution FHIR"
 
         ## server security related configurables
         [configRest]

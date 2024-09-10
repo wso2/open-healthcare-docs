@@ -15,8 +15,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Open Healthcare Documentation
-site_description: Documentation for WSO2 Open Healthcare Accelerator
+site_name: WSO2 Healthcare Solution Documentation
+site_description: Documentation for WSO2 Healthcare Solution Accelerator
 site_author: WSO2
 site_url: https://oh.docs.wso2.com/en/latest/
 
@@ -26,7 +26,7 @@ repo_url: https://github.com/wso2/open-healthcare-docs
 edit_uri: https://github.com/wso2/open-healthcare-docs/edit/main-new/en/docs/
 
 # Copyright
-copyright: WSO2 Open Healthcare - Documentation
+copyright: WSO2 Healthcare Solution - Documentation
 
 # Configuration
 theme:
@@ -51,18 +51,17 @@ theme:
 nav:
   - Home: index.md
   - Get started:
-    - What is Open Healthcare: get-started/open-healthcare.md
+    - Introduction: get-started/open-healthcare.md
     - Quickstart: get-started/open-healthcare-quickstart.md
     - Architecture: get-started/architecture.md
-    - Concepts:
-      - Accelerators: concepts/accelerators.md 
-      - Mappers: concepts/data-mappers.md
+    # - Concepts:
+    #   - Accelerators: concepts/accelerators.md 
+    #   - Mappers: concepts/data-mappers.md
   - Install and setup:
-    - Deployment methods: install-and-setup/deployment.md
+    # - Deployment methods: install-and-setup/deployment.md
     - Manual installation: install-and-setup/manual.md
     - Deploy on Docker: install-and-setup/deploy-docker.md
-    - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
-    - Setup Micro Integrator: install-and-setup/setup-mi-server.md
+    # - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
     - Update the Accelerator: 
       - WSO2 Update tool overview: install-and-setup/updates/overview.md
       - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
@@ -76,21 +75,24 @@ nav:
         - Profiles and Extensions: fhir/guides/profiles-and-extensions.md
         - Validation: fhir/guides/validation.md
         - Building FHIR Bundles: fhir/guides/building-fhir-bundles.md
-        - FHIR path evaluation: fhir/guides/fhir-path-evaluation.md
-        - Error Handling: fhir/guides/error-handling.md
-        - Regional IGs and custom Profiles: fhir/guides/regional-igs.md
+        ## TODO: Uncomment the following after adding the content
+        # - FHIR path evaluation: fhir/guides/fhir-path-evaluation.md
+        # - Error Handling: fhir/guides/error-handling.md
+        # - Regional IGs and custom Profiles: fhir/guides/regional-igs.md
       - Connecting to FHIR Repositories: 
         - Using FHIR Repository connector: fhir/guides/fhir-repository-connector.md
         - FHIR Bulk data export: fhir/guides/bulk-data-export.md
       - Build your own Facade: 
         - FHIR Resource API templates: fhir/guides/fhir-resource-api-template.md
-        - Custom search parameters: fhir/guides/custom-search-parameter.md
-        - Custom operations support: fhir/guides/custom-operations-support.md
+        ## TODO: Uncomment the following after adding the content
+        # - Custom search parameters: fhir/guides/custom-search-parameter.md
+        # - Custom operations support: fhir/guides/custom-operations-support.md
         - System APIs: 
           - Metadata Service: fhir/guides/metadata-api.md
           - SMART Configuration Service: fhir/guides/smart-api.md
-        - Exposing APIs: fhir/guides/exposing-apis.md
-        - Securing APIs with SMART on FHIR: fhir/guides/securing-apis-with-smart-on-fhir.md
+        ## TODO: Uncomment the following after adding the content  
+        # - Exposing APIs: fhir/guides/exposing-apis.md
+        # - Securing APIs with SMART on FHIR: fhir/guides/securing-apis-with-smart-on-fhir.md
     - Working with HL7:
       - Overview of HL7v2: hl7/guides/overview.md
       - Handling HL7 Messages: 

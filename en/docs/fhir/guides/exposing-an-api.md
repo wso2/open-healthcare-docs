@@ -1,10 +1,10 @@
 ## Overview
 
-WSO2 Open Healthcare is a platform designed with API-driven interoperability, seamless and secure health data exchange capabilities.
+WSO2 Healthcare Solution is a platform designed with API-driven interoperability, seamless and secure health data exchange capabilities.
 
 API gateway created with Industry standards, provide readily available API Management capabilities inclusive of a broad spectrum of features that can be leveraged to spin up a fully functional FHIR server in a short period of time.
 
-With WSO2 Open Healthcare you can easily,
+With WSO2 Healthcare Solution you can easily,
 
 - Develop a fully standardized FHIR server with pre-built FHIR API definitions.
     - 100+ OAS definition files are available in WSO2 FHIR API Hub.
@@ -15,19 +15,19 @@ With WSO2 Open Healthcare you can easily,
 - Allow third-party developers to consume FHIR APIs through the Developer Portal.
 - Using APIM as the API management layer to manage the FHIR API and to expose it to consumers.
 
-WSO2 Open Healthcare solution consists of an API Management component that has been developed using WSO2 API Manager as the base product and installing Healthcare related modules using the Open Healthcare APIM accelerator distribution.
+WSO2 Healthcare Solution consists of an API Management component that has been developed using WSO2 API Manager as the base product and installing Healthcare related modules using the Open Healthcare APIM accelerator distribution.
 
-This section discusses the basic steps and the key concepts of FHIR APIs in the WSO2 Open Healthcare.
+This section discusses the basic steps and the key concepts of FHIR APIs in the WSO2 Healthcare Solution.
 
 ## Prerequisites
 
-- Install and configure WSO2 Open Healthcare solution. (Refer: Quick start guide (QSG))
+- Install and configure WSO2 Healthcare Solution. (Refer: Quick start guide (QSG))
 - Deployed Integration APIs. (Refer: Setting up Integration)
-    - Note: This has to be an active endpoint which responds to a FHIR payload. Not necessary to be deployed with WSO2 Open Healthcare.
+    - Note: This has to be an active endpoint which responds to a FHIR payload. Not necessary to be deployed with WSO2 Healthcare Solution.
 
 ## Expose the integration as a FHIR API
 
-WSO2 Open Healthcare allows you to expose an existing FHIR integration service as a managed FHIR REST API.
+WSO2 Healthcare Solution allows you to expose an existing FHIR integration service as a managed FHIR REST API.
 
 If you have already built your FHIR integration service, you can follow the steps given below to expose it as a managed API in a standard FHIR server.
 

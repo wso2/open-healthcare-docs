@@ -1,1 +1,1 @@
-# WSO2 Open Healthcare connectors
+# WSO2 Healthcare Solution connectors

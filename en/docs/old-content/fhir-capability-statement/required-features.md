@@ -11,7 +11,7 @@ Supported properties are as follows.
 ## FHIR APIs’ metadata
 
 FHIR server capability statement includes the necessary metadata about the available FHIR resources(FHIR APIs) in the server and client applications or any other dependent services can query the capabilities interaction before starting communication with the server. 
-FHIR spec allows the servers to include a large range of important information to be available for each FHIR resource. Among them, the following information has been included in the Capability Statement of WSO2 Open Healthcare solution. 
+FHIR spec allows the servers to include a large range of important information to be available for each FHIR resource. Among them, the following information has been included in the Capability Statement of WSO2 Healthcare Solution. 
 >Resource type, supported FHIR profiles
 >Interaction - Http interactions configured for the FHIR API. Available values: create, read, vread, update, patch,...
 >Search parameters supported - for the search interaction, these parameters can be used as query parameters. 
