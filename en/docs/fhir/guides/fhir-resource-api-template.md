@@ -44,7 +44,7 @@ Here's an example of how to utilize the Health Tool to generate USCore API templ
             * While genertaing the templates, you can use  ***--included-profile*** or ***--excluded-profile*** to include and exclude whaterver profiles you want. 
 
 
-3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any auto-generated business logics.
+3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any business logic.
 
 4. To run the service as a standalone server, execute the below command.
 

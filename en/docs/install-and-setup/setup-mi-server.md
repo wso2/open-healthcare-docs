@@ -1,7 +1,7 @@
 
 Go through the following steps to setup the Micro Integrator server for VSCode. 
 
-1. Install [Micro Integrator Server runtime](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/)  
+1. Install [WSO2 Micro Integrator Server runtime](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/).  
 
 2. Install [WSO2 Micro Integrator Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/#install-micro-integrator-for-vs-code) in VSCode. 
 

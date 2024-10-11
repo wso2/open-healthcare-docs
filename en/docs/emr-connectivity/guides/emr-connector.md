@@ -1,8 +1,4 @@
-## Overview
-The FHIR Client Connector is designed to connect with  FHIR servers and repositories. 
-
-## Connecting with Epic EMR 
-In this example we will look into the steps how can we use the Client Connector to connect with the Epic EMR system. 
+In this example we will look into the steps how can we use the Client Connector to connect with the Epic EMR systems. 
 
 ### Prerequisites
 1. First we need to create Backend OAuth 2.0 App. To use the client_credentials OAuth 2.0 grant type to authorize the backend application's access to patient information we need 'Client ID' and the 'Public key'. Let's create a Public Private Key Pair using OpenSSL. 
@@ -31,6 +27,12 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
 {!includes/bal-mi-note.md!}
 
 === "Ballerina" 
+    ## Step 1: Set Up Ballerina
+
+    Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system. Follow the instructions in the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps)  to install Ballerina and set up the development environment.
+
+    ## Step 2: Implement the flow to connect with Epic EMR
+
     1. Create a new ballerina project. 
     ```
     bal new epicapp
@@ -77,14 +79,19 @@ You can further refer to the Epic Documentation on creating an [OAuth 2.0 App](h
     bal run
     ```
 
-    4. Test the serive using the following curl command. 
+    4. Test the service using the following curl command. 
     ```
     curl --location 'http://localhost:9090/fhir/r4/Patient/e63wRTbPfr1p8UW81d8Seiw3'
     ```
 
 === "Micro Integrator"
-    The following sample demonstrates how we can use the Epic Connector to connect with Epic Server and retrive specific patient's information. 
-    As a Prerequsite [Setup Micro Integrator](../../install-and-setup/setup-mi-server.md)
+    The following sample demonstrates how we can use the Epic Connector to connect with Epic Server and retrive specific patient's information.
+
+    ## Step 1: Set Up WSO2 Micro Integrator
+
+    Before you begin, download the [WSO2 Micro Integrator](https://wso2.com/integration/micro-integrator/) and install by following the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps).
+
+    ## Step 2: Implement the flow to connect with Epic EMR
 
     1. Open VSCode, type CMD+Shift+P and type MI:Create New Project. 
     2. To create an API, click on the API button, for URI Template provide '/getPatient/{patientId}' and select 'GET' as the resource. 
