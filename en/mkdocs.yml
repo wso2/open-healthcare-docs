@@ -52,7 +52,8 @@ nav:
   - Home: index.md
   - Get started:
     - Introduction: get-started/open-healthcare.md
-    - Quickstart: get-started/open-healthcare-quickstart.md
+    ## TODO add content to quickstart
+    # - Quickstart: get-started/open-healthcare-quickstart.md
     - Architecture: get-started/architecture.md
     # - Concepts:
     #   - Accelerators: concepts/accelerators.md 
