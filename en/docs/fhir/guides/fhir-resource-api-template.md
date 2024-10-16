@@ -6,7 +6,7 @@ This section will cover the approaches to implement and deploy the different FHI
 
 === "Ballerina"
 
-In this implementation pattern, each and every FHIR resource and profiles will be represented as individual services(micro services). For each resources there will be a Ballerina project will be genereated. To implement FHIR APIs that supports FHIR profiles, it's essential to have endpoints that client apps can use to interact with your FHIR resources (creating, reading, updating, deleting, and searching). 
+In this implementation pattern, each FHIR resource and profile is represented as an individual service (microservice). A separate Ballerina service will represent a FHIR Resource API. To implement FHIR APIs that support FHIR profiles, it's essential to provide endpoints that client applications can use to interact with your FHIR resources (for creating, reading, updating, deleting, and searching).
 
 To streamline the setup of these APIs, we can use the [Ballerina Health CLI Tool](https://ballerina.io/learn/health-tool/) to generate the necessary API templates for a FHIR Facade. FHIR API developers can then write the business logic in the generated templates. The Health Tool is versatile and can be used to generate templates for various FHIR specifications such as base resources, USCore, AUBase etc.
 
@@ -51,11 +51,3 @@ Here's an example of how to utilize the Health Tool to generate USCore API templ
     ``` 
     bal run 
     ```
-
-
-### [Optional] Steps to Deploy Metadata Prebuilt Service in Choreo
-
-* Push the implemented template to your GitHub repository.
-* Create a service component pointing to the above created repository. Follow the [official documentation](https://wso2.com/choreo/docs/develop-components/develop-services/develop-a-ballerina-rest-api/#step-1-create-a-service-component) of Choreo to create and configure a service:.
-* Once the component creation is complete, you will see the component overview page.
-* Then deploy the created service component.
