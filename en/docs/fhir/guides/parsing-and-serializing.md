@@ -1,106 +1,185 @@
 # Parsing and Serializing
 
-For any FHIR server implementation, parsing and serializing are fundamental processes that enable seamless interaction with FHIR resources. Parsing involves converting incoming data, often in various formats, into structured FHIR resources that can be easily managed and processed within the system. Conversely, serializing transforms these FHIR resources into standardized wire formats, such as JSON or XML, for transmission or storage. Effective parsing and serializing ensure that data flows smoothly between systems while maintaining compliance with FHIR standards, facilitating interoperability and consistent data exchange across healthcare applications.
+For any FHIR server implementation, parsing and serializing are fundamental processes that enable seamless interaction with FHIR resources. Parsing involves converting incoming data, often in various formats, into structured FHIR resources that can be easily managed and processed within the integration flow.
 
 {!includes/bal-mi-note.md!}
 
-
-
 === "Ballerina"
 
-    Since Ballerina is designed specifically to address integration use cases, records defined in Ballerina can be easily converted to JSON wire format, with similar support for XML. This makes the serialization of populated FHIR resources straightforward and efficient. 
+    Since Ballerina is designed specifically to address integration use cases, records defined in Ballerina can be easily converted to JSON wire format, with similar support for XML. This makes the parsing and serialization of FHIR resources straightforward and efficient. 
 
-    ```
-    import ballerinax/health.fhir.r4.internationa401;
+    ## Step 1: Set Up Ballerina
 
+    Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system. Follow the instructions in the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps)  to install Ballerina and set up the development environment.
 
-    public function main() returns json|error {
-        internationa401:Patient patient = {
-            meta: {
-                lastUpdated: time:utcToString(time:utcNow()),
-                profile: [internationa401:PROFILE_BASE_PATIENT]
-            },
-            active: true,
-            name: [{
-                family: "Doe",
-                given: ["Jhon"],
-                use: internationa401:official,
-                prefix: ["Mr"]
-            }],
-            address: [{
-                line: ["652 S. Lantern Dr."],
-                city: "New York",
-                country: "United States",
-                postalCode: "10022",
-                'type: internationa401:physical,
-                use: internationa401:home
-            }]
-        };
+    ## Step 2: Implement the flow to parse a FHIR resource
 
-        return patient.toJSON();
-    }
-    ```
+    1. Create a new Ballerina project using the following command. It will create the Ballerina project and the `main.bal` file can be used to implement the logic.
+
+        ```bash
+        $ bal new fhir_parsing_sample
+        ```
+    2. Import the required modules to the Ballerina program. In this sample we are using FHIR Patient resource from international base FHIR IG . Therefore, we need to import `ballerinax/health.fhir.r4.internationa401` package. If you are using a different IG of FHIR, you can import the relevant package from the [central](https://central.ballerina.io/search?q=fhir&page=1&m=packages) or generated from the bal [health tool](https://ballerina.io/learn/health-tool/#package-generation).
+    
+        ```ballerina
+        import ballerina/io;
+        import ballerinax/health.fhir.r4;
+        import ballerinax/health.fhir.r4.international401;
+        import ballerinax/health.fhir.r4.parser;
+        ```   
+    3. Implement the logic to parse the FHIR resource. In this sample, we are parsing a sample FHIR json to FHIR Patient resource. 
+
+        ```ballerina
+        public function main() returns error? {
+            // The following example is a simple serialized Patient resource to parse
+            json input = {
+                "resourceType": "Patient",
+                "name": [
+                    {
+                        "family": "Simpson"
+                    }
+                ]
+            };
+
+            // Parse it - you can pass the input (as a string or a json) and the
+            // type of the resource you want to parse.
+            international401:Patient patient = check parser:parse(input).ensureType();
+
+            // Access the parsed data
+            r4:HumanName[]? names = patient.name;
+            if names is () || names.length() == 0 {
+                return error("Failed to parse the names");
+            }
+            io:println("Family Name: ", names[0]);
+        }
+        ```  
+        Completed sample will look like below. 
+
+        ```ballerina
+        import ballerina/io;
+        import ballerinax/health.fhir.r4 as fhir;
+        import ballerinax/health.fhir.r4.international401;
+        import ballerinax/health.fhir.r4.parser as fhirParser;
+
+        public function main() returns error? {
+            // The following example is a simple serialized Patient resource to parse
+            json input = {
+                "resourceType": "Patient",
+                "name": [
+                    {
+                        "family": "Simpson"
+                    }
+                ]
+            };
+
+            // Parse it - you can pass the input (as a string or a json) and the
+            // type of the resource you want to parse.
+            international401:Patient patient = check fhirParser:parse(input).ensureType();
+
+            // Access the parsed data
+            fhir:HumanName[]? names = patient.name;
+            if names is () || names.length() == 0 {
+                return error("Failed to parse the names");
+            }
+            io:println("Family Name: ", names[0]);
+        }
+        ```
+    ## Step 3: Run the Ballerina Program
+
+    Run the Ballerina program using the following command:
+
+        ```bash
+        $ bal run
+        ```
+
 
     ???+ note
         To achieve full FHIR server capabilities, you can leverage the Ballerina **FHIR R4 service**, which provides a comprehensive suite of features including *header validation*, *search parameter resolution*, and various other essential FHIR server functionalities. This service simplifies the implementation of a complete FHIR server, ensuring that all necessary components are in place to handle FHIR requests efficiently and in compliance with the standard.
 
-    <br>On the other hand, parsing incoming data and creating FHIR resources can be seamlessly accomplished using the Ballerina FHIR parser. An example scenario demonstrating this process is illustrated below.
+=== "Micro Integrator"
 
-    ```
-    import ballerina/log;
-    import ballerinax/health.fhir.r4.parser;
-    import ballerinax/health.fhir.r4.international401;
+    Parsing incoming requests into FHIR resources can be achieved using the FHIR Base module in WSO2 MI. This module provides a set of operations to handle FHIR payloads. The `parse` operation can be used to parse a FHIR resource from a JSON payload.
 
-    public function main() {
-        json payload = {
-            "resourceType": "Patient",
-            "id": "1",
-            "meta": {
-                "profile": [
-                    "http://hl7.org/fhir/StructureDefinition/Patient"
-                ]
-            },
-            "active":true,
-            "name":[
-                {
-                    "use":"official",
-                    "family":"Chalmers",
-                    "given":[
-                        "Peter",
-                        "James"
-                    ]
-                }
-            ],
-            "gender":"male",
-            "birthDate":"1974-12-25",
-            "managingOrganization":{
-                "reference":"Organization/1"
+    The following example demonstrates how to parse HL7 FHIR resources and serializing using the WSO2 Micro Integrator.
+
+    ## Step 1: Set Up WSO2 Micro Integrator
+
+    Before you begin, download the [WSO2 Micro Integrator](https://wso2.com/integration/micro-integrator/) and install by following the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps).
+
+    ## Step 2: Implement the flow to parse a FHIR resource
+
+    1. Create a MI project using the MI VSCode plugin by following the guide on [Creating a New Integration Project](https://mi.docs.wso2.com/en/latest/develop/create-integration-project/). 
+
+    2. Create a [REST API](https://mi.docs.wso2.com/en/latest/develop/creating-artifacts/creating-an-api/) to receive a FHIR patient payload.   
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/r4" name="PatientAPI" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="POST" uri-template="/Patient">
+                <inSequence>
+                    <log level="full"/>
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
+        </api>
+        ```
+    3. Add fhirbase connector to the project.
+    ![FHIRBase connector](../../../assets/img/guildes/handling-fhir/fhir-base-connector.png)
+
+    4. Implement the logic to parse the FHIR resource. The `parse` operation can be used to parse a FHIR resource from a JSON payload.  
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/r4" name="PatientAPI" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="POST" uri-template="/Patient">
+                <inSequence>
+                    <log level="full"/>
+                    <fhirbase.parse />
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
+        </api>
+        ```
+    5. Additional logic to modify the parsed FHIR resource can be added to the sequence. In this example, additional identifier is added using the createIdentifier operation to the parsed FHIR resource. Then the resource is serialized back to JSON using the `serialize` operation.
+
+        ![Completed flow](../../../assets/img/guildes/handling-fhir/fhir-parsing-flow-mi.png)
+        
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <api context="/r4" name="PatientAPI" xmlns="http://ws.apache.org/ns/synapse">
+            <resource methods="POST" uri-template="/Patient">
+                <inSequence>
+                    <log level="full"/>
+                    <fhirbase.parse />
+                    <fhirbase.createIdentifier>
+                        <value>patient123</value>
+                        <FHIRPath>Patient.identifier</FHIRPath>
+                    </fhirbase.createIdentifier>
+                    <fhirbase.serialize />
+                    <respond/>
+                </inSequence>
+                <faultSequence>
+                </faultSequence>
+            </resource>
+        </api>
+        ```
+
+    ## Step 3: Deploy and Test the Integration Project
+    
+    Deploy the integration project to the MI runtime by following the guide on [Deploying the Integration Project](https://mi.docs.wso2.com/en/latest/develop/deploy-artifacts/) and test the API using a REST client.
+
+    Use the following payload to test the API:
+
+    ```json
+    {
+        "resourceType": "Patient",
+        "name": [
+            {
+                "family": "Simpson"
             }
-        };
-        do {
-            international401:Patient patientModel = <international401:Patient> check parser:parse(payload);
-            log:printInfo(string `Patient name : ${patientModel.name.toString()}`);
-        } on fail error parseError {
-            log:printError(string `Error occurred while parsing : ${parseError.message()}`, parseError);
-        }
+        ]
     }
     ```
 
-    ???+ note
-        `parse` function returns anydata type when success, and it needs to be cast to the relevant FHIR Resource type.
-
-
-
-
-=== "Micro Integrator"
-
-    Parsing incoming requests into FHIR resources can be efficiently handled using the DataMapper feature. If the integration involves only a single FHIR resource within a request flow, serialization can be performed directly without requiring any additional connector operations. However, if the message flow involves multiple FHIR resources or composite resources, such as FHIR bundles, the FHIR Base connector must be added to the project to manage bundle-related operations appropriately. This approach ensures proper handling and serialization of complex FHIR data structures within the integration.
-
-    ![FHIR Serializing](../../../assets/img/guildes/handling-fhir/fhir-serializing.png)
-
-    JSON files used in this sample can be found in; <br>
-        1. <a href="../../../assets/attachments/learn/fhir-mapping-templates/input-patient.json" download>Input Data</a><br>
-        2.  <a href="../../../assets/attachments/learn/fhir-mapping-templates/fhir-patient.json" download>Output data</a><br>
-
-    !!! info
-        For an in-depth understanding of FHIR bundles and their related capabilities, please refer to the detailed explanation available [here](../guides/building-fhir-bundles.md). This resource provides comprehensive insights into the structure, types, and use cases of FHIR bundles, as well as the specific features and functions available for handling them in your projects.

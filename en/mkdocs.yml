@@ -60,7 +60,7 @@ nav:
   - Install and setup:
     # - Deployment methods: install-and-setup/deployment.md
     - Manual installation: install-and-setup/manual.md
-    - Deploy on Docker: install-and-setup/deploy-docker.md
+    # - Deploy on Docker: install-and-setup/deploy-docker.md
     # - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
     - Update the Accelerator: 
       - WSO2 Update tool overview: install-and-setup/updates/overview.md
@@ -72,18 +72,18 @@ nav:
       - Handling FHIR Resources:
         - Populating FHIR resources: fhir/guides/populating-fhir-resources.md
         - Parsing and Serializing: fhir/guides/parsing-and-serializing.md
-        - Profiles and Extensions: fhir/guides/profiles-and-extensions.md
         - Validation: fhir/guides/validation.md
         - Building FHIR Bundles: fhir/guides/building-fhir-bundles.md
+        - Profiles and Extensions: fhir/guides/profiles-and-extensions.md
         ## TODO: Uncomment the following after adding the content
         # - FHIR path evaluation: fhir/guides/fhir-path-evaluation.md
         # - Error Handling: fhir/guides/error-handling.md
         # - Regional IGs and custom Profiles: fhir/guides/regional-igs.md
       - Connecting to FHIR Repositories: 
         - Using FHIR Repository connector: fhir/guides/fhir-repository-connector.md
-        - FHIR Bulk data export: fhir/guides/bulk-data-export.md
+        # - FHIR Bulk data export: fhir/guides/bulk-data-export.md
       - Build your own Facade: 
-        - FHIR Resource API templates: fhir/guides/fhir-resource-api-template.md
+        - FHIR Resource APIs: fhir/guides/fhir-resource-api-template.md
         ## TODO: Uncomment the following after adding the content
         # - Custom search parameters: fhir/guides/custom-search-parameter.md
         # - Custom operations support: fhir/guides/custom-operations-support.md
@@ -110,7 +110,7 @@ nav:
       - CCDA to FHIR: data-transformation/guides/ccda-to-fhir.md
     - EMR Connectivity:
       - EMR Systems Overview: emr-connectivity/guides/emr-systems-overview.md
-      - Connecting with EMR systems with the Epic Connector: emr-connectivity/guides/emr-connector.md
+      - Connecting with Epic EMR systems: emr-connectivity/guides/emr-connector.md
   # - Use cases:
   #   - Overview: use-cases/use-cases-overview.md
   # - References:

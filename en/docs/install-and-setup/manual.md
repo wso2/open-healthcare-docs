@@ -65,7 +65,7 @@ Mon May 31 22:01:55 +0530 2021 - john - WSO2 Healthcare Solution API Manager 4.0
 {!includes/bal-mi-note.md!}
 
 === "Ballerina"
-
+    <a id="ballerina-installation-steps"></a>
     ### Installation Steps
 
     Go through the following steps to setup the Ballerina. 
@@ -75,16 +75,16 @@ Mon May 31 22:01:55 +0530 2021 - john - WSO2 Healthcare Solution API Manager 4.0
     2. Setup the Ballerina VSCode extension by following the instructions in the <a href="https://ballerina.io/learn/get-started/#set-up-the-editor/" target="_blank">Ballerina VSCode Extension</a> guide.
 
 === "Micro Integrator"
-
+    <a id="mi-installation-steps"></a>
     ###  Installation Steps
 
     Go through the following steps to setup the Micro Integrator server. 
 
-    1. Install [Micro Integrator Server runtime](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/)  
+    1. Install [WSO2 Micro Integrator Server runtime](https://mi.docs.wso2.com/en/latest/install-and-setup/install/installing-mi/).  
 
     2. Install [WSO2 Micro Integrator Extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/#install-micro-integrator-for-vs-code) in VSCode. 
 
-    3. In the downloaded wso2mi pack, the following configurations need to be done. Go to [WSO2-MI-HOME]/conf/deployment.toml file. 
+    3. In the downloaded WSO2 Micro Integrator pack, the following configurations need to be done. Go to [WSO2-MI-HOME]/conf/deployment.toml file. 
     4. Add the following configurations. 
         ```
         [[custom_message_formatters]]
