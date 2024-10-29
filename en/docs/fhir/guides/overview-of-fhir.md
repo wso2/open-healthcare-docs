@@ -17,17 +17,6 @@ WSO2 Healthcare provides a comprehensive set of features/tools to support the FH
 {!includes/bal-mi-note.md!}
 
 
-## FHIR with Ballerina
-
-With Ballerina's native support for healthcare standards, it enables rapid health tech application development. We offer a comprehensive set of **pre-built services**, **project templates**, and **resource and utility packages**, all of which are *100% open source*. FHIR developers can easily download and utilize these packages to streamline the development of FHIR integrations in Ballerina, ensuring efficient and effective implementation.
-
-
-## FHIR with Micro Integrator
-
-For FHIR integrations following the ESB pattern, WSO2 Micro Integrator (MI) provides optimal FHIR integration capabilities through its available connectors and data mapping templates. Developers can enhance their integration projects by leveraging WSO2 MI’s extensive capabilities, including **EHR/EMR connectors**, the **FHIR repository connector**, and the **V2toFHIR connector**. These tools enable seamless data exchange and transformation, ensuring robust and efficient FHIR integrations.
-
-
-
 Follow the guides below to learn how to work with FHIR in WSO2 Healthcare solution:
 
 - [Populating FHIR resources](../../fhir/guides/populating-fhir-resources.md)

@@ -84,13 +84,13 @@ nav:
         - Using FHIR Repository connector: fhir/guides/fhir-repository-connector.md
         # - FHIR Bulk data export: fhir/guides/bulk-data-export.md
       - Build your own Facade: 
-        - FHIR Resource APIs: fhir/guides/fhir-resource-api-template.md
+        - Developing FHIR APIs: fhir/guides/fhir-resource-api-template.md
         ## TODO: Uncomment the following after adding the content
         # - Custom search parameters: fhir/guides/custom-search-parameter.md
         # - Custom operations support: fhir/guides/custom-operations-support.md
-        - System APIs: 
-          - Metadata Service: fhir/guides/metadata-api.md
-          - SMART Configuration Service: fhir/guides/smart-api.md
+        # - System APIs: 
+        #   - Metadata Service: fhir/guides/metadata-api.md
+        #   - SMART Configuration Service: fhir/guides/smart-api.md
         ## TODO: Uncomment the following after adding the content  
         # - Exposing APIs: fhir/guides/exposing-apis.md
         # - Securing APIs with SMART on FHIR: fhir/guides/securing-apis-with-smart-on-fhir.md
