@@ -34,8 +34,8 @@ Fast Healthcare Interoperability Resources (FHIR) is an interoperability standar
         import ballerinax/health.clients.fhir;
         import ballerina/io;
 
-        // Define the FHIR server connection configuration. If your server requires authentication, you can configure it using
-        // the `authConfig` field.
+        // Define the FHIR server connection configuration. If your server requires authentication, you can configure 
+        // it using the `authConfig` field.
         fhir:FHIRConnectorConfig fhirServerConfig = {
             baseURL: "https://hapi.fhir.org/baseR4",
             mimeType: fhir:FHIR_JSON
@@ -46,7 +46,7 @@ Fast Healthcare Interoperability Resources (FHIR) is an interoperability standar
 
         public function main4() returns error? {
             // Search for a patient with the name "homer". You can provide additional search parameters as a map.
-            // There are other client operations available in the FHIR connector, such as `create`, `update`, `delete`, etc.
+            // There are other client operations available in the FHIR connector, such as `create`, `update`, `delete` etc.
             fhir:FHIRResponse|fhir:FHIRError response = fhirConnector->search("Patient", {"name": "homer"});
             if response is fhir:FHIRResponse {
                 io:println("response status code: ", response.httpStatusCode);
