@@ -10,14 +10,49 @@
 ### Installation Steps
 1. Extract WSO2 APIM product. Let's call it `<WSO2_APIM_HOME>`.
 2. Navigate to `<WSO2_APIM_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 API Manager up to date by running the [Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/). 
-3. Extract WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
-4. [Optional] Check the accelerator configurations in <WSO2_HC_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
-5. Navigate to `<WSO2_OH_APIM_ACC_HOME>` directory and execute following command. This will copy the artifacts to the WSO2 APIM and add the required configurations.
+3. You can try the following commands based on your Operating system to update the WSO2 API Manager. As an example, if you are Mac user, we need to execute the following commands.
+
+    Provide your wso2 credentials and update the tool.  
+    ```
+    ./wso2update_darwin
+    ```
+
+    Check the latest update level for the product. 
+    ```
+    ./wso2update_darwin check
+    ```
+
+    Update the product to the latest update level. 
+    ```
+    ./wso2update_darwin --level 4.2.0.<LATEST_UPDATE_LEVEL>
+    ```
+
+    Check the current state of your product. 
+    ```
+    ./wso2update_darwin current-state
+    ```
+
+
+4. Extract WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
+5. [Optional] Check the accelerator configurations in <WSO2_HC_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
+???+ note
+    Accelerator configs looks like below;
+
+    | Setting Description                                         | Configuration Option                 | Default Value |
+    |-------------------------------------------------------------|--------------------------------------|---------------|
+    | Enable or disable auto-generation of the FHIR capability statement | `enable_fhir_metadata_endpoint`      | `true`        |
+    | Enable or disable the well-known endpoint for OAuth 2.0 discovery  | `enable_well_known_endpoint`         | `true`        |
+    | Enable or disable the SMART on FHIR features               | `enable_smart_on_fhir`               | `true`        |
+    | Enable or disable developer sign-up and app creation approval | `enable_developer_workflow`         | `false`        |
+    | Enable or disable the healthcare theme                     | `enable_healthcare_theme`            | `true`        |
+
+
+6. Navigate to `<WSO2_OH_APIM_ACC_HOME/bin>` directory and execute the following command. This will copy the artifacts to the WSO2 APIM and add the required configurations.
 ```sh
-./bin/merge.sh
+./merge.sh
 ``` 
 
-6. Navigate to `<WSO2_APIM_HOME>` directory and execute following command to start the APIM server with WSO2 OH Accelerators.
+7. Navigate to `<WSO2_APIM_HOME>` directory and execute following command to start the APIM server with WSO2 OH Accelerators.
 ```sh
 ./bin/api-manager.sh
 ```
