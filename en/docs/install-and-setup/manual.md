@@ -22,12 +22,12 @@
     ./wso2update_darwin check
     ```
 
-    Update the product to the update level you need. As an example, if you need to update it to wso2am-4.2.0.118 we can provide the command as below. 
+    Update the product to the latest update level. 
     ```
-    ./wso2update_darwin --level 4.2.0.118
+    ./wso2update_darwin --level 4.2.0.<LATEST_UPDATE_LEVEL>
     ```
 
-    Update the current state of your product. 
+    Check the current state of your product. 
     ```
     ./wso2update_darwin current-state
     ```
@@ -35,6 +35,18 @@
 
 4. Extract WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
 5. [Optional] Check the accelerator configurations in <WSO2_HC_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
+???+ note
+    Accelerator configs looks like below;
+
+    | Setting Description                                         | Configuration Option                 | Default Value |
+    |-------------------------------------------------------------|--------------------------------------|---------------|
+    | Enable or disable auto-generation of the FHIR capability statement | `enable_fhir_metadata_endpoint`      | `true`        |
+    | Enable or disable the well-known endpoint for OAuth 2.0 discovery  | `enable_well_known_endpoint`         | `true`        |
+    | Enable or disable the SMART on FHIR features               | `enable_smart_on_fhir`               | `true`        |
+    | Enable or disable developer sign-up and app creation approval | `enable_developer_workflow`         | `false`        |
+    | Enable or disable the healthcare theme                     | `enable_healthcare_theme`            | `true`        |
+
+
 6. Navigate to `<WSO2_OH_APIM_ACC_HOME/bin>` directory and execute the following command. This will copy the artifacts to the WSO2 APIM and add the required configurations.
 ```sh
 ./merge.sh
