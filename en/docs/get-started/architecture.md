@@ -12,7 +12,7 @@ WSO2 Healthcare Solution is built on top of industry recognized WSO2 API Manager
 
 ### Accelerators
 
-WSO2 Healthcare Solution comes up with several accelerators to speed up the health IT development process. Source system connectors, FHIR templates, FHIR API definitions, HL7/X12 templates are some of the healthcare accelerators we provide in addition to many other integration accelerators.
+WSO2 Healthcare Solution comes up with several accelerators to speed up the health IT development process. Source system connectors, FHIR API templates, FHIR Open API definitions, HL7/X12 templates are some of the healthcare accelerators we provide in addition to many other integration accelerators.
 
 #### Source System Connectors
 
