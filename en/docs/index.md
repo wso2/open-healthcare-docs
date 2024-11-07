@@ -9,7 +9,7 @@
                         WSO2 Healthcare Solution is a comprehensive solution that enables healthcare organizations to achieve interoperability and compliance with healthcare standards such as Fast Healthcare Interoperability Resources (FHIR®) and Health Level Seven (HL7®). With WSO2’s robust integration capabilities, you can enhance your healthcare system with features like patient data management, claims processing, and electronic health records (EHR) interoperability. The platform supports healthcare standards, real-time data transformations and security and privacy features, offering the flexibility to meet evolving healthcare needs.
 						</p>
 						<p>
-						Get a head start with our Quick Start Guide or dive straight into the documentation to understand what we offer 
+						Get a head start with setting up the solution and dive straight into the documentation to understand what we offer 
 						and to discover the extensibility.
 						</p>
 					</div>
@@ -20,12 +20,13 @@
 						</div>
                 </div> -->
             </div>
-            <div>
+            <!-- Removed the video until we can provide a better one -->
+            <!-- <div>
                 <div class="md-main .md-content ">
 					<iframe width="600" height="340" src="https://www.youtube.com/embed/YabdNpDlS2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
 				</div>
-            </div>
+            </div> -->
         </div>
     </div>
 	<div class="section03">

@@ -4,7 +4,7 @@ WSO2 Healthcare Solution is a solution built to leverage development of the Heal
 
 The diagram below depicts of what the WSO2 Healthcare Solution offers.
 
-![Open Healthcare Architecture](../../assets/img/get-started/healthcare-architecture.png) 
+![Healthcare Architecture](../../assets/img/get-started/healthcare-architecture.png) 
 
 Our solution caters main segments in the industry, namely, Providers (Hospitals, Clinics etc.), Payers (Health insurance companies), Vendors (companies who build healthcare products to solve various problems such as population health, patient360, interoperability etc.), PBMs (Pharmacy Benefit Managers), Pharmacies etc.
 

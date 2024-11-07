@@ -1,9 +1,9 @@
-# How to update Open Healthcare solution?
+# How to update Healthcare solution?
 
-Usually Open Healthcare accelerators are the implementation which accelerate and facilitate the FHIR related features, these accelerators will be applied on top of 
+Usually Healthcare accelerators are the implementation which accelerate and facilitate the FHIR related features, these accelerators will be applied on top of 
 the wso2 base products like APIM and MI inorder to cater the healthcare domain problems.
 
-Inorder to get updates for Open Healthcare solution we need to get the update for two separate products as below,
+Inorder to get updates for Healthcare solution we need to get the update for two separate products as below,
 
 * Download the GA/ Vanilla pack of the wso2 base products like APIM or MI.
 * Update the base products to the latest/ desire update level.

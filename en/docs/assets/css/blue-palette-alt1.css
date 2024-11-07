@@ -1,6 +1,6 @@
 
 :root {
-    --md-primary-fg-color: #45578c;
+    --md-primary-fg-color: #23272f;
     --md-primary-fg-color--light: #1bcdff;
     --md-primary-fg-color--dark: #147ecc;
     --md-primary-bg-color: #fff;
@@ -36,7 +36,7 @@
 [data-md-color-scheme="default"] {
     --md-primary-fg-color-header: #f5f6f7;
     --md-primary-fg-color-header-text: #1d1d1d;
-    --md-primary-fg-color-header-text-active: #094570;
+    --md-primary-fg-color-header-text-active: #ff7043;
     --md-default-bg-color: #ffffff;
     --md-typeset-a-color: var(--md-primary-fg-color);
     --md-logo: transparent url(../img/logo-for-light.svg) no-repeat left top;
