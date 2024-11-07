@@ -3,38 +3,14 @@
 ## Setting Up WSO2 API Manager for Healthcare
 
 ### Prerequisites
-1. Refer to [Product Compatibilities](#product-compatibilities) for Open Healthcare supported base product distributions.
-2. Download a Open Healthacare supported base distribution of [WSO2 API Manager](https://wso2.com/api-management/previous-releases/).
-3. Download the compatible WSO2 Healthcare Solution APIM Accelerator. (Refer [Product Compatibilities](#product-compatibilities))
+1. Refer to [Product Compatibilities](#product-compatibilities) for Healthcare supported base product distributions.
+2. Download supported base distribution of [WSO2 API Manager](https://wso2.com/api-management/previous-releases/) and [WSO2 Healthcare APIM Accelerator](https://github.com/wso2/healthcare-accelerator/releases). Refer to the [Product Compatibilities](#product-compatibilities).
 
 ### Installation Steps
 1. Extract WSO2 APIM product. Let's call it `<WSO2_APIM_HOME>`.
 2. Navigate to `<WSO2_APIM_HOME>/bin` directory and execute the update command based on the operating system to bring WSO2 API Manager up to date by running the [Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/). 
-3. You can try the following commands based on your Operating system to update the WSO2 API Manager. As an example, if you are Mac user, we need to execute the following commands.
-
-    Provide your wso2 credentials and update the tool.  
-    ```
-    ./wso2update_darwin
-    ```
-
-    Check the latest update level for the product. 
-    ```
-    ./wso2update_darwin check
-    ```
-
-    Update the product to the latest update level. 
-    ```
-    ./wso2update_darwin --level 4.2.0.<LATEST_UPDATE_LEVEL>
-    ```
-
-    Check the current state of your product. 
-    ```
-    ./wso2update_darwin current-state
-    ```
-
-
-4. Extract WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
-5. [Optional] Check the accelerator configurations in <WSO2_HC_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
+3. Extract WSO2 Healthcare APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_HC_APIM_ACC_HOME>`.
+4. [Optional] Check the accelerator configurations in <WSO2_HC_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
 ???+ note
     Accelerator configs looks like below;
 
@@ -47,12 +23,12 @@
     | Enable or disable the healthcare theme                     | `enable_healthcare_theme`            | `true`        |
 
 
-6. Navigate to `<WSO2_OH_APIM_ACC_HOME/bin>` directory and execute the following command. This will copy the artifacts to the WSO2 APIM and add the required configurations.
+5. Navigate to `<WSO2_HC_APIM_ACC_HOME>` directory and execute following command. This will copy the artifacts to the WSO2 APIM and add the required configurations.
 ```sh
 ./merge.sh
 ``` 
 
-7. Navigate to `<WSO2_APIM_HOME>` directory and execute following command to start the APIM server with WSO2 OH Accelerators.
+6. Navigate to `<WSO2_APIM_HOME>` directory and execute following command to start the APIM server with WSO2 OH Accelerators.
 ```sh
 ./bin/api-manager.sh
 ```
@@ -72,15 +48,15 @@
 
     - `merge_audit.log` will have an audit line per execution of the `merge.sh` script of the accelerator. Each line contains execution date and time, user account and the version of the accelerator. Example log line is below;
     ```buttonless
-    Mon May 31 22:01:55 +0530 2021 - john - WSO2 Healthcare Solution API Manager 4.0.0 Accelerator - v3.0.0
+    Mon May 31 22:01:55 +0530 2021 - john - WSO2 Healthcare API Manager 1.0.0 Accelerator - v1.0.0
     ```
     - `backup` folder contains the files that were originally there in the APIM product before running the accelerator. Please note that only the last state will be there. 
 
 ### Product Compatibilities
 
-| Product          | Compatible Open Healthcare Accelarator  |
+| Product          | Compatible Healthcare Accelarator  |
 |---------------------------|-----------------------------------------|
-|<center>APIM 4.2.0</center>|<center>[APIM OH Accelerator 1.0.0](https://github.com/wso2/healthcare-accelerator/releases/download/v1.0.0-rc1/wso2-hcam-accelerator-1.0.0-rc1.zip)</center>                           |
+|<center>APIM 4.2.0</center>|<center>[APIM HC Accelerator 1.0.0](https://github.com/wso2/healthcare-accelerator/releases/tag/v1.0.0)</center>                           |
 
 
 ## Setting Up Integration Layer for Healthcare

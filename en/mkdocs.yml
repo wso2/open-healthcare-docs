@@ -15,7 +15,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Healthcare Solution Documentation
+site_name: Healthcare Solution Documentation
 site_description: Documentation for WSO2 Healthcare Solution Accelerator
 site_author: WSO2
 site_url: https://oh.docs.wso2.com/en/latest/
@@ -63,10 +63,11 @@ nav:
     - Manual installation: install-and-setup/manual.md
     # - Deploy on Docker: install-and-setup/deploy-docker.md
     # - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
-    - Update the Accelerator: 
-      - WSO2 Update tool overview: install-and-setup/updates/overview.md
-      - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
-      - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
+    # TODO: Uncomment the following after onboarding the accelerator to U2
+    # - Update the Accelerator: 
+    #   - WSO2 Update tool overview: install-and-setup/updates/overview.md
+    #   - How to use WSO2 Update tool: install-and-setup/updates/update-tool.md
+    #   - How to update OH accelerator: install-and-setup/updates/update-accelerators.md
   - Learn:
     - Working with FHIR:
       - Overview of FHIR: fhir/guides/overview-of-fhir.md

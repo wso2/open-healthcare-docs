@@ -138,6 +138,7 @@
 .md-header__source,
 .md-header__option {
     color: var(--md-primary-heder-fg-color);
+    font-weight: 400;
 }
 
 header>.md-grid,

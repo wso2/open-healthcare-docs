@@ -20,12 +20,12 @@ Linux based Docker image for WSO2 Healthcare Solution API Manager version `4.0.0
 
 > The local copy of the `apim` directory will be referred to as `AM_DOCKERFILE_HOME` from this point onwards.
 
-##### 2. Place the chosen Open Healthcare accelerators and custom artifacts in the image build context.
+##### 2. Place the chosen Healthcare accelerators and custom artifacts in the image build context.
 
-- Place the chosen version of the [Open Healthcare API Manager accelerator artifact](https://github.com/wso2-enterprise/open-healthcare-apim/releases)
+- Place the chosen version of the [Healthcare API Manager accelerator artifact](https://github.com/wso2-enterprise/open-healthcare-apim/releases)
   in the `<AM_DOCKERFILE_HOME>/resources/accelerator` directory.
 
-- [Optional] Place any customer specific Open Healthcare artifacts in the `<AM_DOCKERFILE_HOME>/resources/healthcare`
+- [Optional] Place any customer specific Healthcare artifacts in the `<AM_DOCKERFILE_HOME>/resources/healthcare`
   directory. The artifacts need to be placed in the aforementioned directory in such a way that, they resemble the
   directory structure within the product pack.
 
@@ -62,7 +62,7 @@ The aforementioned Dockerfile build arguments are explained below.
 
   By default, this is set to the latest U2 Update level tag `4.0.0.0`.
 
-- `OH_ACCELERATOR_VERSION`: Open Healthcare API Manager accelerator release version deployed in step [2].
+- `OH_ACCELERATOR_VERSION`: Healthcare API Manager accelerator release version deployed in step [2].
 
 ##### 4. Running the Docker image.
 
@@ -93,12 +93,12 @@ Linux based Docker image for WSO2 Healthcare Solution Micro Integrator version `
 
 > The local copy of the `micro-integrator` directory will be referred to as `MI_DOCKERFILE_HOME` from this point onwards.
 
-##### 2. Place the chosen Open Healthcare accelerators and custom artifacts in the image build context.
+##### 2. Place the chosen Healthcare accelerators and custom artifacts in the image build context.
 
-- Place the chosen version of the [Open Healthcare Micro Integrator accelerator artifact](https://github.com/wso2-enterprise/open-healthcare-integration/releases)
+- Place the chosen version of the [Healthcare Micro Integrator accelerator artifact](https://github.com/wso2-enterprise/open-healthcare-integration/releases)
   in the `<MI_DOCKERFILE_HOME>/resources/accelerator` directory.
 
-- [Optional] Place any customer specific Open Healthcare artifacts in the `<MI_DOCKERFILE_HOME>/resources/healthcare`
+- [Optional] Place any customer specific Healthcare artifacts in the `<MI_DOCKERFILE_HOME>/resources/healthcare`
   directory. The artifacts need to be placed in the aforementioned directory in such a way that, they resemble the
   directory structure within the product pack.
 
@@ -135,7 +135,7 @@ if you want to refer to a particular Update level, the pattern would be `4.0.0.<
 
 By default, this is set to the latest U2 Update level tag `4.0.0.0`.
 
-- `OH_ACCELERATOR_VERSION`: Open Healthcare Micro Integrator accelerator release version deployed in step [2].
+- `OH_ACCELERATOR_VERSION`: Healthcare Micro Integrator accelerator release version deployed in step [2].
 
 ##### 4. Running the Docker image.
 

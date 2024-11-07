@@ -15,7 +15,7 @@ With WSO2 Healthcare Solution you can easily,
 - Allow third-party developers to consume FHIR APIs through the Developer Portal.
 - Using APIM as the API management layer to manage the FHIR API and to expose it to consumers.
 
-WSO2 Healthcare Solution consists of an API Management component that has been developed using WSO2 API Manager as the base product and installing Healthcare related modules using the Open Healthcare APIM accelerator distribution.
+WSO2 Healthcare Solution consists of an API Management component that has been developed using WSO2 API Manager as the base product and installing Healthcare related modules using the Healthcare APIM accelerator distribution.
 
 This section discusses the basic steps and the key concepts of FHIR APIs in the WSO2 Healthcare Solution.
 
@@ -46,7 +46,7 @@ If you have already built your FHIR integration service, you can follow the step
 
 ## Explore the FHIR API
 
-1. Sign in to Open Healthcare Developer Portal.
+1. Sign in to Healthcare Developer Portal.
    <img src="../../../assets/img/guildes/exposing-an-api/oh-developer-portal.png" width="700">
 
 

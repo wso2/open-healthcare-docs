@@ -37,7 +37,7 @@ Following are the headers and claims the client will use to generate the JWT ass
 
 ### Configurations
 
-The following configurations will be added to the <code>&lt;OH\_APIM\_HOME&gt;/repository/conf/deployment.toml</code>file upon applying the Open Healthcare accelerator.
+The following configurations will be added to the <code>&lt;OH\_APIM\_HOME&gt;/repository/conf/deployment.toml</code>file upon applying the Healthcare accelerator.
 ```
 _[[event\_listener]]_
 

@@ -1,1 +1,1 @@
-# Open healthcare - Quick start 
+# Healthcare - Quick start 

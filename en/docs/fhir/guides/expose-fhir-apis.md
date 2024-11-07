@@ -16,7 +16,7 @@ With WSO2 Healthcare Solution, you can easily,
 - Build custom integration flows to transform legacy data formats into FHIR resources and expose them as FHIR APIs.
 - Allow 3rd party developers to consume FHIR APIs through the Developer Portal.
 
-WSO2 Healthcare Solution consists of an API Management component which has been developed using WSO2 API Manager as the base product and installing Healthcare related modules via the Open Healthcare APIM accelerator distribution.
+WSO2 Healthcare Solution consists of an API Management component which has been developed using WSO2 API Manager as the base product and installing Healthcare related modules via the Healthcare APIM accelerator distribution.
 
 This section discusses the basic steps and the key concepts of FHIR APIs in the WSO2 Healthcare Solution.
 
