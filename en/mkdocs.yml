@@ -61,7 +61,6 @@ nav:
   - Install and setup:
     # - Deployment methods: install-and-setup/deployment.md
     - Manual installation: install-and-setup/manual.md
-    - Enable a workflow: install-and-setup/enable-workflow.md
     # - Deploy on Docker: install-and-setup/deploy-docker.md
     # - Deploy on Kubernetes: install-and-setup/deploy-kubernetes.md
     # TODO: Uncomment the following after onboarding the accelerator to U2
@@ -117,6 +116,9 @@ nav:
     - Securing Health APIs:
       - SMART on FHIR: secure-health-apis/guides/smart-on-fhir.md
       - Configure SMART App Launch: secure-health-apis/guides/getting-patientid.md
+    - Advance Topics:
+      - Enable a workflow: advance-topics/guides/enable-workflow.md
+
 
   # - Use cases:
   #   - Overview: use-cases/use-cases-overview.md
