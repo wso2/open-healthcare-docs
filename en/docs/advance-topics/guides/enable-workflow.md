@@ -9,8 +9,8 @@ Healthcare accelerator provides the following capabilities.
 - Option to approve/reject application creation request. 
 
 ## How to enable the User/Application creation workflow 
-1. Follow the [Installation Steps](../../install-and-setup/manual.md) to install the Healthcare Accelerator. 
-2. After extracting WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`, navigate to `<WSO2_OH_APIM_ACC_HOME>`/conf/config.toml file, and enable the following configuration. 
+1. Follow the [Installation Steps](../../install-and-setup/manual.md) to install the Healthcare APIM Accelerator. 
+2. After extracting WSO2 Healthcare APIM Accelerator to `<WSO2_APIM_HOME>`, navigate to `<WSO2_OH_APIM_ACC_HOME>`/conf/config.toml file, and enable the following configuration. 
 ```
 enable_developer_workflow = true
 ```
