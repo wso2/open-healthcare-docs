@@ -114,8 +114,8 @@ nav:
       - EMR Systems Overview: emr-connectivity/guides/emr-systems-overview.md
       - Connecting with Epic EMR systems: emr-connectivity/guides/emr-connector.md
     - Securing Health APIs:
-      - SMART on FHIR: secure-health-apis/guides/smart-on-fhir.md
-      - Configure SMART App Launch: secure-health-apis/guides/getting-patientid.md
+      - SMART on FHIR: secure-health-apis/guides/smart-on-fhir-overview.md
+      - Configure SMART App Launch: secure-health-apis/guides/configure-smart-on-fhir.md
     - Advanced Topics:
       - Enable a workflow: advance-topics/guides/enable-workflow.md
 
