@@ -51,7 +51,7 @@ theme:
 nav:
   - Home: index.md
   - Get started:
-    - Introduction: get-started/open-healthcare.md
+    - Introduction: get-started/introduction.md
     ## TODO add content to quickstart
     # - Quickstart: get-started/open-healthcare-quickstart.md
     - Architecture: get-started/architecture.md
