@@ -9,9 +9,6 @@ description: This guide explains how to parse and serialize HL7 messages using t
 
 This guide explains how to parse and serialize HL7 messages using the WSO2 Open Healthcare. The WSO2 Open Healthcare provides a set of built-in capabilities to parse and serialize HL7 messages using a user-friendly graphical tooling. The tooling allows you to parse HL7 messages and extract message fields using visual data mapping features.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 ### Ballerina
@@ -20,19 +17,21 @@ These guides use [Ballerina](https://ballerina.io/), a language designed for int
 
 The following example demonstrates how to parse an HL7v2 ADT_A01 message using Ballerina. The example defines a custom patient record and a data mapping function to extract the patient record from an ADT_A01 message.
 
-### Step 1: Set Up Ballerina 
+### Step 1: Create the integration
 
-Before you begin, ensure you have [Ballerina](https://ballerina.io/downloads/installation-options/) installed on your system.
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7MessageParse`.
+4. Set **Project Name** to `hl7-message-parse`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
 ### Step 2: Implement the flow to parse HL7 messages
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
-
-    ```bash
-    $ bal new hl7_message_parse_sample
-    ```
-
-2. Import the required modules and implement the Ballerina program. In this sample, we are using ADT_A01 message from HL7v2.3 version. Therefore, we need to import `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). You need to use parse function from `ballerinax/health.hl7v2` package to parse the HL7 message.
+1. Import the required modules and implement the Ballerina program. In this sample, we are using ADT_A01 message from HL7v2.3 version. Therefore, we need to import `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). You need to use parse function from `ballerinax/health.hl7v2` package to parse the HL7 message.
 
     ```ballerina
     import ballerina/io;
@@ -63,26 +62,33 @@ Before you begin, ensure you have [Ballerina](https://ballerina.io/downloads/ins
     }
     ```
 
-### Step 3: Run the Ballerina Program
+### Step 3: Run and test
 
-Run the Ballerina program using the following command:
+1. Select **Run**.
 
-    ```bash
-    $ bal run
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+2. Check the terminal output to confirm the expected result.
 
 ## Serialize HL7 messages
 
 The following example demonstrates how to serialize(encode) an HL7v2 ADT_A01 message using Ballerina. The example defines a custom patient record and a data mapping function to convert the patient record to an ADT_A01 message. 
 
-### Step 1: Implement the flow to serialize HL7 messages
+### Step 1: Create the integration
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
 
-    ```bash
-    $ bal new hl7_message_serialize_sample
-    ```
-2. Import the required modules and implement the Ballerina program. In this sample we will be populating ADT_A01 message from HL7v2.3 version and serialize it to the wire format.
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7MessageSerialize`.
+4. Set **Project Name** to `hl7-message-serialize`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
+
+### Step 2: Implement the flow to serialize HL7 messages
+
+1. Import the required modules and implement the Ballerina program. In this sample we will be populating ADT_A01 message from HL7v2.3 version and serialize it to the wire format.
 
     ```ballerina
     import ballerinax/health.hl7v2;
@@ -120,10 +126,10 @@ The following example demonstrates how to serialize(encode) an HL7v2 ADT_A01 mes
         io:println(string `Encoded string:  ${check string:fromBytes(encodedQRYA19)}`);
     }
     ```
-### Step 3: Run the Ballerina Program
+### Step 3: Run and test
 
-Run the Ballerina program using the following command:
+1. Select **Run**.
 
-```bash
-$ bal run
-```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+2. Check the terminal output to confirm the expected result.

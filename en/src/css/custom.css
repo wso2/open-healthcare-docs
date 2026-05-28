@@ -705,6 +705,21 @@ table th {
   border-color: #1E293B !important;
 }
 
+/* Landing page hero includes a dedicated search bar */
+.plugin-pages .navbar__search {
+  display: none;
+}
+
+/* Search input (navbar) */
+.DocSearch-Button {
+  border-radius: 10px !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme='dark'] .DocSearch-Button {
+  border-color: #1E293B !important;
+}
+
 /* ================================================================
    CONTENT TYPE BADGES
    ================================================================ */

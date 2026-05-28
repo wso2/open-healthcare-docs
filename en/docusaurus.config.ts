@@ -1,6 +1,11 @@
+// Docusaurus 2.4 loads `docusaurus.config.js` at build time. Keep this file in sync
+// with `docusaurus.config.js`, or edit the JS file directly when changing site config.
+
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+
+const rehypeFixAssetImages = require('./src/plugins/rehype-fix-asset-images');
 
 const baseUrl = process.env.BASE_URL || '/';
 
@@ -24,7 +29,21 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  themes: [],
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        docsRouteBasePath: 'docs',
+        indexBlog: false,
+        indexPages: true,
+        searchBarShortcutHint: false,
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -35,6 +54,7 @@ const config: Config = {
           editUrl: 'https://github.com/wso2/open-healthcare-docs/edit/main/en/',
           showLastUpdateTime: true,
           exclude: ['**/old-content/**'],
+          rehypePlugins: [[rehypeFixAssetImages, {baseUrl}]],
         },
         blog: false,
         theme: {
@@ -72,11 +92,11 @@ const config: Config = {
         srcDark: 'img/logo-dark.svg',
       },
       items: [
-        { to: '/docs/get-started/introduction', label: 'Get started', position: 'left' },
-        { to: '/docs/install-and-setup/manual', label: 'Install and setup', position: 'left' },
+        { to: '/docs/get-started/architecture', label: 'Get Started', position: 'left' },
         { to: '/docs/fhir/guides/overview-of-fhir', label: 'FHIR', position: 'left' },
         { to: '/docs/hl7/guides/overview', label: 'HL7', position: 'left' },
-        { to: '/docs/data-transformation/guides/hl7v2-fhir', label: 'Data transformation', position: 'left' },
+        { to: '/docs/data-transformation/guides/hl7v2-fhir', label: 'Data Transformation', position: 'left' },
+        { to: '/docs/secure-health-apis/guides/smart-on-fhir-overview', label: 'Security', position: 'left' },
         { href: 'https://github.com/wso2/open-healthcare-docs', label: 'GitHub', position: 'right' },
       ],
     },
@@ -84,11 +104,11 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Get started',
+          title: 'Get Started',
           items: [
-            { label: 'Introduction', to: '/docs/get-started/introduction' },
-            { label: 'Architecture', to: '/docs/get-started/architecture' },
-            { label: 'Manual installation', to: '/docs/install-and-setup/manual' },
+            { label: 'Accelerators', to: '/docs/get-started/architecture' },
+            { label: 'Architecture', to: '/docs/architecture/overview' },
+            { label: 'Installation', to: '/docs/install-and-setup/manual' },
           ],
         },
         {
@@ -96,15 +116,17 @@ const config: Config = {
           items: [
             { label: 'FHIR', to: '/docs/fhir/guides/overview-of-fhir' },
             { label: 'HL7', to: '/docs/hl7/guides/overview' },
-            { label: 'Data transformation', to: '/docs/data-transformation/guides/hl7v2-fhir' },
+            { label: 'Data Transformation', to: '/docs/data-transformation/guides/hl7v2-fhir' },
+            { label: 'EMR Connectivity', to: '/docs/emr-connectivity/guides/emr-systems-overview' },
           ],
         },
         {
-          title: 'Advanced',
+          title: 'Operations',
           items: [
-            { label: 'EMR Connectivity', to: '/docs/emr-connectivity/guides/emr-systems-overview' },
-            { label: 'SMART on FHIR', to: '/docs/secure-health-apis/guides/smart-on-fhir-overview' },
-            { label: 'Advanced Topics', to: '/docs/advance-topics/guides/enable-workflow' },
+            { label: 'Security & SMART', to: '/docs/secure-health-apis/guides/smart-on-fhir-overview' },
+            { label: 'Performance', to: '/docs/performance/overview' },
+            { label: 'Compliance', to: '/docs/compliance/overview' },
+            { label: 'Advanced Topics', to: '/docs/advance-topics/overview' },
           ],
         },
       ],
@@ -113,7 +135,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['java', 'bash', 'json', 'yaml'],
+      additionalLanguages: ['java', 'bash', 'json', 'yaml', 'toml', 'markup'],
     },
   } satisfies Preset.ThemeConfig,
 };

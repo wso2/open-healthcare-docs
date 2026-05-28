@@ -8,32 +8,32 @@ description: This guide explains how to populate HL7 messages using the WSO2 Ope
 
 This guide explains how to populate HL7 messages using the WSO2 Open Healthcare. The WSO2 Open Healthcare provides a set of built-in capabilities to construct HL7 messages using a user-friendly graphical tooling. The tooling allows you to create HL7 messages by selecting the message type or feeding the message schema and populating the message fields using visual data mapping features.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 The following example demonstrates how to populate an HL7v2 ADT_A01 message using Ballerina. The example defines a custom patient record and a data mapping function to convert the patient record to an ADT_A01 message.
 
-## Step 1: Set Up Ballerina
+## Step 1: Create the integration
 
-Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system.
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7MessagePopulate`.
+4. Set **Project Name** to `hl7-message-populate`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
 ## Step 2: Implement the flow to populate the HL7 message
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
-
-    ```bash
-    $ bal new hl7_message_populate_sample
-    ```
-2. Import the required modules to the Ballerina program. In this sample we are using ADT_A01 message from HL7v2.3 version. Therefore, we need to import `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages).
+1. Import the required modules to the Ballerina program. In this sample we are using ADT_A01 message from HL7v2.3 version. Therefore, we need to import `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages).
 
     ```ballerina
     import ballerinax/health.hl7v2;
     import ballerinax/health.hl7v23;
     import ballerina/io;
     ```
-3. Create a custom patient record type to represent the patient data. In this sample, the patient record contains the patient's first name, last name, address, and phone number.
+2. Create a custom patient record type to represent the patient data. In this sample, the patient record contains the patient's first name, last name, address, and phone number.
 
     ```ballerina
     // A custom patient record.
@@ -44,7 +44,7 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
         string phoneNumber;
     };
     ```
-4. Define a data mapping function to convert the patient record to an ADT_A01 message. The function takes the patient record as input and returns an ADT_A01 message. You can use the visual data mapper in ballerina to map the patient record fields to the ADT_A01 message fields. You can follow the documentation on <a href="https://ballerina.io/learn/vs-code-extension/implement-the-code/data-mapper/#open-the-data-mapper" target="_blank">Visual Data Mapping</a> to learn more about visual data mapping in Ballerina.
+3. Define a data mapping function to convert the patient record to an ADT_A01 message. The function takes the patient record as input and returns an ADT_A01 message. You can use the visual data mapper in ballerina to map the patient record fields to the ADT_A01 message fields. You can follow the documentation on <a href="https://ballerina.io/learn/vs-code-extension/implement-the-code/data-mapper/#open-the-data-mapper" target="_blank">Visual Data Mapping</a> to learn more about visual data mapping in Ballerina.
 
     ```ballerina
     // Data mapping function to convert a patient record to an ADT_A01 message.
@@ -70,7 +70,7 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
     };
     ```
 
-5. Serialize the ADT_A01 message to a string using the `hl7:encode` function.
+4. Serialize the ADT_A01 message to a string using the `hl7:encode` function.
 
 The complete code sample will look as follows:
 
@@ -119,12 +119,11 @@ function patientToAdtA01(Patient patient) returns hl7v23:ADT_A01 => {
 };
 ```
 
-## Step 3: Run the Ballerina Program
+## Step 3: Run and test
 
-Run the Ballerina program using the following command:
+1. Select **Run**.
 
-    ```bash
-    $ bal run
-    ```
-![Ballerina visual data mapping](/assets/img/guildes/handling-hl7/hl7-data-mapping-bal.png)
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+2. Check the terminal output to confirm the expected result.
 

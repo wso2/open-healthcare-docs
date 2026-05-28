@@ -17,9 +17,6 @@ FHIR resource) that specifies which resource types and interactions are supporte
 :::note
 Supported FHIR version is 4.0.1.
 :::
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 ## Setup and run locally
@@ -30,11 +27,9 @@ These guides use [Ballerina](https://ballerina.io/), a language designed for int
 
     Also, resource details need to be added as described in [Configurations](#resources).
 
-3. Run the project.
+3. Select **Run**.
 
-    ```ballerina
-    bal run
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
 4. Invoke the API.
 
@@ -182,11 +177,9 @@ can support.
 
 2. Configure the Config.toml with relevant configurations mentioned in [Configurations](#configurations).
 
-3. Run the project.
+3. Select **Run**.
 
-    ```ballerina
-    bal run
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
 4. Invoke the API.
 

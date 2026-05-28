@@ -8,26 +8,25 @@ description: This guide explains how to connect to HL7 TCP servers using the WSO
 
 This guide explains how to connect to HL7 TCP servers using the WSO2 Open Healthcare. The WSO2 Open Healthcare provides built-in capabilities to connect to HL7 TCP servers and send HL7 messages over the TCP. The TCP transport is commonly used to exchange HL7 messages between healthcare systems, such as hospital information systems (HIS), laboratory information systems (LIS), and electronic health record (EHR) systems.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 The following example demonstrates how to connect to an HL7 TCP server using Ballerina HL7 client. 
 
-## Step 1: Set Up Ballerina
+## Step 1: Create the integration
 
-Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system.
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7TcpClient`.
+4. Set **Project Name** to `hl7-tcp-client`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
 ## Step 2: Implement the flow to connect to the HL7 TCP server
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
-
-    ```bash
-    $ bal new hl7_tcp_client_sample
-    ```
-
-2. Import the required modules to the Ballerina program and implement the logic to connect to the HL7 TCP server. In this sample, we are using the HL7v2.3 version. Therefore, we need to import the `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). Then QRY_A19 message is constructed and sent to the target HL7 server using Ballerina HL7 client. 
+1. Import the required modules to the Ballerina program and implement the logic to connect to the HL7 TCP server. In this sample, we are using the HL7v2.3 version. Therefore, we need to import the `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). Then QRY_A19 message is constructed and sent to the target HL7 server using Ballerina HL7 client. 
 
     ```ballerina
     import ballerinax/health.hl7v2;
@@ -66,10 +65,8 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
     }
     ```
 
-3. Run the Ballerina program using the following command.
+2. Select **Run** and test.
 
-    ```bash
-    $ bal run
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
-The Ballerina program connects to the HL7 TCP server and sends the QRY_A19 message. The response message received from the server should be printed to the console.
+    The Ballerina program connects to the HL7 TCP server and sends the QRY_A19 message. Check the terminal output to confirm the response message received from the server.

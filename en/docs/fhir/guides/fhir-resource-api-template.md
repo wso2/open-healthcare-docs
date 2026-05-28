@@ -8,9 +8,6 @@ description: This section will cover the approaches to implement and deploy the 
 
 This section will cover the approaches to implement and deploy the different FHIR resources and profiles as service.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 In this implementation pattern, each FHIR resource and profile is represented as an individual service (microservice). A separate Ballerina service will represent a FHIR Resource API. To implement FHIR APIs that support FHIR profiles, it's essential to provide endpoints that client applications can use to interact with your FHIR resources (for creating, reading, updating, deleting, and searching).
@@ -51,10 +48,8 @@ If you want to generate packages for any custom profiles, you can use the [Balle
 - While generating templates, you can use `--included-profile` or `--excluded-profile` to include or exclude whichever profiles you want.
 
 :::
-3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any business logic.
+3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any business logic. See [Implementing FHIR Search](../search/overview.md) and [Implementing FHIR Operations](../operations/overview.md) for how to implement search and custom operations in your facade.
 
-4. To run the service as a standalone server, execute the below command.
+4. Select **Run** to run the service.
 
-    ```bash
-    bal run 
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)

@@ -20,9 +20,6 @@ The key features of the FHIR specification are:
 
 WSO2 Open Healthcare provides a comprehensive set of features/tools to support the FHIR-based digital transformation and compliance needs of any payer, provider, or related business.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 Follow the guides below to learn how to work with FHIR in WSO2 Open Healthcare:

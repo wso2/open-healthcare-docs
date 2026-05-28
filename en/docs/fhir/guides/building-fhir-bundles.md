@@ -8,32 +8,32 @@ description: FHIR Bundles are used to bundle multiple resources into a single re
 
 FHIR Bundles are used to bundle multiple resources into a single request. This guide explains how to build FHIR Bundles in WSO2 Open Healthcare. The WSO2 Open Healthcare provides a set of built-in capabilities to construct FHIR Bundles.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 The following example demonstrates how to build a FHIR Bundle using Ballerina.
 
-## Step 1: Set Up Ballerina
+## Step 1: Create the integration
 
-Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system. Follow the instructions in the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps)  to install Ballerina and set up the development environment.
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `FHIRBundleSample`.
+4. Set **Project Name** to `fhir-bundle-sample`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
 ## Step 2: Implement the logic to build the FHIR Bundle
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
-
-    ```bash
-    $ bal new fhir_bundle_sample
-    ```
-2. Import the required modules to the Ballerina program. In this sample, we are using the FHIR R4 module to build the FHIR Bundle. Therefore, we need to import the `ballerinax/health.fhir.r4` package.
+1. Import the required modules to the Ballerina program. In this sample, we are using the FHIR R4 module to build the FHIR Bundle. Therefore, we need to import the `ballerinax/health.fhir.r4` package.
 
     ```ballerina
     import ballerinax/health.fhir.r4.international401;
     import ballerinax/health.fhir.r4;
     import ballerina/io;
     ```
-3. Implement the logic to initialize FHIR bundle and add FHIR resources to the bundle. In this sample, we are building a FHIR Bundle with a Patient and Observation resources.
+2. Implement the logic to initialize FHIR bundle and add FHIR resources to the bundle. In this sample, we are building a FHIR Bundle with a Patient and Observation resources.
 
     ```ballerina
     import ballerinax/health.fhir.r4.international401;
@@ -55,12 +55,11 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
         io:println(bundle.toString());
     }            
     ```
-## Step 3: Run the Ballerina Program
+## Step 3: Run and test
 
-Run the Ballerina program using the following command:
+1. Select **Run**.
 
-    ```bash
-    $ bal run
-    ```
-![FHIRBase connector](/assets/img/guildes/handling-fhir/fhir-base-connector.png)
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+2. Check the terminal output to confirm the expected result.
 

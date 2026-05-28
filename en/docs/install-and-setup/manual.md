@@ -135,9 +135,6 @@ Mon May 31 22:01:55 +0530 2021 - john - WSO2 Open Healthcare API Manager 1.0.0 A
 
 ## Setting Up Integration Layer for Healthcare
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 ### Ballerina
