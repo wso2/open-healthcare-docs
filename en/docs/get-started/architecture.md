@@ -32,6 +32,6 @@ To expose and govern this data, the platform offers dedicated FHIR APIs for base
 
 ## Security, Privacy, and Agent Identity
 
-WSO2 Open Healthcare supports SMART on FHIR and MTLS to meet healthcare security and privacy requirements. The solution natively supports OpenID Connect and OAuth 2.0 based security controls.
+WSO2 Open Healthcare supports SMART on FHIR and MTLS to meet healthcare security and privacy requirements. The solution natively supports OpenID Connect and OAuth 2.0-based security controls.
 
 These standards are extended to AI-enabled workflows through MCP Auth and Agent Identity Management, enabling precise and consistent authorization rules for AI models. Every transaction, whether initiated by a patient-facing app or an automated AI agent, is governed by fine-grained access control and robust identity management.

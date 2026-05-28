@@ -131,6 +131,7 @@ Returns an `OperationOutcome` with validation results:
 ## Implementation
 
 ```ballerina
+import ballerina/http;
 import ballerinax/health.fhir.r4;
 import ballerinax/health.fhir.r4.validator;
 

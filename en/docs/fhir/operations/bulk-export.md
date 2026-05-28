@@ -97,7 +97,7 @@ Retry-After: 30
 
 Each line in the output file is a complete FHIR resource:
 
-```
+```json
 {"resourceType":"Patient","id":"1","name":[{"family":"Smith"}]}
 {"resourceType":"Patient","id":"2","name":[{"family":"Jones"}]}
 {"resourceType":"Patient","id":"3","name":[{"family":"Williams"}]}

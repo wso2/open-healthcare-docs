@@ -70,7 +70,7 @@ The body of a C-CDA document contains the clinical content, which is organized i
   ```
   To understand what each field contains in the above message, you can refer to the C-CDA [spec](https://hl7.org/fhir/us/ccda/2023May/CF-index.html) for the mappings.
 
-  2. To convert the above hl7v2.3 message to FHIR resource format, add the following code to the main.bal file.
+  2. To convert the above C-CDA message/document to FHIR resource format, add the following code to the main.bal file.
   ```ballerina
   import ballerina/io;
   import ballerinax/health.fhir.r4;

@@ -142,7 +142,7 @@ These are standard FHIR search parameters clients commonly use. When generated f
 
 | Parameter | Type | Example |
 |-----------|------|---------|
-| `identifier` | token | `?identifier=http://example.org/mrn|12345` |
+| `identifier` | token | `?identifier=http://example.org/mrn\|12345` |
 | `family` | string | `?family=Smith` |
 | `given` | string | `?given=John` |
 | `birthdate` | date | `?birthdate=ge1990-01-01` |
@@ -168,7 +168,7 @@ Modifiers change how a parameter is matched. The framework decodes modifiers int
 | `:contains` | Substring match | `name:contains=mit` |
 | `:missing` | Element absent | `phone:missing=true` |
 | `:not` | Negation | `status:not=final` |
-| `:above` / `:below` | Hierarchy match | `code:below=http://snomed.info/sct|73211009` |
+| `:above` / `:below` | Hierarchy match | `code:below=http://snomed.info/sct\|73211009` |
 
 ## Related topics
 

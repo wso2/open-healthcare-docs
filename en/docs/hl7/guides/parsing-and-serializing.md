@@ -72,7 +72,7 @@ The following example demonstrates how to parse an HL7v2 ADT_A01 message using B
 
 ## Serialize HL7 messages
 
-The following example demonstrates how to serialize(encode) an HL7v2 ADT_A01 message using Ballerina. The example defines a custom patient record and a data mapping function to convert the patient record to an ADT_A01 message. 
+The following example demonstrates how to serialize (encode) an HL7v2 QRY_A19 message using Ballerina.
 
 ### Step 1: Create the integration
 
@@ -88,7 +88,7 @@ The following example demonstrates how to serialize(encode) an HL7v2 ADT_A01 mes
 
 ### Step 2: Implement the flow to serialize HL7 messages
 
-1. Import the required modules and implement the Ballerina program. In this sample we will be populating ADT_A01 message from HL7v2.3 version and serialize it to the wire format.
+1. Import the required modules and implement the Ballerina program. In this sample we will be populating a QRY_A19 message from HL7v2.3 and serializing it to the wire format.
 
     ```ballerina
     import ballerinax/health.hl7v2;
@@ -119,7 +119,7 @@ The following example demonstrates how to serialize(encode) an HL7v2 ADT_A01 mes
                 qrd10: [{ce1: "SIIS"}]    
             }
         };
-        // Serialize the ADT_A01 message to a byte array using the encode function. you can use the encoded message to
+        // Serialize the QRY_A19 message to a byte array using the encode function. You can use the encoded message to
         // send over the wire to a HL7 server.
         byte[] encodedQRYA19 = check hl7v2:encode(hl7v23:VERSION, qry_a19);
         // Print the encoded string

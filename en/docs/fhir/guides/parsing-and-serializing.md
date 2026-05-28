@@ -26,7 +26,7 @@ Since Ballerina is designed specifically to address integration use cases, recor
 
 ## Step 2: Implement the flow to parse a FHIR resource
 
-1. Import the required modules to the Ballerina program. In this sample we are using FHIR Patient resource from international base FHIR IG . Therefore, we need to import `ballerinax/health.fhir.r4.internationa401` package. If you are using a different IG of FHIR, you can import the relevant package from the [central](https://central.ballerina.io/search?q=fhir&page=1&m=packages) or generated from the bal [health tool](https://ballerina.io/learn/health-tool/#package-generation).
+1. Import the required modules to the Ballerina program. In this sample we are using FHIR Patient resource from international base FHIR IG . Therefore, we need to import `ballerinax/health.fhir.r4.international401` package. If you are using a different IG of FHIR, you can import the relevant package from the [central](https://central.ballerina.io/search?q=fhir&page=1&m=packages) or generated from the bal [health tool](https://ballerina.io/learn/health-tool/#package-generation).
 
     ```ballerina
     import ballerina/io;

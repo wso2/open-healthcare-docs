@@ -8,7 +8,7 @@ sidebar_position: 4
 ConceptMap resources define mappings between codes in different code systems -- essential for data integration across systems that use different terminologies.
 
 :::note
-The pre-built [terminology service](./overview.md) currently focuses on ValueSet and CodeSystem operations. ConceptMap operations (`$translate`, `$closure`) are not yet available in the service. The FHIR standard defines these operations for future implementation.
+The pre-built [terminology service](./overview.md) currently focuses on ValueSet and CodeSystem operations. ConceptMap operations (`$translate`, `$closure`) are FHIR-standard reference/examples for future implementation — not currently supported by the terminology service.
 :::
 
 ## ConceptMap in FHIR
@@ -25,6 +25,8 @@ A ConceptMap defines relationships between codes in a source code system and cod
 ## $translate
 
 The `$translate` operation translates a code from one system to another using a ConceptMap.
+
+*FHIR-standard reference/example for future implementation — not currently supported by the terminology service.*
 
 ### Request
 
