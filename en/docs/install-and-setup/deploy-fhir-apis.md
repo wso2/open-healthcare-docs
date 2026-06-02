@@ -54,7 +54,7 @@ For standard FHIR R4 APIs without a custom IG, you can skip this step and direct
 
 1. Log in to the WSO2 APIM Publisher Portal at `https://localhost:9443/publisher`.
 
-    ![WSO2 Publisher Portal](../assets/img/guildes/exposing-an-api/oh-publisher-portal.png)
+    ![WSO2 Publisher Portal](../assets/img/guides/exposing-an-api/oh-publisher-portal.png)
 
 2. Click **Create API** and select **Import Open API**.
 
@@ -82,7 +82,7 @@ Ensure the WSO2 APIM gateway can reach the Ballerina FHIR service endpoint. If r
 
 1. Navigate to the Developer Portal at `https://localhost:9443/devportal`.
 
-    ![WSO2 Developer Portal](../assets/img/guildes/exposing-an-api/oh-developer-portal.png)
+    ![WSO2 Developer Portal](../assets/img/guides/exposing-an-api/oh-developer-portal.png)
 
 2. Find the published FHIR API and confirm it appears in the portal.
 3. Invoke the well-known endpoint to verify the FHIR gateway is responding:
