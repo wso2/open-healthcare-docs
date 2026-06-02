@@ -45,7 +45,7 @@
   },
   "overrides": {
     "webpackbar": "7.0.0",
-    "undici": "5.28.4",
+    "undici": "5.28.5",
     "cheerio": "1.0.0-rc.12"
   }
 }
