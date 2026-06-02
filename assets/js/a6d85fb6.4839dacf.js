@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkwso2_open_healthcare_docs=globalThis.webpackChunkwso2_open_healthcare_docs||[]).push([[7743],{1142(s){s.exports=JSON.parse('{"name":"@easyops-cn/docusaurus-search-local","id":"default"}')}}]);

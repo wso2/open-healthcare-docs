@@ -1,0 +1,1 @@
+(globalThis.webpackChunkwso2_open_healthcare_docs=globalThis.webpackChunkwso2_open_healthcare_docs||[]).push([[5741],{5741(){}}]);
