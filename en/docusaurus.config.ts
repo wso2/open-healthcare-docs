@@ -103,7 +103,7 @@ const config: Config = {
           title: 'Advanced',
           items: [
             { label: 'EMR Connectivity', to: '/docs/emr-connectivity/guides/emr-systems-overview' },
-            { label: 'Secure Health APIs', to: '/docs/secure-health-apis/guides/smart-on-fhir-overview' },
+            { label: 'SMART on FHIR', to: '/docs/secure-health-apis/guides/smart-on-fhir-overview' },
             { label: 'Advanced Topics', to: '/docs/advance-topics/guides/enable-workflow' },
           ],
         },

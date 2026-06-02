@@ -147,7 +147,7 @@ const sections: SectionCard[] = [
     iconColor: '#0891B2',
   },
   {
-    title: 'Secure health APIs',
+    title: 'SMART on FHIR',
     description: 'Set up SMART on FHIR and secure healthcare API access.',
     link: '/docs/secure-health-apis/guides/smart-on-fhir-overview',
     icon: <IconReference />,
