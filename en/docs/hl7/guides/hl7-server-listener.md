@@ -9,28 +9,27 @@ description: This guide explains how to implement a HL7 server listener using th
 
 This guide explains how to implement a HL7 server listener using the WSO2 Open Healthcare. The HL7 server listener listens for HL7 messages on a specified port and processes the messages. The HL7 server listener is a key component in the healthcare integration process, as it allows you to receive HL7 messages from external systems and process them according to your requirements.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 ### Ballerina
 
 The following example demonstrates how to implement a HL7 server listener using Ballerina. The example defines a HL7 server listener that listens for HL7 messages on a specified port and processes the messages.
 
-### Step 1: Set Up Ballerina
+### Step 1: Create the integration
 
-Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system.
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7ServerListener`.
+4. Set **Project Name** to `hl7-server-listener`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **TCP Service** under **Integration as API**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
 ### Step 2: Implement the HL7 server listener
 
-1. Create a Ballerina project using the following command. It will create the Ballerina project and the main.bal file can be used to implement the logic.
-
-    ```bash
-    $ bal new hl7_server_listener_sample
-    ```
-
-2. Import the required modules to the Ballerina program and implement the logic to create a HL7 server listener. In this sample, we are using the HL7v2.3 version. Therefore, we need to import the `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). Then the HL7 server listener is created and started to listen for HL7 messages on the specified port.
+1. Import the required modules to the Ballerina program and implement the logic to create a HL7 server listener. In this sample, we are using the HL7v2.3 version. Therefore, we need to import the `ballerinax/health.hl7v23` package. If you are using a different version of HL7, you can import the relevant [package](https://central.ballerina.io/search?q=hl7&page=1&m=packages). Then the HL7 server listener is created and started to listen for HL7 messages on the specified port.
 
     ```ballerina
     import ballerina/io;
@@ -74,8 +73,8 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
     }
     ```
 
-3. Run the Ballerina program using the following command.
+2. Select **Run** and test.
 
-    ```bash
-    $ bal run
-    ```
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+    Check the terminal output to confirm the expected result.

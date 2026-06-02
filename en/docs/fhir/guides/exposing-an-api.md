@@ -39,41 +39,41 @@ If you have already built your FHIR integration service, you can follow the step
 
 1. Download the relevant API definition(OAS) from the WSO2 FHIR API Hub.
 
-    ![Download API from FHIR API Hub](/assets/img/guildes/exposing-an-api/download-api.png)
+    ![Download API from FHIR API Hub](/assets/img/guides/exposing-an-api/download-api.png)
 
-    ![WSO2 Open Healthcare Publisher Portal](/assets/img/guildes/exposing-an-api/oh-publisher-portal.png)
+    ![WSO2 Open Healthcare Publisher Portal](/assets/img/guides/exposing-an-api/oh-publisher-portal.png)
 
-1. Log in to WSO2 OH publisher portal and select [REST API](https://apim.docs.wso2.com/en/latest/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/](https://apim.docs.wso2.com/en/latest/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/))
+1. Log in to WSO2 OH publisher portal and select [REST API](https://apim.docs.wso2.com/en/latest/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/)
 2. Create an API by clicking **Import Open API** and uploading the OAS file (both JSON and YAML formats are supported.)
 3. Verify the basic information and enter the endpoint URL for the existing FHIR Integration API.
 4. Click the **Create** button and configure the API.
     1. Select business plan so that API subscribers can subscribe.
-    2. Configure a target gateway and [deploy an API](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/])
+    2. Configure a target gateway and [deploy an API](https://apim.docs.wso2.com/en/latest/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
     3. Publish the API so that App developers can subscribe and consume the API from the Developer Portal.
 
 ## Explore the FHIR API
 
 1. Sign in to Healthcare Developer Portal.
 
-    ![WSO2 Open Healthcare Developer Portal](/assets/img/guildes/exposing-an-api/oh-developer-portal.png)
+    ![WSO2 Open Healthcare Developer Portal](/assets/img/guides/exposing-an-api/oh-developer-portal.png)
 
 1. Navigate to Applications tab and to create an application, click on **Add New Application** button
-    1. An application is a logical representation of a physical application such as a mobile app, web app, device, etc. An API subscription is created, authenticated, and managed through an application. Find out more about applications by clicking [here](https://apim.docs.wso2.com/en/4.1.0/consume/manage-application/create-application]).
+    1. An application is a logical representation of a physical application such as a mobile app, web app, device, etc. An API subscription is created, authenticated, and managed through an application. Find out more about applications in [Create an application](https://apim.docs.wso2.com/en/4.1.0/consume/manage-application/create-application).
 
-        ![Add new application in Developer Portal](/assets/img/guildes/exposing-an-api/add-new-application.png)
+        ![Add new application in Developer Portal](/assets/img/guides/exposing-an-api/add-new-application.png)
 
 1. Subscribe to the respective API/s by clicking the **Subscriptions** Menu
 
-    ![API subscription](/assets/img/guildes/exposing-an-api/subscription.png)
+    ![API subscription](/assets/img/guides/exposing-an-api/subscription.png)
 
 1. Generate application keys by navigating to the **Production Keys** menu
 
-    ![Production keys](/assets/img/guildes/exposing-an-api/product-key.png)
+    ![Production keys](/assets/img/guides/exposing-an-api/product-key.png)
 
 1. Click on the **Tryout** menu and add the generated token to Invoke the API
 
-    ![API try-out](/assets/img/guildes/exposing-an-api/tryout.png)
+    ![API try-out](/assets/img/guides/exposing-an-api/tryout.png)
 
-    ![Invoke FHIR API](/assets/img/guildes/exposing-an-api/get.png)
+    ![Invoke FHIR API](/assets/img/guides/exposing-an-api/get.png)
 
 Refer [RESTful FHIR](https://docs.google.com/document/d/1aX9FBCzs36Z3rBe1ImhG83J2w1PjwFviAf1dIdE9zTs/edit#heading=h.o3o4782vln88) documentation for more details.

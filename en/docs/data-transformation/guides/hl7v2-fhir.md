@@ -1,25 +1,32 @@
 ---
 sidebar_position: 2
-title: "Mapping ADT_A01 Message to FHIR r4"
+title: "Mapping HL7v2 Message to FHIR"
 description: The hl7v2 to fhirr4 library is designed to facilitate the conversion of healthcare data from HL7v2 standard to the FHIR R4 standard.
 ---
 
 ## Introduction
 The hl7v2 to fhirr4 library is designed to facilitate the conversion of healthcare data from HL7v2 standard to the FHIR R4 standard. In the healthcare industry, interoperability and data exchange between different systems are critical for ensuring accurate and efficient patient care. This library provides developers with a straightforward way to transform HL7v2 messages into FHIR R4 resources, enabling seamless integration with modern healthcare systems that utilize the FHIR standard.
 
-## Mapping ADT_A01 Message to FHIR r4
+## Mapping HL7v2 Message to FHIR
 In hl7v2, there are Messages, Segments and Data types that we can map to FHIR. In this example let's see how we can map ADT_A01.PID segment to FHIR Patient. 
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
-1. To create a new ballerina project, execute the following command.
-```bash
-bal new v2toFHIR
-```
-2. Now our Ballerina project has been created. We are now going to transform the following hl7v2.3 message. Currently, hl7v2 versions are available from v2.1 to v2.8.
+### Create the integration
+
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `HL7v2ToFHIR`.
+4. Set **Project Name** to `hl7v2-to-fhir`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
+
+### Add the logic
+
+1. We are now going to transform the following hl7v2.3 message. Currently, hl7v2 versions are available from v2.1 to v2.8.
 ```text
 MSH|^~\&|AccMgr|1|||20050110045504||ADT^A01|599102|P|2.3
 EVN|A01|20050110045502
@@ -27,7 +34,7 @@ PID||1234311|||Doe^John^Leo^^Mr^PhD^M^P||1989-04-29|F|||1234 MAIN ST^APT 204^HOU
 ```
 To understand what each field contains in the above message, you can refer to the hl7 [spec](https://hl7.org/fhir/uv/v2mappings/2024Jan/mappings.html) for the mappings.
 
-3. To convert the above hl7v2.3 message to FHIR resource format, add the following code to the main.bal file.
+2. To convert the above hl7v2.3 message to FHIR resource format, add the following code to the main.bal file.
 ```ballerina
 import ballerina/io;
 import ballerinax/health.hl7v2.utils.v2tofhirr4;
@@ -46,7 +53,11 @@ public function main() returns error?{
 }
 ```
 
-4. Run the Ballerina code using `bal run` command. You will get the following FHIR bundle as the response.
+3. Select **Run** and test.
+
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+    Check the terminal output. You will get the following FHIR bundle as the response.
 ```json
 {
     "resourceType": "Bundle",
@@ -162,10 +173,9 @@ public function main() returns error?{
 ```
 
 ## Using Pre-built Services
-1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/v2-to-fhirr4-service) repository and start the v2-to-fhirr4-service. 
-```bash
-bal run
-```
+1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/v2-to-fhirr4-service) repository and start the v2-to-fhirr4-service. Select **Run**.
+
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
 2. Invoke the API as below. 
 ```bash
@@ -317,10 +327,9 @@ return patient;
 
 ```
 
-3. Start the Ballerina service
-```bash
-bal run
-```
+3. Select **Run** to start the Ballerina service.
+
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
 4. Invoke the API as below. 
 ```bash

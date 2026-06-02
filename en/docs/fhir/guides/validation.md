@@ -6,34 +6,40 @@ description: FHIR validation involves checking FHIR resources against defined pr
 
 # Validation
 
- FHIR validation involves checking FHIR resources against defined profiles, extensions, and structure definitions to ensure that the data is accurate, consistent, and compliant with the expected formats and standards. It is a crucial process in ensuring that healthcare data adheres to the FHIR standard's rules and constraints. FHIR validation helps to identify errors, enforce data integrity, and maintain interoperability across different healthcare systems.
+FHIR validation involves checking FHIR resources against defined profiles, extensions, and structure definitions to ensure that the data is accurate, consistent, and compliant with the expected formats and standards. It is a crucial process in ensuring that healthcare data adheres to the FHIR standard's rules and constraints. FHIR validation helps to identify errors, enforce data integrity, and maintain interoperability across different healthcare systems.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
+The FHIR validator package provides the following capabilities:
+
+- **Resource Parsing** -- Parses serialized FHIR resources (usually JSON format).
+- **Schema/Structure Validation** -- Checks whether the resource adheres to the syntactic rules and structure defined by the FHIR specification.
+- **Profile Validation** -- Ensures that the resource conforms to associated profiles that define specific rules and constraints.
+- **Value Domain Validation** -- Examines values within the resource to ensure they are within acceptable ranges, formats, and constraints (e.g., valid code values for patient gender).
+- **Constraint Validation** -- Checks element cardinalities and constraints such as regex patterns.
+- **Error Reporting** -- Generates detailed error reports highlighting issues in the resource.
+
+## Step 1: Create the integration
 
 
-Validating a FHIR resource(s) in Ballerina is supported with the FHIR package. Following example demonstrates how to validate a FHIR Patient resource using Ballerina.
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `FHIRValidation`.
+4. Set **Project Name** to `fhir-validation`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
 
-## Step 1: Set Up Ballerina
+    ![Add Artifact](/assets/img/common/add-artifact.png)
 
-Before you begin, ensure you have <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina</a> installed on your system. Follow the instructions in the [Installation Steps](../../install-and-setup/manual.md#ballerina-installation-steps)  to install Ballerina and set up the development environment.
+## Step 2: Implement FHIR Resource Validation
 
-## Step 2: Implement the flow to populate a FHIR resource
-
-1. Create a new Ballerina project using the following command. It will create the Ballerina project and the `main.bal` file can be used to implement the logic.
-
-    ```bash
-    $ bal new fhir_validation_sample
-    ```
-2. Import the required modules to the Ballerina program.
+1. Import the required modules to the Ballerina program.
 
     ```ballerina
     import ballerina/io;
     import ballerinax/health.fhir.r4;
     import ballerinax/health.fhir.r4.validator;
     ```
-3. Implement the logic to validate the FHIR resources. In this sample, we are validating a sample FHIR json to FHIR Patient resource. We are using the `validate()` function to validate the FHIR resource. This sample demonstrates how to validate a FHIR Patient resource with an invalid birth date.
+
+2. Implement validation logic. The following example validates a FHIR Patient resource with an invalid birth date against the base FHIR resource model. The validator automatically determines the resource type from the payload and validates against its base profile.
 
     ```ballerina
     import ballerina/io;
@@ -43,27 +49,27 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
     public function main() returns error? {
 
         json body = {
-        "resourceType": "Patient",
-        "id": "591841",
-        "meta": {
+          "resourceType": "Patient",
+          "id": "591841",
+          "meta": {
             "versionId": "1",
             "lastUpdated": "2020-01-22T05:30:13.137+00:00",
             "source": "#KO38Q3spgrJoP5fa"
-        },
-        "identifier": [ {
+          },
+          "identifier": [ {
             "type": {
-            "coding": [ {
+              "coding": [ {
                 "system": "http://hl7.org/fhir/v2/0203",
                 "code": "MR"
-            } ]
+              } ]
             },
             "value": "18e5fd39-7444-4b30-91d4-57226deb2c78"
-        } ],
-        "name": [ {
+          } ],
+          "name": [ {
             "family": "Cushing",
             "given": [ "Caleb" ]
-        } ],
-        "birthDate": "jdlksjldjl"
+          } ],
+          "birthDate": "jdlksjldjl"
         };
 
         r4:FHIRValidationError? validateFHIRResourceJson = validator:validate(body);
@@ -74,12 +80,24 @@ Before you begin, ensure you have <a href="https://ballerina.io/downloads/instal
     }
     ```
 
-## Step 3: Run the Ballerina Program
+    The `validate` function returns `FHIRValidationError` when validation fails.
 
-Run the Ballerina program using the following command:
+3. To validate against a **specific FHIR profile** resource model, pass the profile type as the second argument. See [Profile Validation](../validation/profile-validation.md) for details.
 
-    ```bash
-    $ bal run
+    ```ballerina
+    import ballerinax/health.fhir.r4.international401;
+
+    r4:FHIRValidationError? result = validator:validate(body, international401:Patient);
     ```
-![FHIRBase connector](/assets/img/guildes/handling-fhir/fhir-base-connector.png)
 
+## Step 3: Run and test
+
+1. Select **Run**.
+
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+2. Check the terminal output to confirm the expected result.
+
+## Terminology Validation
+
+The validator also supports terminology validation, which checks that coded elements use values from the correct code systems and value sets. This requires configuring a terminology service endpoint. See [Terminology Validation](../validation/terminology-validation.md) for setup instructions and details.

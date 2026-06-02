@@ -94,5 +94,5 @@ It is recommended that the FHIR APIs that are developed to be consumed by privat
 It is also a best practice to use the PKCE extension when using the Authorization Code grant. The PKCE extension is another layer of security on top of the Authorization Code grant. This extra layer of security is recommended because it is possible for an Authorization Code to get intercepted.<br /> To avoid this, when requesting the Authorization Code from the authorization endpoint, we send a code challenge in the request. The code challenge is the hashed version of an attribute called the code verifier.<br /> Once the client gets the Authorization Code and then makes the token request, it sends this code verifier as well as a request parameter. The server will issue the token only if the code verifier is verified against the previously sent code challenge. More information on PKCE can be found [here](https://www.rfc-editor.org/rfc/rfc7636#page-10)
 
 Support for PKCE has been introduced in APIM 4.1.0. click [here](https://apim.docs.wso2.com/en/latest/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys-with-pkce-enabled]) for more details.
-![smartbeauth](/assets/img/guildes/securing-fhir-api/smartbeauth.png)
+![smartbeauth](/assets/img/guides/securing-fhir-api/smartbeauth.png)
 

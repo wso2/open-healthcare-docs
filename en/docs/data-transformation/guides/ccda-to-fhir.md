@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: "Mapping C-CDA Patient to FHIR r4"
+title: "Mapping C-CDA to FHIR"
 description: The ccda-to-fhir transformation library is designed to convert clinical documents structured in the Consolidated Clinical Document Architecture (C-CDA) format into FHIR format.
 ---
 
@@ -10,21 +10,28 @@ The ccda-to-fhir transformation library is designed to convert clinical document
 
 This library provides a streamlined and efficient way for developers to convert CCD-A documents into the FHIR R4 format, enabling seamless integration with FHIR-based healthcare systems. 
 
-## Mapping C-CDA Patient to FHIR r4
+## Mapping C-CDA to FHIR
 The body of a C-CDA document contains the clinical content, which is organized into structured sections. Each section corresponds to different types of clinical information, such as Patient information, Immunizations, Medications, Allergies, Problems, Procedures. Each section in the body is represented as an XML element with a specific structure, typically including a title, code (for standardized representation), and entries. Entries are sub-elements that provide detailed information, such as specific medications or results.
 
-:::note
-These guides use [Ballerina](https://ballerina.io/), a language designed for integration and network services, to build healthcare integrations as microservices.
-:::
 
 
 ### Ballerina
 
-  1. To create a new ballerina project, execute the following command.
-  ```bash
-  bal new v2toFHIR
-  ```
-  2. Now our Ballerina project has been created. We are now going to transform the following C-CDA message. 
+#### Create the integration
+
+
+1. Open WSO2 Integrator.
+2. Select **Create** in the **Create New Integration** card.
+3. Set **Integration Name** to `CCDAToFHIR`.
+4. Set **Project Name** to `ccda-to-fhir`.
+5. Select **Create Integration**.
+6. Select **Add Artifact** and select **Automation**.
+
+    ![Add Artifact](/assets/img/common/add-artifact.png)
+
+#### Add the logic
+
+  1. We are now going to transform the following C-CDA message. 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc">
@@ -63,7 +70,7 @@ These guides use [Ballerina](https://ballerina.io/), a language designed for int
   ```
   To understand what each field contains in the above message, you can refer to the C-CDA [spec](https://hl7.org/fhir/us/ccda/2023May/CF-index.html) for the mappings.
 
-  3. To convert the above hl7v2.3 message to FHIR resource format, add the following code to the main.bal file.
+  2. To convert the above C-CDA message/document to FHIR resource format, add the following code to the main.bal file.
   ```ballerina
   import ballerina/io;
   import ballerinax/health.fhir.r4;
@@ -114,7 +121,11 @@ These guides use [Ballerina](https://ballerina.io/), a language designed for int
   }
   ```
 
-  4. Run the Ballerina code using `bal run` command. You will get the following FHIR bundle as the response.
+  3. Select **Run** and test.
+
+      ![Run integration](/assets/img/common/run-ballerina-program.png)
+
+      Check the terminal output. You will get the following FHIR bundle as the response.
   ```json
   {
   "resourceType": "Bundle",
@@ -174,10 +185,9 @@ These guides use [Ballerina](https://ballerina.io/), a language designed for int
 
 This service can be used to transform C-CDA messages into FHIR resources.
 
-1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/ccda-to-fhirr4-service) repository and start the ccda-to-fhirr4-service. 
-```bash
-bal run
-```
+1. You can clone the [open-healthcare-prebuilt-services](https://github.com/wso2/open-healthcare-prebuilt-services/tree/main/transformation/ccda-to-fhirr4-service) repository and start the ccda-to-fhirr4-service. Select **Run**.
+
+    ![Run integration](/assets/img/common/run-ballerina-program.png)
 
 2. Invoke the API as below. 
 ```
