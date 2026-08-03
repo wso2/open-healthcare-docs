@@ -72,5 +72,5 @@ Pre-built use cases reduce implementation from months of custom build to weeks o
 
 - **Patient/Member 360 and Single Login** — Identity-led, AI-driven single customer profile that provides context to providers and payers.
 - **Revenue Optimization through Prior Authorization Automation** — Conversational AI agents, Prior Authorization API, CDS Service, Patient Support agent, and Healthcare Copilot to automate manual prior-authorization tasks.
-- **AI-driven Healthcare Interoperability** — Compliance-ready integration with EMRs, EHRs, LLMs, and HIEs via a FHIR-based API platform, adhering to HIPAA, CMS-0057, and G10 guidelines.
+- **AI-driven Healthcare Interoperability** — Compliance-ready integration with EMRs, EHRs, LLMs, and HIEs via a FHIR-based API platform that supports CMS-0057-F and ONC §170.315(g)(10) (G10) interoperability requirements; HIPAA obligations remain implementation considerations for deployments that handle protected health information.
 - **IT Cost Optimization through Vendor and Platform Consolidation** — Single-pane-of-glass consolidation of API gateways, IAM systems, and integration platforms for M&A and AI readiness.

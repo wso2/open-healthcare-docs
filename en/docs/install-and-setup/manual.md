@@ -195,8 +195,17 @@ This section provides step-by-step instructions to configure WSO2 Identity Serve
 2. Go to **Key Managers** on the left main menu.
 ![add-key-manager.png](../assets/img/get-started/add-key-manager.png)
 3. Configure [WSO2 IS 7.x as a keymanager](https://apim.docs.wso2.com/en/latest/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/). Enable role creation in WSO2 Identity Server 7.
+
+   Use the following placeholders in the endpoints below:
+
+   | Placeholder | Description |
+   |---|---|
+   | `<WSO2_IS_HOST>` | Hostname of the WSO2 Identity Server used as the Key Manager (for local setups, typically `localhost`). Port `9453` is the Identity Server HTTPS port when API Manager uses `9443` (for example, Admin Portal at `https://localhost:9443/admin` and IS Console at `https://localhost:9453/console`). |
+   | `<IAM_SERVICE_EXTENSION_BASE>` | Hostname where the `iam-service-extension` Ballerina service is running (for local setups, typically `localhost`). |
+   | `<PORT>` | Listen port of the `iam-service-extension` service (default `9093`). |
+
 :::tip
-You can configure well-known URL (`https://<WSO2_APIM_BASE>:9453/oauth2/token/.well-known/openid-configuration`) and import Key manager endpoints.
+You can configure well-known URL (`https://<WSO2_IS_HOST>:9453/oauth2/token/.well-known/openid-configuration`) and import Key manager endpoints.
 :::
 
 :::note
