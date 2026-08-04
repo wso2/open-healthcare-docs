@@ -1,10 +1,10 @@
 ---
 sidebar_position: 2
-title: "How to update Healthcare solution?"
+title: "Updating open healthcare accelerators"
 description: Usually Healthcare accelerators are the implementation which accelerate and facilitate the FHIR related features, these accelerators will be applied on top of the wso2 base product.
 ---
 
-# How to update Healthcare solution?
+# Updating open healthcare accelerators
 
 Usually Healthcare accelerators are the implementation which accelerate and facilitate the FHIR related features, these accelerators will be applied on top of 
 the WSO2 base products (such as APIM and MI) to address healthcare domain requirements.

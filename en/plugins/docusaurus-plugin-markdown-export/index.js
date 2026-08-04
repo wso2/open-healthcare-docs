@@ -14,6 +14,8 @@ module.exports = function pluginMarkdownExport(context, options = {}) {
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) {
+        // Skip excluded content directories
+        if (entry.name === 'old-content') continue;
         files.push(...findMarkdownFiles(fullPath, baseDir));
       } else if (entry.isFile() && /\.(md|mdx)$/.test(entry.name)) {
         // Skip hidden files and category files

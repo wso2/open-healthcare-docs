@@ -29,6 +29,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  plugins: ['./plugins/docusaurus-plugin-markdown-export'],
   themes: [
     [
       '@easyops-cn/docusaurus-search-local',

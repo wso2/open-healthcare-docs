@@ -32,3 +32,4 @@ Follow the guides below to learn how to work with FHIR in WSO2 Open Healthcare:
 - [Connecting to FHIR servers](../../fhir/guides/fhir-repository-connector.md)
 - [Bulk Data Export](../../fhir/guides/bulk-data-export.md)
 - [Building your own FHIR Facade](../../fhir/guides/fhir-resource-api-template.md)
+- [Quick start guide](../../get-started/open-healthcare-quickstart.md) — Patient API facade with the WSO2 FHIR Server repository

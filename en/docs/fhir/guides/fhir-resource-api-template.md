@@ -50,6 +50,8 @@ If you want to generate packages for any custom profiles, you can use the [Balle
 :::
 3. After you have generated the templates, you should implement the business logic to fetch and process required data. Because, by default these templates do not have any business logic. See [Implementing FHIR Search](../search/overview.md) and [Implementing FHIR Operations](../operations/overview.md) for how to implement search and custom operations in your facade.
 
+   For an end-to-end Patient API facade that uses the international R4 profile and the [WSO2 FHIR Server](https://github.com/wso2/fhir-server) repository, follow the [Quick start guide](../../get-started/open-healthcare-quickstart.md).
+
 4. Select **Run** to run the service.
 
     ![Run integration](/assets/img/common/run-ballerina-program.png)

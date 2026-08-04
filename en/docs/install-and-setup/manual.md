@@ -1,8 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 title: "Manual Installation Guide"
 description: Provide your wso2 credentials and update the tool.
-pagination_next: install-and-setup/configure-km
 ---
 import Tabs from '@theme/Tabs';             
 import TabItem from '@theme/TabItem';
@@ -187,3 +186,30 @@ Here Server A can be either IS, APIM or any other product.
     ```bash
     ./api-manager.sh
     ```
+
+## Configure IS as Key Manager
+
+This section provides step-by-step instructions to configure WSO2 Identity Server 7.x as a Key Manager for WSO2 API Manager, enabling secure API access and management.
+
+1. Sign in to the Admin Portal of API Manager at https://localhost:9443/admin.
+2. Go to **Key Managers** on the left main menu.
+![add-key-manager.png](../assets/img/get-started/add-key-manager.png)
+3. Configure [WSO2 IS 7.x as a keymanager](https://apim.docs.wso2.com/en/latest/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/). Enable role creation in WSO2 Identity Server 7.
+
+   Use the following placeholders in the endpoints below:
+
+   | Placeholder | Description |
+   |---|---|
+   | `<WSO2_IS_HOST>` | Hostname of the WSO2 Identity Server used as the Key Manager (for local setups, typically `localhost`). Port `9453` is the Identity Server HTTPS port when API Manager uses `9443` (for example, Admin Portal at `https://localhost:9443/admin` and IS Console at `https://localhost:9453/console`). |
+   | `<IAM_SERVICE_EXTENSION_BASE>` | Hostname where the `iam-service-extension` Ballerina service is running (for local setups, typically `localhost`). |
+   | `<PORT>` | Listen port of the `iam-service-extension` service (default `9093`). |
+
+:::tip
+You can configure well-known URL (`https://<WSO2_IS_HOST>:9453/oauth2/token/.well-known/openid-configuration`) and import Key manager endpoints.
+:::
+
+:::note
+Use the introspection endpoint in the iam-service-extension service to enable healthcare specific introspection response. `https://<IAM_SERVICE_EXTENSION_BASE>:<PORT>/introspect`.
+:::
+4. Go to the list of Key Managers and select **Resident Key Manager**.
+5. Disable the Resident Key Manager.

@@ -14,7 +14,7 @@ In this guide, we will walk through the steps to configure the SMART on FHIR flo
 
 ## Prerequisites
 1. Install and setup the [WSO2 API Manager for Healthcare](../../install-and-setup/manual.md#setting-up-wso2-api-manager-for-healthcare) and [WSO2 Identity for Healthcare](../../install-and-setup/manual.md#setting-up-wso2-identity-server-for-healthcare).
-2. Setup [IS as Third Party Key Manager](../../install-and-setup/configure-km) for APIM.
+2. Setup [IS as Third Party Key Manager](../../install-and-setup/manual.md#configure-is-as-key-manager) for APIM.
 3. Running FHIR server.
 4. Published FHIR APIs in WSO2 APIM.
 

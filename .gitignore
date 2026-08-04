@@ -287,3 +287,7 @@ site*/
 # Docusaurus (generated locally; do not commit)
 en/.docusaurus/
 en/build/
+en/static/docs/
+
+# Local quickstart verification workspace
+.quickstart-work/

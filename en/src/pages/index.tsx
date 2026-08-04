@@ -32,23 +32,38 @@ function IconDevelop(): ReactNode {
   );
 }
 
-function IconConnectors(): ReactNode {
+function IconFHIR(): ReactNode {
+  // Flame motif — the recognizable FHIR brand mark
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v18" />
-      <path d="M3 12h18" />
-      <rect x="9" y="9" width="6" height="6" rx="1.5" />
+      <path d="M12 2c2 3.5 3 6 3 8.5A5.5 5.5 0 0112 21a5.5 5.5 0 01-3-10.5C10.5 8 11 5.5 12 2z" />
+      <path d="M12 14c1.2 0 2.2.9 2.2 2.1S13.2 18.2 12 18.2" />
     </svg>
   );
 }
 
-function IconGenAI(): ReactNode {
+function IconHL7(): ReactNode {
+  // Segmented message motif — HL7v2 pipe-delimited messaging
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M7 9h10" />
-      <path d="M7 13h6" />
-      <path d="M16 13l2 2 3-3" />
+      <path d="M8 5v14" />
+      <path d="M3 10h18" />
+      <path d="M3 15h18" />
+      <path d="M12 5v14" />
+      <path d="M16 5v14" />
+    </svg>
+  );
+}
+
+function IconSmartOnFhir(): ReactNode {
+  // App + keyhole — SMART app launch and secure authorization
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="7" y="2" width="10" height="20" rx="2" />
+      <path d="M10 5.5h4" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M12 14v2.5" />
     </svg>
   );
 }
@@ -72,15 +87,6 @@ function IconDeploy(): ReactNode {
       <rect x="8.5" y="14" width="7" height="6" rx="1.5" />
       <path d="M10 8h4" />
       <path d="M12 11v3" />
-    </svg>
-  );
-}
-
-function IconReference(): ReactNode {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z" />
-      <path d="M9 12l2 2 4-4" />
     </svg>
   );
 }
@@ -121,19 +127,19 @@ const sections: SectionCard[] = [
     title: 'FHIR',
     description: 'Work with FHIR resources, validation, bundles, and profiles.',
     link: '/docs/fhir/guides/overview-of-fhir',
-    icon: <IconConnectors />,
-    iconBg: '#F0EDFF',
-    iconBgDark: 'rgba(124, 58, 237, 0.15)',
-    iconColor: '#7C3AED',
+    icon: <IconFHIR />,
+    iconBg: '#FFF1F2',
+    iconBgDark: 'rgba(225, 29, 72, 0.15)',
+    iconColor: '#E11D48',
   },
   {
     title: 'HL7',
     description: 'Process HL7 messages and connect with HL7-based systems.',
     link: '/docs/hl7/guides/overview',
-    icon: <IconGenAI />,
-    iconBg: '#FDF4FF',
-    iconBgDark: 'rgba(168, 85, 247, 0.15)',
-    iconColor: '#A855F7',
+    icon: <IconHL7 />,
+    iconBg: '#EFF6FF',
+    iconBgDark: 'rgba(37, 99, 235, 0.15)',
+    iconColor: '#2563EB',
   },
   {
     title: 'Data transformation',
@@ -157,10 +163,10 @@ const sections: SectionCard[] = [
     title: 'SMART on FHIR',
     description: 'Set up SMART on FHIR and secure healthcare API access.',
     link: '/docs/secure-health-apis/guides/smart-on-fhir-overview',
-    icon: <IconReference />,
-    iconBg: '#F1F5F9',
-    iconBgDark: 'rgba(100, 116, 139, 0.15)',
-    iconColor: '#475569',
+    icon: <IconSmartOnFhir />,
+    iconBg: '#ECFDF5',
+    iconBgDark: 'rgba(5, 150, 105, 0.15)',
+    iconColor: '#059669',
   },
 ];
 

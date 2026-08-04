@@ -1,5 +1,3 @@
-const yaml = require('js-yaml');
-
 /**
  * Process MDX content and convert to clean markdown
  */
@@ -22,8 +20,7 @@ async function processMarkdownFile(content, constants = {}, sourceDir) {
 
   // Add back minimal frontmatter if title exists
   if (frontmatter.title) {
-    const minimalFrontmatter = yaml.dump({ title: frontmatter.title });
-    result = `---\n${minimalFrontmatter}---\n\n${result}`;
+    result = `---\ntitle: ${JSON.stringify(frontmatter.title)}\n---\n\n${result}`;
   }
 
   return result;
