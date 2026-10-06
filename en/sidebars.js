@@ -78,6 +78,8 @@ const sidebars = {
             'fhir/terminology/codesystem-operations',
             'fhir/terminology/valueset-operations',
             'fhir/terminology/conceptmap-operations',
+            'fhir/terminology/find-code-operation',
+            'fhir/terminology/upload-operations',
           ],
         },
         {
