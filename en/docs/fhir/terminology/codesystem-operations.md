@@ -117,7 +117,7 @@ curl 'http://localhost:9090/fhir/r4/CodeSystem/$validate-code?url=http://hl7.org
 ### Validate with version
 
 ```bash
-curl 'http://localhost:9090/fhir/r4/CodeSystem/$validate-code?url=http://snomed.info/sct&version=http://snomed.info/sct/900000000000207008/version/20260401&code=44029006&display=Left lung'
+curl 'http://localhost:9090/fhir/r4/CodeSystem/$validate-code?url=http://snomed.info/sct&version=http://snomed.info/sct/900000000000207008/version/20260401&code=44029006&display=Left%20lung'
 ```
 
 ### POST Request
@@ -132,7 +132,7 @@ curl -X POST http://localhost:9090/fhir/r4/CodeSystem/$validate-code \
         "parameter": [
           { "name": "url", "valueUri": "http://snomed.info/sct" },
           { "name": "code", "valueCode": "181216001" },
-          { "name": "display", "valueCode": "Entire lung (body structure)" }
+          { "name": "display", "valueString": "Entire lung (body structure)" }
         ]
       }'
 ```
@@ -201,20 +201,20 @@ curl -X POST http://localhost:9090/fhir/r4/CodeSystem/$subsumes \
         "parameter": [
           {
             "name": "system",
-            "valueUri": "http://loinc.org"
+            "valueUri": "http://snomed.info/sct"
           },
           {
             "name": "codingA",
             "valueCoding": {
-            "system": "http://loinc.org",
-            "code": "100011-6"
+            "system": "http://snomed.info/sct",
+            "code": "138875005"
           }
           },
           {
             "name": "codingB",
             "valueCoding": {
-            "system": "http://loinc.org",
-            "code": "100016-5"
+            "system": "http://snomed.info/sct",
+            "code": "73211009"
           }
         }
       ]

@@ -35,7 +35,7 @@ curl 'http://localhost:9090/fhir/r4/ConceptMap/$translate?source=http://hl7.org/
 ### POST Request
 
 ```bash
-curl -X POST http://localhost:9089/fhir/r4/ConceptMap/$translate \
+curl -X POST http://localhost:9090/fhir/r4/ConceptMap/$translate \
   -H "Content-Type: application/fhir+json" \
   -d '{
         "resourceType": "Parameters",

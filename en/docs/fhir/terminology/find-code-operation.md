@@ -14,7 +14,7 @@ Searches concepts by matching a `filter` text value against either the `display`
 ### GET Request
 
 ```bash
-curl 'http://localhost:9090/fhir/r4/$find-code?filter=procedure e'
+curl 'http://localhost:9090/fhir/r4/$find-code?filter=diabetes'
 ```
 
 ### POST Request

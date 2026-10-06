@@ -136,14 +136,15 @@ curl -X POST http://localhost:9090/fhir/r4/ValueSet/$validate-code \
   -d '{
         "resourceType": "Parameters",
         "parameter": [
-          { "name": "valueSet", "resource": {
-              "resourceType": "ValueSet",
-              "url": "http://example.org/fhir/ValueSet/icd10-diabetes-example",
-              "status": "active"
-          }},
-          { "name": "coding", "valueCoding": { "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "E11.9" } }
+            { "name": "valueSet", "resource": {
+                "resourceType": "ValueSet",
+                "url": "http://example.org/fhir/ValueSet/snomed-diabetes-example",
+                "status": "active"
+            }},
+            { "name": "coding", "valueCoding": { "system": "http://snomed.info/sct", "code": "73211009" } }
         ]
-      }'
+    }'
+
 ```
 
 ### Response
@@ -157,12 +158,12 @@ curl -X POST http://localhost:9090/fhir/r4/ValueSet/$validate-code \
             "valueBoolean": true
         },
         {
-            "valueCode": "E11.9",
+            "valueCode": "73211009",
             "name": "code"
         },
         {
             "name": "display",
-            "valueString": "Type 2 diabetes mellitus without complications"
+            "valueString": "Diabetes mellitus"
         }
     ]
 }
