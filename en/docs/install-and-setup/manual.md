@@ -209,6 +209,16 @@ You can configure well-known URL (`https://<WSO2_IS_HOST>:9453/oauth2/token/.wel
 :::
 
 :::note
+Recent WSO2 Identity Server updates disable basic authentication for the management APIs by default, which API Manager uses to register applications (DCR) in the key manager. If application key generation fails with `Basic authentication is not allowed for this tenant`, add the following to `<WSO2_IS_HOME>/repository/conf/deployment.toml` and restart the Identity Server.
+
+```toml
+[compatibility_setting.basic_auth.disable_basic_auth]
+default_value = false
+target_value = false
+```
+:::
+
+:::note
 Use the introspection endpoint in the iam-service-extension service to enable healthcare specific introspection response. `https://<IAM_SERVICE_EXTENSION_BASE>:<PORT>/introspect`.
 :::
 4. Go to the list of Key Managers and select **Resident Key Manager**.
