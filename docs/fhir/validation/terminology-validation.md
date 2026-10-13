@@ -28,7 +28,7 @@ To enable terminology validation, add the following configuration to your `Confi
 ```toml
 [ballerinax.health.fhir.r4.parser.terminologyConfig]
 isTerminologyValidationEnabled=true
-terminologyServiceApi="http://localhost:9089/fhir/r4"
+terminologyServiceApi="http://localhost:9090/fhir/r4"
 tokenUrl=""
 clientId=""
 clientSecret=""
@@ -37,7 +37,7 @@ clientSecret=""
 ### Configuration Parameters
 
 - `isTerminologyValidationEnabled` -- Set to `true` to enable terminology validation.
-- `terminologyServiceApi` -- The endpoint of your FHIR R4 terminology service. The [pre-built terminology service](../terminology/overview.md) runs at `http://localhost:9089/fhir/r4` by default.
+- `terminologyServiceApi` -- The endpoint of your FHIR R4 terminology service. The [pre-built terminology service](../terminology/overview.md) runs at `http://localhost:9090/fhir/r4` by default.
 - `tokenUrl` -- (Optional) The OAuth2 token endpoint URL if your terminology service requires authentication.
 - `clientId` -- (Optional) The OAuth2 client ID.
 - `clientSecret` -- (Optional) The OAuth2 client secret.
@@ -64,7 +64,7 @@ The following example extends the [base validation sample](../guides/validation.
     ```toml
     [ballerinax.health.fhir.r4.parser.terminologyConfig]
     isTerminologyValidationEnabled=true
-    terminologyServiceApi="http://localhost:9089/fhir/r4"
+    terminologyServiceApi="http://localhost:9090/fhir/r4"
     tokenUrl=""
     clientId=""
     clientSecret=""

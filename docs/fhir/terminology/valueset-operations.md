@@ -10,68 +10,94 @@ The terminology service provides operations to expand value sets into their cons
 
 Expands a ValueSet into a flat list of codes. This resolves all includes, excludes, and filters to produce the final set of valid codes.
 
+`ValueSet.compose.include.filter` supports `is-a` / `descendent-of`, `=`, and `regex` operators. Multiple filters on the same `include` are combined with AND (each narrows the same member set further), while multiple `include` entries are combined with OR.
+
 ### GET Request
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/observation-status'
+curl 'http://localhost:9090/fhir/r4/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/observation-status'
 ```
 
 With filtering:
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/condition-code&filter=diabetes&count=20'
+curl 'http://localhost:9090/fhir/r4/ValueSet/snomed-diabetes-example/$expand?filter=type'
 ```
 
 ### POST Request
 
 ```bash
-curl -X POST http://localhost:9089/fhir/r4/ValueSet/$expand \
+curl -X POST http://localhost:9090/fhir/r4/ValueSet/$expand \
   -H "Content-Type: application/fhir+json" \
   -d '{
-    "resourceType": "Parameters",
-    "parameter": [
-      {"name": "url", "valueUri": "http://hl7.org/fhir/ValueSet/observation-status"}
-    ]
-  }'
+        "resourceType": "Parameters",
+        "parameter": [
+          {"name": "url", "valueUri": "http://example.org/fhir/ValueSet/snomed-diabetes-example"}
+        ]
+      }'
 ```
 
 ### Expand by ID
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/{id}/$expand'
+curl 'http://localhost:9090/fhir/r4/ValueSet/snomed-diabetes-example/$expand'
 ```
 
 ### Response
 
 ```json
 {
-  "resourceType": "ValueSet",
-  "expansion": {
-    "timestamp": "2024-01-15T10:00:00Z",
-    "total": 4,
-    "contains": [
-      {
-        "system": "http://hl7.org/fhir/observation-status",
-        "code": "registered",
-        "display": "Registered"
-      },
-      {
-        "system": "http://hl7.org/fhir/observation-status",
-        "code": "preliminary",
-        "display": "Preliminary"
-      },
-      {
-        "system": "http://hl7.org/fhir/observation-status",
-        "code": "final",
-        "display": "Final"
-      },
-      {
-        "system": "http://hl7.org/fhir/observation-status",
-        "code": "amended",
-        "display": "Amended"
-      }
-    ]
-  }
+    "resourceType": "ValueSet",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/ValueSet"
+        ]
+    },
+    "title": "SNOMED diabetes example",
+    "id": "snomed-diabetes-example",
+    "version": "1.0.0",
+    "url": "http://example.org/fhir/ValueSet/snomed-diabetes-example",
+    "compose": {
+        "include": [
+            {
+                "system": "http://snomed.info/sct",
+                "concept": [
+                    {
+                        "code": "73211009"
+                    },
+                    {
+                        "code": "44054006"
+                    }
+                ]
+            }
+        ]
+    },
+    "name": "SnomedDiabetesExample",
+    "status": "active",
+    "expansion": {
+        "contains": [
+            {
+                "code": "44054006",
+                "display": "Diabetes mellitus type II",
+                "system": "http://snomed.info/sct"
+            },
+            {
+                "code": "73211009",
+                "display": "Diabetes mellitus",
+                "system": "http://snomed.info/sct"
+            }
+        ],
+        "total": 2,
+        "offset": 0,
+        "timestamp": "2026-10-05T11:21:47.964149200Z",
+        "identifier": "urn:uuid:f62f87d8-9304-4bb1-8768-6f90ef46b847",
+        "parameter": [
+            {
+                "name": "used-codesystem",
+                "valueUri": "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20260401"
+            }
+        ]
+    }
 }
 ```
 
@@ -82,48 +108,63 @@ curl 'http://localhost:9089/fhir/r4/ValueSet/{id}/$expand'
 | `url` | uri | Canonical URL of the ValueSet |
 | `filter` | string | Text filter on display names |
 | `offset` | integer | Pagination start index |
-| `count` | integer | Maximum codes to return |
+| `count` | integer | Maximum codes to return (default 20, maximum 300 -- returns `413` if exceeded) |
+| `activeOnly` | boolean | When `true`, drops inactive concepts from the expansion and recomputes `expansion.total` |
 
 ## $validate-code {#validate-code}
 
-Checks whether a specific code is a member of a value set.
+Checks whether a specific code is a member of a value set. Accepts either a `url` referencing an already-persisted ValueSet, or an inline `valueSet` resource in the request body -- including one that was never separately uploaded.
 
 ### GET Request
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/$validate-code?url=http://hl7.org/fhir/ValueSet/observation-status&system=http://hl7.org/fhir/observation-status&code=final'
+curl 'http://localhost:9090/fhir/r4/ValueSet/snomed-diabetes-example/$validate-code?system=http://snomed.info/sct&code=73211009'
 ```
 
 ### Validate by ID
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/{id}/$validate-code?system=http://hl7.org/fhir/observation-status&code=final'
+curl 'http://localhost:9090/fhir/r4/ValueSet/snomed-diabetes-example/$validate-code?code=44054006'
 ```
 
 ### POST Request
 
 ```bash
-curl -X POST http://localhost:9089/fhir/r4/ValueSet/$validate-code \
+curl -X POST http://localhost:9090/fhir/r4/ValueSet/$validate-code \
   -H "Content-Type: application/fhir+json" \
   -d '{
-    "resourceType": "Parameters",
-    "parameter": [
-      {"name": "url", "valueUri": "http://hl7.org/fhir/ValueSet/observation-status"},
-      {"name": "system", "valueUri": "http://hl7.org/fhir/observation-status"},
-      {"name": "code", "valueCode": "final"}
-    ]
-  }'
+        "resourceType": "Parameters",
+        "parameter": [
+            { "name": "valueSet", "resource": {
+                "resourceType": "ValueSet",
+                "url": "http://example.org/fhir/ValueSet/snomed-diabetes-example",
+                "status": "active"
+            }},
+            { "name": "coding", "valueCoding": { "system": "http://snomed.info/sct", "code": "73211009" } }
+        ]
+    }'
+
 ```
 
 ### Response
 
 ```json
 {
-  "resourceType": "Parameters",
-  "parameter": [
-    {"name": "result", "valueBoolean": true},
-    {"name": "display", "valueString": "Final"}
-  ]
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "result",
+            "valueBoolean": true
+        },
+        {
+            "valueCode": "73211009",
+            "name": "code"
+        },
+        {
+            "name": "display",
+            "valueString": "Diabetes mellitus"
+        }
+    ]
 }
 ```
 
@@ -132,7 +173,7 @@ curl -X POST http://localhost:9089/fhir/r4/ValueSet/$validate-code \
 Retrieve ValueSets matching search criteria.
 
 ```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet?name=observation-status'
+curl 'http://localhost:9090/fhir/r4/ValueSet?url=http://example.org/fhir/ValueSet/snomed-diabetes-example'
 ```
 
 Returns a FHIR `Bundle` of matching ValueSet resources.
@@ -142,36 +183,34 @@ Returns a FHIR `Bundle` of matching ValueSet resources.
 Upload a new ValueSet resource.
 
 ```bash
-curl -X POST http://localhost:9089/fhir/r4/ValueSet \
+curl -X POST http://localhost:9090/fhir/r4/ValueSet \
   -H "Content-Type: application/fhir+json" \
   -d '{
-    "resourceType": "ValueSet",
-    "url": "http://example.org/ValueSet/custom-status",
-    "name": "CustomStatus",
-    "status": "active",
-    "compose": {
-      "include": [
-        {
-          "system": "http://example.org/CodeSystem/custom",
-          "concept": [
-            {"code": "active", "display": "Active"},
-            {"code": "inactive", "display": "Inactive"}
+        "resourceType": "ValueSet",
+        "id": "icd10-diabetes-example",
+        "url": "http://example.org/fhir/ValueSet/icd10-diabetes-example",
+        "version": "1.0.0",
+        "name": "Icd10DiabetesExample",
+        "title": "ICD-10-CM diabetes example",
+        "status": "active",
+        "compose": {
+          "include": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "concept": [
+                { "code": "E11.9" },
+                { "code": "E10.9" },
+                { "code": "E11.65" },
+                { "code": "E11.21" },
+                { "code": "E08.9" }
+              ]
+            }
           ]
         }
-      ]
-    }
-  }'
+      }'
 ```
 
 Returns `201 Created` on success.
-
-## Get ValueSet by ID
-
-Retrieve a specific ValueSet by its logical ID.
-
-```bash
-curl 'http://localhost:9089/fhir/r4/ValueSet/{id}'
-```
 
 ## Common Value Sets
 
@@ -189,3 +228,4 @@ Frequently used value sets in FHIR R4:
 
 - [Terminology Overview](./overview.md)
 - [CodeSystem Operations](./codesystem-operations.md)
+- [ConceptMap Operations](./conceptmap-operations.md)
