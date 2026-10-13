@@ -78,7 +78,7 @@ Service extensions required for the SMART on FHIR flow are available in the [WSO
     | `serviceId`                           | Service identifier recorded on every consent created in WSO2 IS (the `serviceId` field of the consent). Also used to find the user's existing consents.                                                              | `smart-on-fhir`                          |
     | `consentApiBasePath`                  | Base path of the WSO2 IS Consent Management API relative to `idpBaseUrl`. For a tenant, use `/t/<tenant-domain>/api/identity/consent-mgt/v2.0`.                                                                       | `/api/identity/consent-mgt/v2.0`         |
     | `alwaysAllowedScopes`                 | List of scopes that bypass consent checks in the consent app. This will be used to allow certain scopes without requiring explicit patient consent during the SMART on FHIR flow.                                  | `["openid", "internal_user_mgt_list"]`   |
-    | `singleConsentPerUser`                | Whether to allow only a single active consent per user. If set to true, when a new consent is created for a user, any existing active consents for that user will be revoked.                                      | `true`                                   |
+    | `singleConsentPerUser`                | Whether to allow only a single active consent per user. If set to true, when a new consent is created for a user, all existing active consents for that user will be revoked, including consents for other services.                                      | `true`                                   |
     | `showConsentElements`                  | Whether to show the consent elements in the consent app frontend. If set to true, the scopes and purposes will be shown in the consent app frontend to allow users to make informed decisions when giving consent. | `false`                                  |
     | `scopeConsent.purposeName`             | Name of the consent purpose in WSO2 IS under which scope consents are recorded when creating a consent.  | `SMART Scope Authorization`              |
 
@@ -208,11 +208,15 @@ Service extensions required for the SMART on FHIR flow are available in the [WSO
       TOKEN=$(curl -sk -u <CLIENT_ID>:<CLIENT_SECRET> https://localhost:9453/oauth2/token \
         -d 'grant_type=client_credentials&scope=internal_consent_mgt_element_create internal_consent_mgt_purpose_create' | jq -r .access_token)
 
-      ELEMENT_ID=$(curl -sk https://localhost:9453/api/identity/consent-mgt/v2.0/elements \
+      # For the super tenant, use the path below as is. For another tenant, use
+      # https://localhost:9453/t/<tenant-domain>/api/identity/consent-mgt/v2.0
+      CONSENT_API=https://localhost:9453/api/identity/consent-mgt/v2.0
+
+      ELEMENT_ID=$(curl -sk $CONSENT_API/elements \
         -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
         -d '{"name": "SMART Scopes", "displayName": "SMART on FHIR scopes", "description": "Access to patient data requested by a SMART on FHIR app"}' | jq -r .id)
 
-      curl -sk https://localhost:9453/api/identity/consent-mgt/v2.0/purposes \
+      curl -sk $CONSENT_API/purposes \
         -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
         -d "{\"name\": \"SMART Scope Authorization\", \"description\": \"Authorization of SMART on FHIR scopes\", \"type\": \"SMART\", \"version\": \"v1\", \"elements\": [{\"id\": \"$ELEMENT_ID\", \"mandatory\": true}]}"
       ```
@@ -338,7 +342,7 @@ Service extensions required for the SMART on FHIR flow are available in the [WSO
     :::note
     `consent_id` and `patient` claims are added to the token.
 
-    The consent is shared between the authorization and token requests as follows. When the user approves the consent in the consent app, consent-app-bff creates the consent in WSO2 IS for the user and `serviceId`, and stores the OAuth `client_id` of the app and the approved scopes as consent properties. When the access token is requested, the pre-issue access token extension finds the user's active consent with the user ID and the `client_id` of the token request, adds its ID as the `consent_id` claim, and removes any requested scope that the user did not approve. Because the consent is matched by user and client, keep `singleConsentPerUser` set to `true` in consent-app-bff so that a user has only one active consent per service.
+    The consent is shared between the authorization and token requests as follows. When the user approves the consent in the consent app, consent-app-bff creates the consent in WSO2 IS for the user and `serviceId`, and stores the OAuth `client_id` of the app and the approved scopes as consent properties. When the access token is requested, the pre-issue access token extension finds the user's active consent with the user ID and the `client_id` of the token request, adds its ID as the `consent_id` claim, and removes any requested scope that the user did not approve. When `singleConsentPerUser` is set to `true` in consent-app-bff, creating a new consent revokes all of that user's other active consents, including consents recorded for other services, so the user has only one active consent overall. Set it to `false` if the same user's consents for other services must stay active.
     :::
 
 9. The decoded id token looks similar to below. 
