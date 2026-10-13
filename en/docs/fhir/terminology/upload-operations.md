@@ -18,8 +18,6 @@ curl -X POST 'http://localhost:9090/fhir/r4/%24upload' \
   --data-binary @snomed-ct-release.zip
 ```
 
-> **Note:** the `$` must currently be percent-encoded as `%24upload` -- a bug in the pinned Ballerina http module (2.14.13) 404s on a raw `$` in the path for this endpoint before any application code (including error handling) runs. This will go away once the Ballerina distribution is upgraded past that bug.
-
 Two things are required on the request:
 
 | Requirement | Value |
