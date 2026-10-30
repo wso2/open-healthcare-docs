@@ -10,7 +10,7 @@ WSO2 Open Healthcare is a unified, AI-driven platform that combines API Manageme
 
 The platform connects Patients, Practitioners, and Management through consumer apps such as contact centers, appointment booking platforms, patient portals, and population health analytics dashboards. It is built on Identity and Access Management, Integration, and API Management, with focused AI and digitalization tools that accelerate implementation with reliability.
 
-![WSO2 Open Healthcare Accelerators and Architecture](/assets/img/get-started/healthcare-accelerators-architecture.png)
+![WSO2 Open Healthcare Accelerators and Architecture](/assets/img/get-started/healthcare-accelerators-architecture.svg)
 
 ## Healthcare Accelerators and Standards
 

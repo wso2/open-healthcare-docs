@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Patient API facade use case</title>
+  <desc id="desc">A client app calls the Patient API facade built with WSO2 Integrator on port 9091. The facade proxies read and search requests to the WSO2 FHIR Server on port 9090, which stores data in PostgreSQL. On the way back, the facade removes SSN identifiers, masks phone numbers, and adds a facade meta tag before returning the response.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5567d5"/>
+    </marker>
+    <marker id="arrow-resp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e0561f"/>
+    </marker>
+  </defs>
+  <rect width="760" height="300" fill="#ffffff"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+
+    <!-- Client -->
+    <rect x="20" y="105" width="140" height="80" rx="10" fill="#ffffff" stroke="#5567d5" stroke-width="1.5"/>
+    <text x="90" y="140" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1e2e">Client app</text>
+    <text x="90" y="160" text-anchor="middle" font-size="11" fill="#5a6275">FHIR R4 requests</text>
+
+    <!-- Facade -->
+    <rect x="235" y="50" width="250" height="190" rx="12" fill="#f4f6ff" stroke="#5567d5" stroke-width="1.5"/>
+    <text x="360" y="80" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1e2e">Patient API facade</text>
+    <text x="360" y="99" text-anchor="middle" font-size="11" fill="#5a6275">WSO2 Integrator · :9091/fhir/r4</text>
+    <line x1="255" y1="113" x2="465" y2="113" stroke="#d5daf5" stroke-width="1"/>
+    <text x="360" y="133" text-anchor="middle" font-size="11" font-weight="600" fill="#e0561f">Response changes</text>
+    <text x="265" y="158" font-size="12" fill="#1a1e2e">✕  Remove SSN identifiers</text>
+    <text x="265" y="182" font-size="12" fill="#1a1e2e">✱  Mask phone numbers (***-***-4412)</text>
+    <text x="265" y="206" font-size="12" fill="#1a1e2e">＋ Add patient-api-facade meta.tag</text>
+
+    <!-- FHIR Server -->
+    <rect x="560" y="105" width="180" height="80" rx="10" fill="#ffffff" stroke="#5567d5" stroke-width="1.5"/>
+    <text x="650" y="140" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1e2e">WSO2 FHIR Server</text>
+    <text x="650" y="160" text-anchor="middle" font-size="11" fill="#5a6275">FHIR repository · :9090/fhir/r4</text>
+
+    <!-- PostgreSQL -->
+    <rect x="590" y="225" width="120" height="44" rx="8" fill="#ffffff" stroke="#9aa3b5" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="650" y="252" text-anchor="middle" font-size="12" fill="#5a6275">PostgreSQL</text>
+    <line x1="650" y1="185" x2="650" y2="223" stroke="#9aa3b5" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+    <!-- Requests (left to right) -->
+    <line x1="160" y1="128" x2="233" y2="128" stroke="#5567d5" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="197" y="120" text-anchor="middle" font-size="10" fill="#5a6275">GET /Patient</text>
+    <line x1="485" y1="128" x2="558" y2="128" stroke="#5567d5" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="522" y="120" text-anchor="middle" font-size="10" fill="#5a6275">proxy</text>
+
+    <!-- Responses (right to left) -->
+    <line x1="558" y1="165" x2="487" y2="165" stroke="#e0561f" stroke-width="1.6" marker-end="url(#arrow-resp)"/>
+    <text x="522" y="182" text-anchor="middle" font-size="10" fill="#5a6275">raw data</text>
+    <line x1="233" y1="165" x2="162" y2="165" stroke="#e0561f" stroke-width="1.6" marker-end="url(#arrow-resp)"/>
+    <text x="197" y="182" text-anchor="middle" font-size="10" fill="#5a6275">changed data</text>
+
+    <!-- Legend -->
+    <line x1="20" y1="284" x2="44" y2="284" stroke="#5567d5" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="50" y="288" font-size="10" fill="#5a6275">Request</text>
+    <line x1="110" y1="284" x2="134" y2="284" stroke="#e0561f" stroke-width="1.6" marker-end="url(#arrow-resp)"/>
+    <text x="140" y="288" font-size="10" fill="#5a6275">Response</text>
+  </g>
+</svg>

@@ -7,7 +7,7 @@ sidebar_position: 1
 
 WSO2 Open Healthcare provides a unified interoperability architecture for healthcare organizations to securely exchange, transform, and govern clinical and administrative data across systems. It is built with [Ballerina](https://ballerina.io/) and designed to support providers, payers, health information exchanges, and digital health platforms.
 
-![Unified Interoperability Architecture](/assets/img/architecture/unified-interoperability-architecture.png)
+![Unified Interoperability Architecture](/assets/img/architecture/unified-interoperability-architecture.svg)
 
 ## Overview
 

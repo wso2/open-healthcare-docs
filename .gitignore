@@ -16,6 +16,9 @@
 *.nar
 *.ear
 *.zip
+# Reference projects linked from the docs
+!en/static/assets/attachments/get-started/patient-facade.zip
+!en/static/assets/attachments/emr-connectivity/unified-care.zip
 *.tar.gz
 *.rar
 

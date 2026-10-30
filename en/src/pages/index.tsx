@@ -10,84 +10,108 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 /* ------------------------------------------------------------------ */
-/*  Clean SVG Icon Components                                          */
+/*  Duotone SVG Icon Components                                        */
 /* ------------------------------------------------------------------ */
-function IconGetStarted(): ReactNode {
+// Shared frame: outline in currentColor, `tint` shapes get a soft fill
+function IconFrame({ children }: { children: ReactNode }): ReactNode {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 19l4-1 9-9-3-3-9 9-1 4z" />
-      <path d="M14 6l3 3" />
-      <path d="M12 4h8" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {children}
     </svg>
+  );
+}
+
+const tint = { fill: 'currentColor', fillOpacity: 0.18 };
+
+function IconGetStarted(): ReactNode {
+  // Rocket — launch quickly
+  return (
+    <IconFrame>
+      <path {...tint} d="M12 2.5c3 2 4.5 5.5 4.5 9.5l-2 3h-5l-2-3c0-4 1.5-7.5 4.5-9.5z" />
+      <circle cx="12" cy="9.5" r="1.75" />
+      <path d="M7.5 12L5 14.5v3l4-1.5" />
+      <path d="M16.5 12l2.5 2.5v3l-4-1.5" />
+      <path d="M10.5 18c0 1.5 1.5 3.5 1.5 3.5s1.5-2 1.5-3.5" />
+    </IconFrame>
   );
 }
 
 function IconDevelop(): ReactNode {
+  // Package — install and set up
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 12h18" />
-      <path d="M6 7l-3 5 3 5" />
-      <path d="M18 7l3 5-3 5" />
-    </svg>
+    <IconFrame>
+      <path {...tint} d="M3.5 8L12 3.5 20.5 8v8.5L12 21l-8.5-4.5z" />
+      <path d="M3.5 8L12 12.5 20.5 8" />
+      <path d="M12 12.5V21" />
+      <path d="M7.75 5.75l8.5 4.5v3" />
+    </IconFrame>
   );
 }
 
 function IconFHIR(): ReactNode {
-  // Flame motif — the recognizable FHIR brand mark
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2c2 3.5 3 6 3 8.5A5.5 5.5 0 0112 21a5.5 5.5 0 01-3-10.5C10.5 8 11 5.5 12 2z" />
-      <path d="M12 14c1.2 0 2.2.9 2.2 2.1S13.2 18.2 12 18.2" />
-    </svg>
-  );
+  // Official FHIR flame icon from the HL7 FHIR icon pack (hl7.org/fhir/iconpack)
+  const src = useBaseUrl('/img/logos/fhir-icon.png');
+  return <img src={src} alt="FHIR" width={22} height={22} />;
 }
 
 function IconHL7(): ReactNode {
-  // Segmented message motif — HL7v2 pipe-delimited messaging
+  // Message bubble with pipe-delimited segments — HL7v2 messaging
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M8 5v14" />
-      <path d="M3 10h18" />
-      <path d="M3 15h18" />
-      <path d="M12 5v14" />
-      <path d="M16 5v14" />
-    </svg>
+    <IconFrame>
+      <path {...tint} d="M4 3.5h16A1.5 1.5 0 0121.5 5v10a1.5 1.5 0 01-1.5 1.5h-9.5L6 20.5v-4H4A1.5 1.5 0 012.5 15V5A1.5 1.5 0 014 3.5z" />
+      <path d="M6 8h3" />
+      <path d="M11 6.5v3" />
+      <path d="M13 8h5" />
+      <path d="M6 12h5" />
+      <path d="M13 10.5v3" />
+      <path d="M15 12h3" />
+    </IconFrame>
   );
 }
 
 function IconSmartOnFhir(): ReactNode {
-  // App + keyhole — SMART app launch and secure authorization
+  // Shield with keyhole — SMART app launch and secure authorization
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="7" y="2" width="10" height="20" rx="2" />
-      <path d="M10 5.5h4" />
-      <circle cx="12" cy="12" r="2" />
-      <path d="M12 14v2.5" />
-    </svg>
+    <IconFrame>
+      <path {...tint} d="M12 2.5l7.5 3V11c0 5-3.2 8.6-7.5 10.5C7.7 19.6 4.5 16 4.5 11V5.5z" />
+      <circle cx="12" cy="10" r="2" />
+      <path d="M12 12v3.5" />
+    </IconFrame>
   );
 }
 
 function IconTutorials(): ReactNode {
+  // Two documents with conversion arrows — data transformation
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 7h6l2 3 2-3h6" />
-      <path d="M6 17h5" />
-      <path d="M13 17h5" />
-      <path d="M12 10v7" />
-    </svg>
+    <IconFrame>
+      <rect {...tint} x="2.5" y="3" width="7" height="9" rx="1.5" />
+      <rect {...tint} x="14.5" y="12" width="7" height="9" rx="1.5" />
+      <path d="M5 6.5h2" />
+      <path d="M5 9h2" />
+      <path d="M17 15.5h2" />
+      <path d="M17 18h2" />
+      <path d="M6 12v3.5a2 2 0 002 2h4.5" />
+      <path d="M10.5 15.5l2 2-2 2" />
+      <path d="M18 12V8.5a2 2 0 00-2-2h-4.5" />
+      <path d="M13.5 4.5l-2 2 2 2" />
+    </IconFrame>
   );
 }
 
 function IconDeploy(): ReactNode {
+  // Hospital linked to external systems — EMR connectivity
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="5" width="7" height="6" rx="1.5" />
-      <rect x="14" y="5" width="7" height="6" rx="1.5" />
-      <rect x="8.5" y="14" width="7" height="6" rx="1.5" />
-      <path d="M10 8h4" />
-      <path d="M12 11v3" />
-    </svg>
+    <IconFrame>
+      <path {...tint} d="M3 21V6.5A1.5 1.5 0 014.5 5h8A1.5 1.5 0 0114 6.5V21z" />
+      <path d="M8.5 8.5v4" />
+      <path d="M6.5 10.5h4" />
+      <path d="M7 21v-3.5h3V21" />
+      <path d="M2 21h13" />
+      <path d="M14 10.5l3.5-2.5" />
+      <path d="M14 14.5l3.5 2.5" />
+      <circle cx="19.5" cy="6.75" r="2" />
+      <circle cx="19.5" cy="18.25" r="2" />
+    </IconFrame>
   );
 }
 
