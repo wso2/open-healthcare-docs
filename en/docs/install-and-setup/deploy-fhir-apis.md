@@ -11,7 +11,7 @@ This guide walks through the steps to generate an OpenAPI specification from a F
 ## Prerequisites
 
 1. Install and setup [WSO2 Open Healthcare](./manual.md).
-2. Install [Ballerina](./manual.md#ballerina-installation-steps) (Swan Lake or later).
+2. Install the [Ballerina](https://ballerina.io/downloads/installation-options/) CLI (Swan Lake or later). The Health Tool commands below run with `bal`.
 3. A FHIR Implementation Guide (IG) to generate the API.
 
 ## Step 1 - Generate OpenAPI Specification from a FHIR Implementation Guide
