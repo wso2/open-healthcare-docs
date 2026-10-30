@@ -60,13 +60,13 @@ This example builds **UnifiedCare**, an API that gives care coordinators one vie
 
 ### Use case
 
-A regional care network runs its tertiary hospital on **Epic** and its community clinics on **Cerner (Oracle Health)**. Instead of logging in to each EHR, care coordinators call one API. Every request fans out to both EHRs in parallel, and the API combines whatever each one returns:
+A regional care network runs its tertiary hospital on **Epic** and its community clinics on **Cerner (Oracle Health)**. Instead of logging in to each EHR, care coordinators call one API. Lookups and searches fan out to both EHRs in parallel, and the API combines whatever each one returns. Patient-360 and referrals first read the patient from one EHR, then use those demographics to search the other:
 
 | Operation | What it does |
 |---|---|
 | `GET /unifiedcare/patients/{id}` | **Unified lookup.** Resolves the id in Epic and in Cerner. `foundIn` lists where the patient exists. A miss in one EHR becomes a warning. |
 | `GET /unifiedcare/patients?family=&given=&birthdate=` | **Unified search.** Merges demographic matches from both EHRs. `sourceEmr` marks where each record came from. |
-| `GET /unifiedcare/patients/{id}/summary` | **Patient-360.** Aggregates conditions, medications, allergies, vitals, and labs where the id resolves. It then links the same person in the other EHR by family name and birth date, and aggregates there too. |
+| `GET /unifiedcare/patients/{id}/summary` | **Patient-360.** Aggregates conditions, medications, allergies, vitals, and labs where the id resolves. It then links the same person in the other EHR by family name and birth date (using the first match), and aggregates there too. |
 | `POST /unifiedcare/referrals` | **Cross-EHR referral.** Pulls the clinical packet from the source EHR and looks for the patient in the receiving EHR (`MATCH_FOUND` with candidate ids, or `NO_MATCH`). |
 
 All calls are read-only. The API uses system-to-system authentication, so no user logs in to either EHR:
@@ -267,13 +267,15 @@ function searchObservations(EmrSystem emr, string patientId, string category)
 
 Add `searchConditions`, `searchMedications`, and `searchAllergies` the same way, using `searchCondition`, `searchMedicationRequest`, and `searchAllergyIntolerance`.
 
+The resources don't call these routing functions directly. Helper functions such as `searchPatients` and `fetchPatientSummary` call them, then map the FHIR responses to the API's summary records. You can find the helpers in the [reference project](#reference-project).
+
 ### Step 5: Build the unified API
 
 Add an **HTTP Service** with the base path `/unifiedcare` on port `servicePort`, and add the four resources from the [use case](#use-case). The design view shows the service calling both connections:
 
 ![UnifiedCare service connected to the Epic and Cerner connections](/assets/img/emr-connectivity/unified-patient-access/design-overview.png)
 
-Each resource fans out to both EHRs with `start`, waits for both results, and combines them. A failure in one EHR becomes a warning instead of failing the whole request. For example, the unified search:
+The lookup and search resources fan out to both EHRs with `start`, wait for both results, and combine them. A failure in one EHR becomes a warning instead of failing the whole request. For example, the unified search calls `searchPatients` for each EHR in parallel:
 
 <Tabs>
 <TabItem value="lowcode" label="Low-code view" default>
@@ -327,6 +329,10 @@ resource function get patients(string? family, string? given, string? birthdate)
 The Patient-360 resource calls `buildUnifiedPatient360`, which aggregates the clinical sections in every EHR where the id resolves and links the other EHR by demographics. It returns `404` when no EHR has the patient:
 
 ![GET /patients/{id}/summary flow](/assets/img/emr-connectivity/unified-patient-access/summary-flow.png)
+
+:::caution
+Cross-EHR linking and referral matching use family name and birth date only. Patient-360 links the **first** candidate, and a referral reports `MATCH_FOUND` when there's at least one candidate. In the Cerner sandbox, one search can return several patients with the same name and birth date. This matching is for demonstration only. In production, use a master patient index or require a single unambiguous match on stronger identifiers before you link records.
+:::
 
 The FHIR-to-summary mappings (for example, `toPatientSummary` and `toConditionSummaries`) and the remaining resources are in the [reference project](#reference-project).
 

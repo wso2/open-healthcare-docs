@@ -105,18 +105,11 @@ This section guides you to set up and prepare your server to run WSO2 Open Healt
 <details>
 <summary>What merge.sh changes</summary>
 
-Each run creates or updates an `hc-accelerator` folder in the product home:
+The first run creates an `hc-accelerator` folder in the product home, with a `backup` folder and a `merge_audit.log` file.
 
-```
-hc-accelerator
-├── backup
-│   ├── conf
-│   ├── jaggeryapps
-│   └── webapps
-└── merge_audit.log
-```
-
-- `backup` holds the original product files that the accelerator replaced. Only the most recent run's backup is kept.
+- `backup` holds the original product files from **before the first run**. Later runs keep this backup and don't overwrite it, so it always reflects the unmodified product. It contains:
+    - **API Manager:** `conf/deployment.toml`, `conf/claim-config.xml`, and the `accountrecoveryendpoint` and `authenticationendpoint` web apps under `webapps`.
+    - **Identity Server:** `conf/deployment.toml`. If the consent portal's `config.js` exists from an earlier deployment, it's also saved and restored after the merge.
 - `merge_audit.log` gets one line per run, with the date and time, the user, and the accelerator version. For example:
 
     ```
@@ -129,13 +122,13 @@ hc-accelerator
 
 Set these options in the accelerator's `conf/config.toml` before you run `merge.sh`:
 
-| Option | Default | Description |
-|---|---|---|
-| `enable_fhir_metadata_endpoint` | `true` | Auto-generate the FHIR capability statement |
-| `enable_well_known_endpoint` | `true` | Expose the well-known endpoint for OAuth 2.0 discovery |
-| `enable_smart_on_fhir` | `true` | Enable SMART on FHIR features |
-| `enable_developer_workflow` | `false` | Require approval for developer sign-up and app creation |
-| `enable_healthcare_theme` | `true` | Apply the healthcare theme |
+| Option | Default | Applies to | Description |
+|---|---|---|---|
+| `enable_fhir_metadata_endpoint` | `true` | API Manager | Auto-generate the FHIR capability statement |
+| `enable_well_known_endpoint` | `true` | API Manager | Expose the well-known endpoint for OAuth 2.0 discovery |
+| `enable_smart_on_fhir` | `true` | API Manager, Identity Server | Enable SMART on FHIR features |
+| `enable_developer_workflow` | `false` | API Manager | Require approval for developer sign-up and app creation |
+| `enable_healthcare_theme` | `true` | API Manager | Apply the healthcare theme |
 
 ## Setting Up Integration Layer for Healthcare
 
@@ -182,7 +175,7 @@ The integration layer runs on [WSO2 Integrator](https://wso2.com/products/downlo
 
     ![WSO2 Integrator start page](/assets/img/install-and-setup/wso2-integrator-start.png)
 
-To build your first healthcare integration with WSO2 Integrator, follow the [Quick start guide](../get-started/open-healthcare-quickstart.md).
+To build your first healthcare integration with WSO2 Integrator, follow the [Quick start guide](../get-started/open-healthcare-quickstart.md). The quick start uses WSO2 Integrator Copilot, so sign in with WSO2 Integration Platform first. If you skipped sign-in, use the account icon on the start page to sign in.
 
 ## Start servers
 
