@@ -5,21 +5,17 @@ title: "Manual Installation Guide"
 # Manual Installation Guide
 
 ## Prerequisites
-1. Download supported base distribution of [WSO2 API Manager](https://wso2.com/api-platform/api-manager/), [WSO2 Identity Server](https://wso2.com/identity-platform/identity-server/) and [WSO2 Open Healthcare Accelerator](https://github.com/wso2/healthcare-accelerator/releases). Refer to the [Product Compatibilities](#product-compatibilities).
 
-## Product Compatibilities
+Download a supported base distribution of each product:
 
-|                                   WSO2 Healthcare Accelerator                                   | Compatible Base Product |
-|:-----------------------------------------------------------------------------------------------:|:-----------------------:|
-| [APIM HC Accelerator 1.0.0](https://github.com/wso2/healthcare-accelerator/releases/tag/v1.0.0) |       APIM 4.2.0        |
-| [APIM HC Accelerator 2.0.0](https://github.com/wso2/healthcare-accelerator/releases/tag/v2.0.0) |       APIM 4.3.0        |
-| [APIM HC Accelerator 2.1.0](https://github.com/wso2/healthcare-accelerator/releases/tag/v2.1.0) |       APIM 4.6.0        |
-|  [IS HC Accelerator 2.1.0](https://github.com/wso2/healthcare-accelerator/releases/tag/v2.1.0)   |        IS 7.3.0         |
+- [WSO2 API Manager](https://wso2.com/api-platform/api-manager/) 4.6.0, 4.3.0, or 4.2.0
+- [WSO2 Identity Server](https://wso2.com/identity-platform/identity-server/) 7.3.0
+
+You download the matching WSO2 Open Healthcare accelerator for each product in [Setting up Accelerators](#setting-up-accelerators).
 
 ## Getting Started
 1. Extract the base products.
-2. Extract the downloaded WSO2 Open Healthcare Accelerator zip files.
-3. This document uses the following placeholders to refer to the following products:
+2. This document uses the following placeholders to refer to the following products:
 
 | Product                                          | 	Placeholder               |
 |--------------------------------------------------|----------------------------|
@@ -60,94 +56,109 @@ This section guides you to set up and prepare your server to run WSO2 Open Healt
 
 ### Setting Up WSO2 API Manager for Healthcare
 
-1. Install WSO2 Open Healthcare AM Accelerator
-   - Copy the extracted WSO2 OH APIM Accelerator to `<WSO2_APIM_HOME>`. Let's call it `<WSO2_OH_APIM_ACC_HOME>`.
-   - [Optional] Check the accelerator configurations in <WSO2_OH_APIM_ACC_HOME>/conf/config.toml file to enable or disable features.
+1. Download the APIM accelerator that matches your WSO2 API Manager version and extract it:
 
-   2. Run the merge script in <WSO2_OH_APIM_ACC_HOME>/bin:
+    | APIM version | Accelerator download |
+    |---|---|
+    | APIM 4.6.0 | [wso2-hcam-accelerator-2.1.0.zip](https://github.com/wso2/healthcare-accelerator/releases/download/v2.1.0/wso2-hcam-accelerator-2.1.0.zip) |
+    | APIM 4.3.0 | [wso2-hcam-accelerator-2.0.0.zip](https://github.com/wso2/healthcare-accelerator/releases/download/v2.0.0/wso2-hcam-accelerator-2.0.0.zip) |
+    | APIM 4.2.0 | [wso2-hcam-accelerator-1.0.0.zip](https://github.com/wso2/healthcare-accelerator/releases/download/v1.0.0/wso2-hcam-accelerator-1.0.0.zip) |
 
-       ```bash
-        ./merge.sh
-       ```
+2. Copy the extracted accelerator folder to `<WSO2_APIM_HOME>`. This guide calls it `<WSO2_OH_APIM_ACC_HOME>`.
+3. Optional: enable or disable features in `<WSO2_OH_APIM_ACC_HOME>/conf/config.toml`. See [Accelerator configuration options](#accelerator-configuration-options).
+4. Run the merge script from `<WSO2_OH_APIM_ACC_HOME>/bin`:
+
+    ```bash
+    ./merge.sh
+    ```
 
 ### Setting Up WSO2 Identity Server for Healthcare
 
-1. Install WSO2 Open Healthcare IS Accelerator
-    - Copy the extracted WSO2 OH IS Accelerator to `<WSO2_IS_HOME>`. Let's call it `<WSO2_OH_IS_ACC_HOME>`.
-    - [Optional] Check the accelerator configurations in <WSO2_OH_IS_ACC_HOME>/conf/config.toml file to enable or disable features.
+1. Download the IS accelerator for WSO2 Identity Server 7.3.0, [wso2-hcis-accelerator-2.1.0.zip](https://github.com/wso2/healthcare-accelerator/releases/download/v2.1.0/wso2-hcis-accelerator-2.1.0.zip), and extract it.
+2. Copy the extracted accelerator folder to `<WSO2_IS_HOME>`. This guide calls it `<WSO2_OH_IS_ACC_HOME>`.
+3. Optional: enable or disable features in `<WSO2_OH_IS_ACC_HOME>/conf/config.toml`. See [Accelerator configuration options](#accelerator-configuration-options).
+4. Run the merge script from `<WSO2_OH_IS_ACC_HOME>/bin`:
 
-   2. Run the merge script in <WSO2_OH_IS_ACC_HOME>/bin:
+    ```bash
+    ./merge.sh
+    ```
 
-       ```sh
-        ./merge.sh
-       ```
+`merge.sh` backs up the product files it replaces, so you can tell what changed or restore them. See the details below.
 
-Accelerator configs looks like below;
+<details>
+<summary>What merge.sh changes</summary>
 
-| Setting Description                                         | Configuration Option                 | Default Value |
-|-------------------------------------------------------------|--------------------------------------|---------------|
-| Enable or disable auto-generation of the FHIR capability statement | `enable_fhir_metadata_endpoint`      | `true`        |
-| Enable or disable the well-known endpoint for OAuth 2.0 discovery  | `enable_well_known_endpoint`         | `true`        |
-| Enable or disable the SMART on FHIR features               | `enable_smart_on_fhir`               | `true`        |
-| Enable or disable developer sign-up and app creation approval | `enable_developer_workflow`         | `false`        |
-| Enable or disable the healthcare theme                     | `enable_healthcare_theme`            | `true`        |
+The first run creates an `hc-accelerator` folder in the product home, with a `backup` folder and a `merge_audit.log` file.
 
-Running `./bin/merge.sh` script creates a audit log folder in the product home. Structure of it looks like below;
+- `backup` holds the original product files from **before the first run**. Later runs keep this backup and don't overwrite it, so it always reflects the unmodified product. It contains:
+    - **API Manager:** `conf/deployment.toml`, `conf/claim-config.xml`, and the `accountrecoveryendpoint` and `authenticationendpoint` web apps under `webapps`.
+    - **Identity Server:** `conf/deployment.toml`. If the consent portal's `config.js` exists from an earlier deployment, it's also saved and restored after the merge.
+- `merge_audit.log` gets one line per run, with the date and time, the user, and the accelerator version. For example:
 
-```
-hc-accelerator
-├── backup
-│   ├── conf
-│   ├── jaggeryapps
-│   └── webapps
-└── merge_audit.log
+    ```
+    Mon May 31 22:01:55 +0530 2021 - john - WSO2 Open Healthcare API Manager 1.0.0 Accelerator - v1.0.0
+    ```
 
-```
+</details>
 
-- `merge_audit.log` will have an audit line per execution of the `merge.sh` script of the accelerator. Each line contains execution date and time, user account and the version of the accelerator. Example log line is below;
-```buttonless
-Mon May 31 22:01:55 +0530 2021 - john - WSO2 Open Healthcare API Manager 1.0.0 Accelerator - v1.0.0
-```
-- `backup` folder contains the files that were originally there in the APIM product before running the accelerator. Please note that only the last state will be there.
+### Accelerator configuration options
+
+Set these options in the accelerator's `conf/config.toml` before you run `merge.sh`:
+
+| Option | Default | Applies to | Description |
+|---|---|---|---|
+| `enable_fhir_metadata_endpoint` | `true` | API Manager | Auto-generate the FHIR capability statement |
+| `enable_well_known_endpoint` | `true` | API Manager | Expose the well-known endpoint for OAuth 2.0 discovery |
+| `enable_smart_on_fhir` | `true` | API Manager, Identity Server | Enable SMART on FHIR features |
+| `enable_developer_workflow` | `false` | API Manager | Require approval for developer sign-up and app creation |
+| `enable_healthcare_theme` | `true` | API Manager | Apply the healthcare theme |
 
 ## Setting Up Integration Layer for Healthcare
 
-### Ballerina
+<a id="wso2-integrator-installation-steps"></a>
 
-<a id="ballerina-installation-steps"></a>
+The integration layer runs on [WSO2 Integrator](https://wso2.com/products/downloads/?product=wso2integrator), a low-code environment for building healthcare integrations, APIs, and AI agents. It includes the Ballerina runtime, so you don't need to install Ballerina separately.
 
-### Installation Steps
+1. Go to the [WSO2 Integrator download page](https://wso2.com/products/downloads/?product=wso2integrator). The **Integration Platform** tab opens with **WSO2 Integrator** selected.
+2. Select the package for your operating system: **macOS (Apple Silicon, DMG)**, **macOS (x64, DMG)**, **Windows (MSI)**, **Linux (DEB)**, or **Linux (RPM)**. Then enter your business email and download the installer.
 
-Go through the following steps to setup the Ballerina.
+    ![Select the WSO2 Integrator package on the download page](/assets/img/install-and-setup/wso2-integrator-download.png)
 
-1. Follow the instructions in the <a href="https://ballerina.io/downloads/installation-options/" target="_blank">Ballerina Installation Options</a> to install Ballerina runtime.
+3. Install WSO2 Integrator:
 
-2. Setup the Ballerina VSCode extension by following the instructions in the <a href="https://ballerina.io/learn/get-started/#set-up-the-editor/" target="_blank">Ballerina VSCode Extension</a> guide.
 
-## Exchanging the certificates
 
-In order to enable secure communication, we need to install the certificates of each component in others. This will facilitate a Secure Socket Layer (SSL). Follow the steps below to implement this:
 
-Here Server A can be either IS, APIM or any other product.
+    Open the downloaded `.dmg` file and drag **WSO2 Integrator** to the **Applications** folder.
 
-1. Generate a key against the keystore of a particular server. For example, server A with an alias and common name that is equal to the hostname.
 
-    ```sh
-    keytool -genkey -alias <keystore_alias> -keyalg RSA -keysize 2048 -validity 3650 -keystore <keystore_path> -storepass <keystore_password> -keypass <key password> -noprompt
+
+
+    Run the downloaded `.msi` file and follow the installer.
+
+
+
+
+    Install the downloaded package with your package manager. For example:
+
+    ```bash
+    # Debian or Ubuntu
+    sudo apt install ./<downloaded-file>.deb
+
+    # RHEL, Fedora, or other RPM-based distributions
+    sudo dnf install ./<downloaded-file>.rpm
     ```
-2. Export the public certificate of the newly generated key pair.
 
-    ```sh
-    keytool -export -alias <cert_alias> -file <certificate_path> -keystore <keystore path>
-    ```
 
-3. Import the public cert of Server A to the client truststores of all the servers including Server A.
 
-    ```sh
-    keytool -import -trustcacerts -alias <cert_alias> -file <certificate_path> -keystore <truststore_path> -storepass <keystore_password> -noprompt
-    ```
 
-4. Repeat above steps for all the servers.
+4. Open WSO2 Integrator. On the welcome screen, click **Sign in with WSO2 Integration Platform** to use WSO2 Integrator Copilot and deploy to WSO2 Cloud, or click **Skip for now**.
+
+    The start page opens. From here you can create a new integration project, open an existing one, or explore pre-built integrations and samples.
+
+    ![WSO2 Integrator start page](/assets/img/install-and-setup/wso2-integrator-start.png)
+
+To build your first healthcare integration with WSO2 Integrator, follow the [Quick start guide](../get-started/open-healthcare-quickstart.md). The quick start uses WSO2 Integrator Copilot, so sign in with WSO2 Integration Platform first. If you skipped sign-in, use the account icon on the start page to sign in.
 
 ## Start servers
 
