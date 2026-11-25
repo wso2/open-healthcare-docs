@@ -19,7 +19,7 @@ const config: Config = {
   title: 'Healthcare Solution Documentation',
   tagline: 'Documentation for WSO2 Open Healthcare Accelerator',
   favicon: 'img/favicon.svg',
-  url: 'https://healthcare.docs.wso2.com',
+  url: 'https://healthcare.docs.choreolabs.com',
   baseUrl,
   organizationName: 'wso2',
   projectName: 'open-healthcare-docs',

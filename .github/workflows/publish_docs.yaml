@@ -31,7 +31,7 @@ jobs:
         run: npm run build
         working-directory: en
         env:
-          # The site is served from the root of https://healthcare.docs.wso2.com,
+          # The site is served from the root of https://healthcare.docs.choreolabs.com,
           # not from a /open-healthcare-docs/ sub-path.
           BASE_URL: /
 
@@ -40,4 +40,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: en/build
-          cname: healthcare.docs.wso2.com
+          cname: healthcare.docs.choreolabs.com
